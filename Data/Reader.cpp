@@ -24,7 +24,7 @@ int main()
     cout << "------" << endl;
     readProviders();
     cout << "------" << endl;
-    readUsers();
+    //readUsers();
     cout << "------" << endl;
     readMeasures();
     cout << "------" << endl;

@@ -8,7 +8,8 @@
 #include <ctime>
 #include "Provider.h"
 
-class Cleaner {
+class Cleaner
+{
 public:
     int getId() const;
 
@@ -38,12 +39,9 @@ protected:
     int id;
     double latitude;
     double longitude;
-    tm * startDate;
-    tm * endDate;
+    tm *startDate;
+    tm *endDate;
     Provider provider;
 };
-
-
-
 
 #endif //AIRQUALITY_CLEANER_H
