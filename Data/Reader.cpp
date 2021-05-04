@@ -1,5 +1,25 @@
-//
-// Created by Aurélien on 04/05/2021.
-//
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+void readSensor();
 
-#include "Reader.h"
+int main()
+{
+    readSensor();
+    return 0;
+}
+
+void readSensor()
+{
+    //File pointer
+    ifstream file("./data/sensors.csv");
+    string buff;
+    if (file.is_open())
+    {
+        while (getline(file, buff, ';'))
+        {
+            cout << buff << ";";
+        }
+    }
+}
