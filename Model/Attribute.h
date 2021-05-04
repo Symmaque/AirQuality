@@ -8,8 +8,10 @@
 #include <string>
 
 using namespace std;
-class Attribute {
+class Attribute
+{
 public:
+    Attribute();
     const string &getUnit() const;
     void setUnit(const string &unit);
     const string &getDescription() const;
@@ -17,6 +19,7 @@ public:
 
 private:
     string unit;
+
 public:
     virtual ~Attribute();
 

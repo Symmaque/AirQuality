@@ -4,6 +4,7 @@
 #include <string.h>
 #include <ctime>
 #include "Reader.h"
+#include "../Model/Attribute.h"
 using namespace std;
 
 void readSensors(); //Le header marche pas?
@@ -193,8 +194,8 @@ void readAttributes()
             getline(file, buff, ';');
             string description = buff;
             cout << i << " : " << attributeID << " " << unit << " " << description << endl;
-            //Créer l'objet ici
-            file.get(); //Pourquoi 2? Aucune idée, mais ça marche pas sinon
+            Attribute *att = new Attribute(); //Erreur ici
+            file.get();                       //Pourquoi 2? Aucune idée, mais ça marche pas sinon
             file.get();
             i++;
         }

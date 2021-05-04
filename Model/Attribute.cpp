@@ -4,24 +4,28 @@
 
 #include "Attribute.h"
 
+Attribute::Attribute() {}
 
-
-const string &Attribute::getUnit() const {
+const string &Attribute::getUnit() const
+{
     return unit;
 }
 
-void Attribute::setUnit(const string &unit) {
+void Attribute::setUnit(const string &unit)
+{
     Attribute::unit = unit;
 }
 
-const string &Attribute::getDescription() const {
+const string &Attribute::getDescription() const
+{
     return description;
 }
 
-void Attribute::setDescription(const string &description) {
+void Attribute::setDescription(const string &description)
+{
     Attribute::description = description;
 }
 
-Attribute::~Attribute() {
-
+Attribute::~Attribute()
+{
 }
