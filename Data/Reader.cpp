@@ -7,6 +7,7 @@ void readSensors();
 void readCleaners();
 void readProviders();
 void readUsers();
+void readMeasures();
 
 int main()
 {
@@ -14,6 +15,7 @@ int main()
     readCleaners();
     readProviders();
     readUsers();
+    readMeasures();
     return 0;
 }
 
@@ -63,6 +65,20 @@ void readUsers()
 {
     //File pointer
     ifstream file("./dataset/users.csv");
+    string buff;
+    if (file.is_open())
+    {
+        while (getline(file, buff, ';'))
+        {
+            cout << buff << ";";
+        }
+    }
+}
+
+void readMeasures()
+{
+    //File pointer
+    ifstream file("./dataset/measurements.csv");
     string buff;
     if (file.is_open())
     {
