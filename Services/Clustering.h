@@ -10,6 +10,7 @@ using namespace std;
 #include <vector>
 #include <Sensor.h>
 #include <DataAccesss.h>
+#include <Stats.h>
 
 
 class Clustering {
