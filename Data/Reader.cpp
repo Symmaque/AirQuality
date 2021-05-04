@@ -6,7 +6,7 @@
 #include "Reader.h"
 #include "../Model/Attribute.h"
 #include "../Model/User.h"
-#include "../Model/Provider.h"
+#include "../Model/Measure.h"
 using namespace std;
 
 void readSensors(); //Le header marche pas?
@@ -174,7 +174,13 @@ void readMeasures()
             cout << i << " : " << year << " " << month << " " << day
                  << " -> " << id << " " << type << " " << val << endl;
 
-            //Créer objet ici
+            Measure *me = new Measure();
+            //me->setAttribute(NULL); //Rajouter le bon attribu (recherche par id?)
+            me->setDate(&tmp);
+            me->setSensorId(atoi(id.c_str()));
+            me->setReliable(true);
+            me->setValue(val);
+            cout << me->toString() << endl;
             i++;
             file.get(); //Met pointeur au bon endroit
         }
