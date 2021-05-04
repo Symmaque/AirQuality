@@ -11,18 +11,17 @@ using namespace std;
 class Attribute {
 public:
     const string &getUnit() const;
-
     void setUnit(const string &unit);
-
     const string &getDescription() const;
-
     void setDescription(const string &description);
 
-protected:
+private:
     string unit;
+public:
+    virtual ~Attribute();
+
+private:
     string description;
 };
-
-
 
 #endif //AIRQUALITY_ATTRIBUTE_H
