@@ -7,16 +7,18 @@
 using namespace std;
 void readMeasures();
 void readAttributes();
+void readUsers();
 int main()
 {
     /*
     readSensor();
     readCleaners();
     readProviders();
-    readUsers();
     */
+    readUsers();
     readMeasures();
     readAttributes();
+    cout << "done";
     return 0;
 }
 
@@ -67,11 +69,17 @@ void readUsers()
     //File pointer
     ifstream file("./dataset/users.csv");
     string buff;
+    int i = 0;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
         {
-            cout << buff << ";";
+            string userId = buff;
+            getline(file, buff, ';');
+            string sensorId = buff;
+            cout << i << " : " << userId << " " << sensorId << endl;
+            i++;
+            file.get();
         }
     }
 }
@@ -81,10 +89,10 @@ void readMeasures()
     //File pointer
     ifstream file("./dataset/measurements.csv");
     string buff;
-    bool a = true;
+    int i = 1;
     if (file.is_open())
     {
-        while (getline(file, buff, ';') && a) //Dégagez le a
+        while (getline(file, buff, ';') && i < 10) //Dégagez le a
         {
             //Récupère date en time_t
             int year = atoi(buff.substr(0, 4).c_str());
@@ -96,15 +104,19 @@ void readMeasures()
             tmp.tm_mon = month - 1;
             tmp.tm_year = year - 1900;
             time_t date = mktime(&tmp);
+
+            //Reste des données
             getline(file, buff, ';');
             string id = buff;
             getline(file, buff, ';');
             string type = buff;
             getline(file, buff, ';');
             double val = stod(buff);
-            cout << id << " " << type << " " << val << endl;
+            cout << i << " : " << id << " " << type << " " << val << endl;
 
-            a = false;
+            //Créer objet ici
+            i++;
+            file.get(); //Met pointeur au bon endroit
         }
     }
 }
@@ -123,8 +135,9 @@ void readAttributes()
             string unit = buff;
             getline(file, buff, ';');
             string description = buff;
-            cout << attributeID << ";";
+            cout << attributeID << " " << unit << " " << description << endl;
             //Créer l'objet ici
+            file.get();
         }
     }
 }
