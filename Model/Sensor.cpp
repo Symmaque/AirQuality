@@ -3,6 +3,7 @@
 //
 
 #include "Sensor.h"
+#include "math.h"
 
 int Sensor::getSensorId() const {
     return sensorId;
@@ -34,4 +35,12 @@ const vector<Measure> &Sensor::getMeasures() const {
 
 void Sensor::setMeasures(const vector<Measure> &measures) {
     Sensor::measures = measures;
+}
+
+double Sensor::distance(Sensor & to) {
+    return pow(to.latitude - this->latitude, 2) + pow(to.longitude - this->longitude, 2);
+}
+
+double Sensor::distance(double latitude, double longitude) {
+    return pow(latitude - this->latitude, 2) + pow(longitude - this->longitude, 2);
 }

@@ -9,112 +9,158 @@
 /Users/aguigal/CLionProjects/AirQuality/Data/DataAccess.cpp
 DataAccess.h
 /Users/aguigal/CLionProjects/AirQuality/Data/DataAccess.h
+iostream
+-
+../Data/Reader.h
+/Users/aguigal/CLionProjects/AirQuality/Data/Reader.h
 
 /Users/aguigal/CLionProjects/AirQuality/Data/DataAccess.h
+iostream
+-
+vector
+-
+../Model/Sensor.h
+/Users/aguigal/CLionProjects/AirQuality/Model/Sensor.h
+../Model/Provider.h
+/Users/aguigal/CLionProjects/AirQuality/Model/Provider.h
+../Model/Measure.h
+/Users/aguigal/CLionProjects/AirQuality/Model/Measure.h
+../Model/Attribute.h
+/Users/aguigal/CLionProjects/AirQuality/Model/Attribute.h
+../Model/User.h
+/Users/aguigal/CLionProjects/AirQuality/Model/User.h
 
 /Users/aguigal/CLionProjects/AirQuality/Data/Reader.cpp
+iostream
+-
+fstream
+-
+string
+-
+string.h
+-
+ctime
+-
 Reader.h
 /Users/aguigal/CLionProjects/AirQuality/Data/Reader.h
 
 /Users/aguigal/CLionProjects/AirQuality/Data/Reader.h
-
-/Users/aguigal/CLionProjects/AirQuality/Interface/GovernmetInterface.cpp
-GovernmetInterface.h
-/Users/aguigal/CLionProjects/AirQuality/Interface/GovernmetInterface.h
-
-/Users/aguigal/CLionProjects/AirQuality/Interface/GovernmetInterface.h
-
-/Users/aguigal/CLionProjects/AirQuality/Interface/IndividualInterface.cpp
-IndividualInterface.h
-/Users/aguigal/CLionProjects/AirQuality/Interface/IndividualInterface.h
-
-/Users/aguigal/CLionProjects/AirQuality/Interface/IndividualInterface.h
-
-/Users/aguigal/CLionProjects/AirQuality/Interface/ProviderInterface.cpp
-ProviderInterface.h
-/Users/aguigal/CLionProjects/AirQuality/Interface/ProviderInterface.h
-
-/Users/aguigal/CLionProjects/AirQuality/Interface/ProviderInterface.h
+iostream
+-
+fstream
+-
+string
+-
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Attribute.cpp
 Attribute.h
 /Users/aguigal/CLionProjects/AirQuality/Model/Attribute.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Attribute.h
+string
+-
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.cpp
 Cleaner.h
 /Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.h
+ctime
+-
+Provider.h
+/Users/aguigal/CLionProjects/AirQuality/Model/Provider.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Government.cpp
 Government.h
 /Users/aguigal/CLionProjects/AirQuality/Model/Government.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Government.h
+string
+-
+User.h
+/Users/aguigal/CLionProjects/AirQuality/Model/User.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Individual.cpp
 Individual.h
 /Users/aguigal/CLionProjects/AirQuality/Model/Individual.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Individual.h
-ctime
--
-string
+iostream
 -
 Sensor.h
 /Users/aguigal/CLionProjects/AirQuality/Model/Sensor.h
+User.h
+/Users/aguigal/CLionProjects/AirQuality/Model/User.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Measure.cpp
 Measure.h
 /Users/aguigal/CLionProjects/AirQuality/Model/Measure.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Measure.h
+ctime
+-
+Attribute.h
+/Users/aguigal/CLionProjects/AirQuality/Model/Attribute.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Provider.cpp
 Provider.h
 /Users/aguigal/CLionProjects/AirQuality/Model/Provider.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Provider.h
+User.h
+/Users/aguigal/CLionProjects/AirQuality/Model/User.h
+Cleaner.h
+/Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.h
+vector
+-
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Sensor.cpp
 Sensor.h
 /Users/aguigal/CLionProjects/AirQuality/Model/Sensor.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/Sensor.h
+vector
+-
+Measure.h
+/Users/aguigal/CLionProjects/AirQuality/Model/Measure.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/User.cpp
 User.h
 /Users/aguigal/CLionProjects/AirQuality/Model/User.h
 
 /Users/aguigal/CLionProjects/AirQuality/Model/User.h
-
-/Users/aguigal/CLionProjects/AirQuality/Services/ClearAnalysis.cpp
-ClearAnalysis.h
-/Users/aguigal/CLionProjects/AirQuality/Services/ClearAnalysis.h
-
-/Users/aguigal/CLionProjects/AirQuality/Services/ClearAnalysis.h
+string
+-
 
 /Users/aguigal/CLionProjects/AirQuality/Services/Clustering.cpp
 Clustering.h
 /Users/aguigal/CLionProjects/AirQuality/Services/Clustering.h
 
 /Users/aguigal/CLionProjects/AirQuality/Services/Clustering.h
+ctime
+-
+vector
+-
+Sensor.h
+-
+DataAccesss.h
+-
 
 /Users/aguigal/CLionProjects/AirQuality/Services/Integrity.cpp
 Integrity.h
 /Users/aguigal/CLionProjects/AirQuality/Services/Integrity.h
 
 /Users/aguigal/CLionProjects/AirQuality/Services/Integrity.h
+../Model/Sensor.h
+/Users/aguigal/CLionProjects/AirQuality/Model/Sensor.h
+../Model/Individual.h
+/Users/aguigal/CLionProjects/AirQuality/Model/Individual.h
+../Data/DataAccess.h
+/Users/aguigal/CLionProjects/AirQuality/Data/DataAccess.h
 
 /Users/aguigal/CLionProjects/AirQuality/Services/Stats.cpp
 Stats.h
 /Users/aguigal/CLionProjects/AirQuality/Services/Stats.h
 
 /Users/aguigal/CLionProjects/AirQuality/Services/Stats.h
-
-/Users/aguigal/CLionProjects/AirQuality/main.cpp
-iostream
--
 

@@ -6,9 +6,11 @@
 #define AIRQUALITY_STATS_H
 
 
+#include "../Model/Sensor.h"
 
 class Stats {
-    public void ATMOInstantMean(Date )
+    public:
+    static double ATMOInstantMean(Sensor & sensor);
 };
 
 

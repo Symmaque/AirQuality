@@ -4,6 +4,13 @@
 CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o
  /Users/aguigal/CLionProjects/AirQuality/Data/DataAccess.cpp
  /Users/aguigal/CLionProjects/AirQuality/Data/DataAccess.h
+ /Users/aguigal/CLionProjects/AirQuality/Data/Reader.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Attribute.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Measure.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Provider.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Sensor.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/User.h
 CMakeFiles/AirQuality.dir/Data/Reader.cpp.o
  /Users/aguigal/CLionProjects/AirQuality/Data/Reader.cpp
  /Users/aguigal/CLionProjects/AirQuality/Data/Reader.h
@@ -22,20 +29,31 @@ CMakeFiles/AirQuality.dir/Model/Attribute.cpp.o
 CMakeFiles/AirQuality.dir/Model/Cleaner.cpp.o
  /Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.cpp
  /Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Provider.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/User.h
 CMakeFiles/AirQuality.dir/Model/Government.cpp.o
  /Users/aguigal/CLionProjects/AirQuality/Model/Government.cpp
  /Users/aguigal/CLionProjects/AirQuality/Model/Government.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/User.h
 CMakeFiles/AirQuality.dir/Model/Individual.cpp.o
+ /Users/aguigal/CLionProjects/AirQuality/Model/Attribute.h
  /Users/aguigal/CLionProjects/AirQuality/Model/Individual.cpp
  /Users/aguigal/CLionProjects/AirQuality/Model/Individual.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Measure.h
  /Users/aguigal/CLionProjects/AirQuality/Model/Sensor.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/User.h
 CMakeFiles/AirQuality.dir/Model/Measure.cpp.o
+ /Users/aguigal/CLionProjects/AirQuality/Model/Attribute.h
  /Users/aguigal/CLionProjects/AirQuality/Model/Measure.cpp
  /Users/aguigal/CLionProjects/AirQuality/Model/Measure.h
 CMakeFiles/AirQuality.dir/Model/Provider.cpp.o
+ /Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.h
  /Users/aguigal/CLionProjects/AirQuality/Model/Provider.cpp
  /Users/aguigal/CLionProjects/AirQuality/Model/Provider.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/User.h
 CMakeFiles/AirQuality.dir/Model/Sensor.cpp.o
+ /Users/aguigal/CLionProjects/AirQuality/Model/Attribute.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Measure.h
  /Users/aguigal/CLionProjects/AirQuality/Model/Sensor.cpp
  /Users/aguigal/CLionProjects/AirQuality/Model/Sensor.h
 CMakeFiles/AirQuality.dir/Model/User.cpp.o
@@ -48,6 +66,14 @@ CMakeFiles/AirQuality.dir/Services/Clustering.cpp.o
  /Users/aguigal/CLionProjects/AirQuality/Services/Clustering.cpp
  /Users/aguigal/CLionProjects/AirQuality/Services/Clustering.h
 CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o
+ /Users/aguigal/CLionProjects/AirQuality/Data/DataAccess.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Attribute.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Individual.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Measure.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Provider.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/Sensor.h
+ /Users/aguigal/CLionProjects/AirQuality/Model/User.h
  /Users/aguigal/CLionProjects/AirQuality/Services/Integrity.cpp
  /Users/aguigal/CLionProjects/AirQuality/Services/Integrity.h
 CMakeFiles/AirQuality.dir/Services/Stats.cpp.o

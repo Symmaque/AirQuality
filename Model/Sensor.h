@@ -34,6 +34,9 @@ public:
 
     void setMeasures(const vector<Measure> &measures);
 
+    double distance(Sensor & to);
+    double distance(double latitude, double longitude);
+
 };
 
 

@@ -3,6 +3,13 @@
 
 CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Data/DataAccess.cpp
 CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Data/DataAccess.h
+CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Data/Reader.h
+CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/Attribute.h
+CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/Cleaner.h
+CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/Measure.h
+CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/Provider.h
+CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/Sensor.h
+CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/User.h
 
 CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Data/Reader.cpp
 CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Data/Reader.h
@@ -21,20 +28,31 @@ CMakeFiles/AirQuality.dir/Model/Attribute.cpp.o: ../Model/Attribute.h
 
 CMakeFiles/AirQuality.dir/Model/Cleaner.cpp.o: ../Model/Cleaner.cpp
 CMakeFiles/AirQuality.dir/Model/Cleaner.cpp.o: ../Model/Cleaner.h
+CMakeFiles/AirQuality.dir/Model/Cleaner.cpp.o: ../Model/Provider.h
+CMakeFiles/AirQuality.dir/Model/Cleaner.cpp.o: ../Model/User.h
 
 CMakeFiles/AirQuality.dir/Model/Government.cpp.o: ../Model/Government.cpp
 CMakeFiles/AirQuality.dir/Model/Government.cpp.o: ../Model/Government.h
+CMakeFiles/AirQuality.dir/Model/Government.cpp.o: ../Model/User.h
 
+CMakeFiles/AirQuality.dir/Model/Individual.cpp.o: ../Model/Attribute.h
 CMakeFiles/AirQuality.dir/Model/Individual.cpp.o: ../Model/Individual.cpp
 CMakeFiles/AirQuality.dir/Model/Individual.cpp.o: ../Model/Individual.h
+CMakeFiles/AirQuality.dir/Model/Individual.cpp.o: ../Model/Measure.h
 CMakeFiles/AirQuality.dir/Model/Individual.cpp.o: ../Model/Sensor.h
+CMakeFiles/AirQuality.dir/Model/Individual.cpp.o: ../Model/User.h
 
+CMakeFiles/AirQuality.dir/Model/Measure.cpp.o: ../Model/Attribute.h
 CMakeFiles/AirQuality.dir/Model/Measure.cpp.o: ../Model/Measure.cpp
 CMakeFiles/AirQuality.dir/Model/Measure.cpp.o: ../Model/Measure.h
 
+CMakeFiles/AirQuality.dir/Model/Provider.cpp.o: ../Model/Cleaner.h
 CMakeFiles/AirQuality.dir/Model/Provider.cpp.o: ../Model/Provider.cpp
 CMakeFiles/AirQuality.dir/Model/Provider.cpp.o: ../Model/Provider.h
+CMakeFiles/AirQuality.dir/Model/Provider.cpp.o: ../Model/User.h
 
+CMakeFiles/AirQuality.dir/Model/Sensor.cpp.o: ../Model/Attribute.h
+CMakeFiles/AirQuality.dir/Model/Sensor.cpp.o: ../Model/Measure.h
 CMakeFiles/AirQuality.dir/Model/Sensor.cpp.o: ../Model/Sensor.cpp
 CMakeFiles/AirQuality.dir/Model/Sensor.cpp.o: ../Model/Sensor.h
 
@@ -47,6 +65,14 @@ CMakeFiles/AirQuality.dir/Services/ClearAnalysis.cpp.o: ../Services/ClearAnalysi
 CMakeFiles/AirQuality.dir/Services/Clustering.cpp.o: ../Services/Clustering.cpp
 CMakeFiles/AirQuality.dir/Services/Clustering.cpp.o: ../Services/Clustering.h
 
+CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o: ../Data/DataAccess.h
+CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o: ../Model/Attribute.h
+CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o: ../Model/Cleaner.h
+CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o: ../Model/Individual.h
+CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o: ../Model/Measure.h
+CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o: ../Model/Provider.h
+CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o: ../Model/Sensor.h
+CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o: ../Model/User.h
 CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o: ../Services/Integrity.cpp
 CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o: ../Services/Integrity.h
 

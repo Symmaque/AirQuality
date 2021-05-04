@@ -3,3 +3,7 @@
 //
 
 #include "Stats.h"
+
+double Stats::ATMOInstantMean() {
+    return 0;
+}

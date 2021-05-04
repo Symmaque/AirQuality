@@ -14,9 +14,7 @@ public:
     vector<Sensor> sensorReliability();
     vector<Individual> detectFraud();
     bool detectUserFraud(Individual value);
-    bool detectDefectiveSensor(Sensor value);
-
-
+    static bool detectDefectiveSensor(Sensor & value);
 };
 
 
