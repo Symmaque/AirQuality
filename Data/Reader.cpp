@@ -1,20 +1,18 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <ctime>
 #include "Reader.h"
 using namespace std;
-void readSensors();
-void readCleaners();
-void readProviders();
-void readUsers();
-void readMeasures();
 
 int main()
 {
-    //readSensor();
+    /*
+    readSensor();
     readCleaners();
     readProviders();
     readUsers();
+    */
     readMeasures();
     return 0;
 }
@@ -84,7 +82,10 @@ void readMeasures()
     {
         while (getline(file, buff, ';'))
         {
-            cout << buff << ";";
+            int year = atoi(buff.substr(0, 4).c_str());
+            int month = atoi(buff.substr(5, 2).c_str());
+            int day = atoi(buff.substr(8, 2).c_str());
+            cout << year << ";";
         }
     }
 }

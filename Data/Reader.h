@@ -5,13 +5,14 @@
 #if !defined(READER_H)
 #define READER_H
 
-class Liste
+class Reader
 {
 
 public:
     void readSensor();
     void readCleaner();
     void readProvider();
+    $
 };
 
 #endif // READER_H
