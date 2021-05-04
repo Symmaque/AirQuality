@@ -1,5 +1,9 @@
 {
     "files.associations": {
+<<<<<<< HEAD
+        "vector": "cpp"
+=======
         "iostream": "cpp"
+>>>>>>> ce71e9ac4e49ad480696c8f8c201cc67d1fcd096
     }
 }

@@ -3,3 +3,12 @@
 //
 
 #include "Clustering.h"
+
+
+
+vector<Sensor> &findSimilarSensors(Sensor s, time_t startDate, time_t endDate){
+
+    vector<Sensor> sensors = DataAccess.getSensors();
+    //C'est un test
+
+}
