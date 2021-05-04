@@ -18,22 +18,24 @@
 
 using namespace std;
 class DataAccess{
+
 public:
-    User signIn(string id, string password);
+    static User signIn(string id, string password);
     void init();
-    vector<User> getListUsers();
-    vector<Sensor> getListSensors();
-    vector<Provider> getListProviders();
-    vector<Measure> getListMeasures();
-    vector<Attribute> getListAttribute();
+    static vector<User> & getListUsers();
+    static vector<Sensor> & getListSensors();
+    static vector<Provider> & getListProviders();
+    static vector<Measure> & getListMeasures();
+    static vector<Attribute> & getListAttribute();
 
-    void setListUsers(const vector<User> &listUsers);
+    static void setListUsers(const vector<User> &listUsers);
 
-    void setListProviders(const vector<Provider> &listProviders);
+    static void setListProviders(const vector<Provider> &listProviders);
 
 protected :
-    vector<User> listUsers;
-    vector<Provider> listProviders;
+    static vector<User> listUsers;
+    static vector<Provider> listProviders;
+
 }
 
 #endif //AIRQUALITY_DATAACCESS_H

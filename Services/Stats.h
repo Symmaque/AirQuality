@@ -6,6 +6,7 @@
 #define AIRQUALITY_STATS_H
 
 
+
 class Stats {
     public void ATMOInstantMean(Date )
 };

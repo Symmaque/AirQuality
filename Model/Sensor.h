@@ -9,7 +9,9 @@
 #include "Measure.h"
 
 using namespace std;
-class Sensor{
+
+class Sensor {
+
 protected:
     int sensorId;
     double latitude;
@@ -31,6 +33,7 @@ public:
     const vector<Measure> &getMeasures() const;
 
     void setMeasures(const vector<Measure> &measures);
+
 };
 
 
