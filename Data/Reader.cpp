@@ -1,3 +1,4 @@
+#include "Reader.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -9,19 +10,18 @@
 #include "../Model/Measure.h"
 #include "../Model/Sensor.h"
 using namespace std;
-
-void readSensors(); //Le header marche pas?
-void readCleaners();
-void readProviders();
-void readMeasures();
-void readAttributes();
-//void readUsers();
-
-
 /*
+static vector<Sensor> readSensor();
+static void readCleaners();
+static void readProviders();
+static void readUsers();
+static void readMeasures();
+static void readUsers2();
+static vector<Attribute> readAttributes();
 int main()
 {
-    readSensors();
+
+    readSensor();
 
     cout << "------" << endl;
     readCleaners();
@@ -37,13 +37,14 @@ int main()
     cout << "done";
     return 0;
 }
- */
+*/
 
-void readSensors()
+vector<Sensor> readSensor()
 {
     ifstream file("./dataset/sensors.csv");
     string buff;
     int i = 1;
+    vector<Sensor> liste;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
@@ -59,10 +60,12 @@ void readSensors()
             sen->setLatitude(latitude);
             sen->setLongitude(longitude);
             sen->setSensorId(atoi(sensorId.c_str()));
+            liste.push_back(*sen);
             i++;
             file.get();
         }
     }
+    return liste;
 }
 
 void readCleaners()
@@ -194,11 +197,13 @@ void readMeasures()
         }
     }
 }
-void readAttributes()
+
+vector<Attribute> readAttributes()
 {
     ifstream file("./dataset/attributes.csv");
     string buff;
     int i = 1;
+    vector<Attribute> liste;
     if (file.is_open())
     {
         getline(file, buff); //Saute première ligne (juste noms des valeurs)
@@ -214,9 +219,11 @@ void readAttributes()
             att->setUnit(unit);
             att->setDescription(description);
             cout << i << " : " << att->toString() << endl;
+            liste.push_back(*att);
             file.get(); //Pourquoi 2? Aucune idée, mais ça marche pas sinon
             file.get();
             i++;
         }
     }
+    return liste;
 }
