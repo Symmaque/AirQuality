@@ -9,10 +9,12 @@ class Reader
 {
 
 public:
-    void readSensor();
-    void readCleaner();
-    void readProvider();
-    $
+    static void readSensor();
+    static void readCleaners();
+    static void readProviders();
+    static void readUsers();
+    static void readMeasures();
+    static void readUsers2();
 };
 
 #endif // READER_H
