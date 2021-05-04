@@ -43,8 +43,8 @@ bool Integrity::detectDefectiveSensor(const Sensor & value) {
 
 
 
-    sort (allSensors.begin(), allSensors.end(), [](Sensor& a,Sensor& b) {
-        return a.distance(b) < b.distance(a);
+    sort (allSensors.begin(), allSensors.end(), [&value](Sensor& a,Sensor& b) {
+        return a.distance(value) < b.distance(value);
     });
 
     int i = 0;
