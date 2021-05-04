@@ -5,6 +5,7 @@
 #include <ctime>
 #include "Reader.h"
 #include "../Model/Attribute.h"
+#include "../Model/User.h"
 using namespace std;
 
 void readSensors(); //Le header marche pas?
@@ -134,8 +135,10 @@ void readUsers()
             string userId = buff;
             getline(file, buff, ';');
             string sensorId = buff;
-            cout << i << " : " << userId << " " << sensorId << endl;
-            i++;
+            //cout << i << " : " << userId << " " << sensorId << endl;
+            User *us = new User();
+            us->setPassword(s)
+                i++;
             file.get();
         }
     }
@@ -193,9 +196,12 @@ void readAttributes()
             string unit = buff;
             getline(file, buff, ';');
             string description = buff;
-            cout << i << " : " << attributeID << " " << unit << " " << description << endl;
-            Attribute *att = new Attribute(); //Erreur ici
-            file.get();                       //Pourquoi 2? Aucune idée, mais ça marche pas sinon
+            //cout << i << " : " << attributeID << " " << unit << " " << description << endl;
+            Attribute *att = new Attribute();
+            att->setUnit(unit);
+            att->setDescription(description);
+            cout << i << " : " << att->toString() << endl;
+            file.get(); //Pourquoi 2? Aucune idée, mais ça marche pas sinon
             file.get();
             i++;
         }
