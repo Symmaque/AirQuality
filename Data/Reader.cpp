@@ -5,10 +5,12 @@
 #include <string.h>
 #include <ctime>
 #include "Reader.h"
+#include "DataAccess.h"
 #include "../Model/Attribute.h"
 #include "../Model/User.h"
 #include "../Model/Measure.h"
 #include "../Model/Sensor.h"
+#include "../Model/Individual.h"
 using namespace std;
 /*
 static vector<Sensor> readSensor();
@@ -16,7 +18,7 @@ static void readCleaners();
 static void readProviders();
 static vector<User> readUsers();
 static void readMeasures();
-static void readUsers2();
+static void readIndividuals();
 static vector<Attribute> readAttributes();
 int main()
 {
@@ -134,9 +136,43 @@ void readProviders()
     }
 }
 
-vector<User> readUsers()
+vector<Individual> readIndividuals() //Lit les particuliers!
 {
+    DataAccess *data = new DataAccess();
     ifstream file("./dataset/users.csv");
+    string buff;
+    int i = 1;
+    vector<Individual> liste;
+    if (file.is_open())
+    {
+        while (getline(file, buff, ';'))
+        {
+            string individualId = buff;
+            individualId.erase(0, 3); //Enlève "U S E R";
+            getline(file, buff, ';');
+            string sensorId = buff;
+            sensorId.erase(0, 6); //Efface "Sensor"
+            //Créer obj ici
+            cout << i << " : " << individualId << " " << sensorId << endl;
+            Individual *ind = new Individual();
+            ind->setMalicious(false);
+            ind->setPoints(0);
+            ind->setId(atoi(individualId.c_str()));
+            /* //Marche pas
+            vector<Sensor> *se = data->getListSensors();
+            ind->setSensor(se[sensorId]);
+            */
+
+            file.get();
+            i++;
+        }
+    }
+    return liste;
+}
+
+vector<User> readUsers() //Lit les accounts!
+{
+    ifstream file("./dataset/account.csv");
     string buff;
     int i = 0;
     vector<User> liste;
@@ -157,11 +193,12 @@ vector<User> readUsers()
     return liste;
 }
 
-void readMeasures()
+vector<Measure> readMeasures()
 {
     ifstream file("./dataset/measurements.csv");
     string buff;
     int i = 1;
+    vector<Measure> liste;
     if (file.is_open())
     {
         while (getline(file, buff, ';') && i < 10) //Dégagez le a
@@ -194,11 +231,13 @@ void readMeasures()
             me->setSensorId(atoi(id.c_str()));
             me->setReliable(true);
             me->setValue(val);
+            liste.push_back(*me);
             cout << me->toString() << endl;
             i++;
             file.get(); //Met pointeur au bon endroit
         }
     }
+    return liste;
 }
 
 vector<Attribute> readAttributes()

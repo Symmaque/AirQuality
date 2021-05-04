@@ -5,26 +5,28 @@
 #ifndef AIRQUALITY_DATAACCESS_H
 #define AIRQUALITY_DATAACCESS_H
 
-
 #include <iostream>
 #include <vector>
-
 
 #include "../Model/Sensor.h"
 #include "../Model/Provider.h"
 #include "../Model/Measure.h"
 #include "../Model/Attribute.h"
 #include "../Model/User.h"
+#include "../Model/Individual.h"
 
 using namespace std;
-class DataAccess{
+class DataAccess
+{
 
-protected :
+protected:
     static vector<User> listUsers;
     static vector<Sensor> listSensors;
     static vector<Provider> listProviders;
     static vector<Measure> listMeasures;
     static vector<Attribute> listAttributes;
+    static vector<Individual> listIndividuals;
+
 public:
     static User signIn(string id, string password);
     void init();
@@ -37,10 +39,6 @@ public:
     static void setListUsers(const vector<User> &listUsers);
 
     static void setListProviders(const vector<Provider> &listProviders);
-
 };
-
-
-
 
 #endif //AIRQUALITY_DATAACCESS_H

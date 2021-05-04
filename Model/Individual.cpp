@@ -4,30 +4,49 @@
 
 #include "Individual.h"
 
-bool Individual::getMalicious() const {
+bool Individual::getMalicious() const
+{
     return malicious;
 }
 
-void Individual::setMalicious(bool malicious) {
+void Individual::setMalicious(bool malicious)
+{
     Individual::malicious = malicious;
 }
 
-int Individual::getPoints() const {
+int Individual::getPoints() const
+{
     return points;
 }
 
-void Individual::setPoints(int points) {
+void Individual::setPoints(int points)
+{
     Individual::points = points;
 }
 
-const Sensor & Individual::getSensor() const {
+const Sensor &Individual::getSensor() const
+{
     return sensor;
 }
 
-void Individual::setSensor(const Sensor &sensor) {
+void Individual::setSensor(const Sensor &sensor)
+{
     Individual::sensor = sensor;
 }
 
-string Individual::toString() {
+string Individual::toString()
+{
     return "individual toString";
 }
+
+int Individual::getId() const
+{
+    return id;
+}
+
+void Individual::setId(const int id)
+{
+    Individual::id = id;
+}
+
+Individual::Individual() {}

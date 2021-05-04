@@ -6,6 +6,7 @@
 #include <string>
 #include <string.h>
 #include <ctime>
+#include "DataAccess.h"
 #include "Reader.h"
 #include "../Model/Attribute.h"
 #include "../Model/User.h"
@@ -17,9 +18,10 @@ class Reader
 public:
     static vector<Sensor> readSensor();
     static void readCleaners();
+    static vector<Individual> readIndividuals();
     static void readProviders();
     static vector<User> readUsers();
-    static void readMeasures();
+    static vector<Measure> readMeasures();
     static void readUsers2();
     static vector<Attribute> readAttributes();
 };

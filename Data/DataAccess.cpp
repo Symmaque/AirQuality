@@ -66,8 +66,9 @@ void DataAccess::init()
     listSensors = reader->readSensor();
     listAttributes = reader->readAttributes();
     listUsers = reader->readUsers();
+    listMeasures = reader->readMeasures();
+    listIndividuals = reader->readIndividuals();
     /* Warning : you cannot assign with void functions
     listProviders = reader->readProviders();
-    listMeasures = reader->readMeasures();
      */
 }

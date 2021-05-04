@@ -11,8 +11,10 @@
 
 using namespace std;
 
-class Individual : public User {
+class Individual : public User
+{
 protected:
+    int id;
     bool malicious;
     int points;
     Sensor sensor;
@@ -26,12 +28,16 @@ public:
 
     int getPoints() const;
 
+    int getId() const;
+    void setId(const int id);
+
     void setPoints(int points);
 
-    const Sensor & getSensor() const;
+    const Sensor &getSensor() const;
 
     void setSensor(const Sensor &sensor);
-};
 
+    Individual();
+};
 
 #endif //AIRQUALITY_INDIVIDUAL_H
