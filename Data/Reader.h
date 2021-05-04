@@ -1,13 +1,14 @@
-//---------- Interface de la classe <Liste> (fichier Liste.h) ----------------
+#ifndef READER_H
+#define READER_H
+
+#include <ctime>
 #include <iostream>
 #include <fstream>
 #include <string>
-#if !defined(READER_H)
-#define READER_H
+#include <string.h>
 
 class Reader
 {
-
 public:
     static void readSensor();
     static void readCleaners();
@@ -17,4 +18,4 @@ public:
     static void readUsers2();
 };
 
-#endif // READER_H
+#endif //READER_H

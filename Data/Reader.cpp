@@ -5,12 +5,14 @@
 #include <ctime>
 #include "Reader.h"
 using namespace std;
-void readSensors();
+
+void readSensors(); //Le header marche pas?
 void readCleaners();
 void readProviders();
 void readMeasures();
 void readAttributes();
 void readUsers();
+
 int main()
 {
     readSensors();
