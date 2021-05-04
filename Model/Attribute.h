@@ -16,6 +16,7 @@ public:
     void setUnit(const string &unit);
     const string &getDescription() const;
     void setDescription(const string &description);
+    string toString();
 
 private:
     string unit;

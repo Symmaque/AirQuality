@@ -4,11 +4,21 @@
 
 #include "Provider.h"
 
-const vector<Cleaner> &Provider::getListCleaners() const {
+Provider::Provider()
+{
+}
+
+const vector<Cleaner> &Provider::getListCleaners() const
+{
     return listCleaners;
 }
 
-string Provider::toString() {
-    return "need to implement";
+void Provider::addCleaner(Cleaner cle)
+{
+    listCleaners.push_back(cle);
 }
 
+string Provider::toString()
+{
+    return "need to implement";
+}

@@ -29,3 +29,8 @@ void Attribute::setDescription(const string &description)
 Attribute::~Attribute()
 {
 }
+
+string Attribute::toString()
+{
+    return Attribute::unit + ", " + Attribute::description;
+}

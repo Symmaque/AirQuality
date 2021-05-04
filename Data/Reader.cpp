@@ -6,6 +6,7 @@
 #include "Reader.h"
 #include "../Model/Attribute.h"
 #include "../Model/User.h"
+#include "../Model/Provider.h"
 using namespace std;
 
 void readSensors(); //Le header marche pas?
@@ -13,7 +14,7 @@ void readCleaners();
 void readProviders();
 void readMeasures();
 void readAttributes();
-void readUsers();
+//void readUsers();
 
 int main()
 {
@@ -134,11 +135,10 @@ void readUsers()
         {
             string userId = buff;
             getline(file, buff, ';');
-            string sensorId = buff;
+            string password = buff;
             //cout << i << " : " << userId << " " << sensorId << endl;
-            User *us = new User();
-            us->setPassword(s)
-                i++;
+            User *us = new User(atoi(userId.c_str()), password);
+            i++;
             file.get();
         }
     }

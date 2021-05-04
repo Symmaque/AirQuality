@@ -4,24 +4,32 @@
 
 #include "User.h"
 
-
-int User::getId() {
+int User::getId()
+{
     return id;
 }
 
-string User::getPassword() {
+string User::getPassword()
+{
     return password;
 }
 
-void User::setPassword(string string) {
+void User::setPassword(string string)
+{
     password = string;
 }
 
-User::User(int id, string password) {
+User::User(int id, string password)
+{
     this->id = move(id);
     this->password = move(password);
 }
 
-User::User() {
+User::User()
+{
+}
 
+string User::toString()
+{
+    return User::id + " " + User::password;
 }
