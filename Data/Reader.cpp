@@ -171,8 +171,10 @@ void readMeasures()
             string type = buff;
             getline(file, buff, ';');
             double val = stod(buff);
+            /*
             cout << i << " : " << year << " " << month << " " << day
                  << " -> " << id << " " << type << " " << val << endl;
+                 */
 
             Measure *me = new Measure();
             //me->setAttribute(NULL); //Rajouter le bon attribu (recherche par id?)
