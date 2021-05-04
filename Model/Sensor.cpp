@@ -70,3 +70,12 @@ Sensor::Sensor() {
     Sensor::latitude = 0;
     Sensor::sensorId = 0;
 }
+
+ostream& operator<<(ostream& os, const Sensor & sensor)
+{
+    os << "Id : " << sensor.sensorId << endl;
+    os << "Latitude : " << sensor.latitude << endl;
+    os << "Longitude : " << sensor.longitude << endl;
+    //TODO implement cout for the measurements
+    return os;
+}

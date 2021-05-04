@@ -4,11 +4,11 @@
 
 #include "Stats.h"
 
-double Stats::ATMOPeriodMean(const tm &startDate, const tm &endDate, double longitude, double latitude) {
-    return 5;
+double Stats::ATMOPeriodMean(const time_t &startDate, const time_t &endDate, double longitude, double latitude) {
+    return latitude;
 }
 
-double Stats::ATMOInstantMean(const tm &date, double longitude, double latitude) {
+double Stats::ATMOInstantMean(const time_t &date, double longitude, double latitude) {
     return 0;
 }
 

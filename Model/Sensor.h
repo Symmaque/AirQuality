@@ -6,6 +6,7 @@
 #define AIRQUALITY_SENSOR_H
 
 #include <vector>
+#include <iostream>
 #include "Measure.h"
 
 using namespace std;
@@ -44,6 +45,9 @@ public:
     double distance(double latitude, double longitude);
 
     string toString();
+    friend ostream& operator<<(ostream& os, const Sensor & sensor);
+
+
 };
 
 #endif //AIRQUALITY_SENSOR_H
