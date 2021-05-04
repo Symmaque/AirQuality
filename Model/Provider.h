@@ -6,7 +6,17 @@
 #define AIRQUALITY_PROVIDER_H
 
 
-class Provider {
+#include "User.h"
+#include "Cleaner.h"
+#include <vector>
+
+using namespace std;
+class Provider : public User{
+protected:
+    vector<Cleaner> listCleaners;
+public:
+    const vector<Cleaner> &getListCleaners() const;
+    string toString();
 
 };
 

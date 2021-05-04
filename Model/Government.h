@@ -5,9 +5,13 @@
 #ifndef AIRQUALITY_GOVERNMENT_H
 #define AIRQUALITY_GOVERNMENT_H
 
+#include <string>
+#include "User.h"
 
-class Government {
-
+using namespace std;
+class Government : public User{
+public:
+    string toString();
 };
 
 

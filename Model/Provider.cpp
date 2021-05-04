@@ -3,3 +3,12 @@
 //
 
 #include "Provider.h"
+
+const vector<Cleaner> &Provider::getListCleaners() const {
+    return listCleaners;
+}
+
+string Provider::toString() {
+    return "need to implement";
+}
+

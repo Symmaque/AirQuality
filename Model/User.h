@@ -6,8 +6,18 @@
 #define AIRQUALITY_USER_H
 
 
-class User {
+#include <string>
 
+class User {
+protected:
+    int id;
+    std::string password;
+
+public:
+
+    int getId();
+    std::string getPassword();
+    void setPassword(std::string string);
 };
 
 

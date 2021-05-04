@@ -1,14 +1,18 @@
-//
-// Created by Aurélien on 04/05/2021.
-//
+//---------- Interface de la classe <Liste> (fichier Liste.h) ----------------
+#include <iostream>
+#include <fstream>
+#include <string>
+#if !defined(READER_H)
+#define READER_H
 
-#ifndef AIRQUALITY_READER_H
-#define AIRQUALITY_READER_H
+class Reader
+{
 
-
-class Reader {
-
+public:
+    void readSensor();
+    void readCleaner();
+    void readProvider();
+    $
 };
 
-
-#endif //AIRQUALITY_READER_H
+#endif // READER_H
