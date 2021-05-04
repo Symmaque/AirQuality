@@ -64,3 +64,9 @@ string Sensor::toString()
 {
     return std::to_string(sensorId) + std::to_string(latitude) + std::to_string(longitude);
 }
+
+Sensor::Sensor() {
+    Sensor::longitude = 0;
+    Sensor::latitude = 0;
+    Sensor::sensorId = 0;
+}

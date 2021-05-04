@@ -22,6 +22,7 @@ protected:
 public:
     Sensor(int sensorId, double latitude, double longitude, const vector<Measure> &measures);
     Sensor(int sensorId, double latitude, double longitude);
+    Sensor();
 
     int getSensorId() const;
 

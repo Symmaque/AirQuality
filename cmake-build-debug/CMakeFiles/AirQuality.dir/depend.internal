@@ -15,8 +15,8 @@ CMakeFiles/AirQuality.dir/Data/Reader.cpp.o
  /mnt/d/CLionProjects/AirQuality/Data/Reader.cpp
  /mnt/d/CLionProjects/AirQuality/Data/Reader.h
  /mnt/d/CLionProjects/AirQuality/Model/Attribute.h
- /mnt/d/CLionProjects/AirQuality/Model/Cleaner.h
- /mnt/d/CLionProjects/AirQuality/Model/Provider.h
+ /mnt/d/CLionProjects/AirQuality/Model/Measure.h
+ /mnt/d/CLionProjects/AirQuality/Model/Sensor.h
  /mnt/d/CLionProjects/AirQuality/Model/User.h
 CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o
  /mnt/d/CLionProjects/AirQuality/Interface/GovernmetInterface.cpp
