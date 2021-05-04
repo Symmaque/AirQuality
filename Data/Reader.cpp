@@ -6,7 +6,8 @@
 #include "Reader.h"
 #include "../Model/Attribute.h"
 #include "../Model/User.h"
-#include "../Model/Provider.h"
+#include "../Model/Measure.h"
+#include "../Model/Sensor.h"
 using namespace std;
 
 void readSensors(); //Le header marche pas?
@@ -21,6 +22,7 @@ void readAttributes();
 int main()
 {
     readSensors();
+
     cout << "------" << endl;
     readCleaners();
     cout << "------" << endl;
@@ -31,6 +33,7 @@ int main()
     readMeasures();
     cout << "------" << endl;
     readAttributes();
+
     cout << "done";
     return 0;
 }
@@ -38,7 +41,6 @@ int main()
 
 void readSensors()
 {
-    //File pointer
     ifstream file("./dataset/sensors.csv");
     string buff;
     int i = 1;
@@ -47,11 +49,16 @@ void readSensors()
         while (getline(file, buff, ';'))
         {
             string sensorId = buff;
+            sensorId.erase(0, 6); //Efface "Sensor"
             getline(file, buff, ';');
             double latitude = stod(buff);
             getline(file, buff, ';');
             double longitude = stod(buff);
             cout << i << " : " << sensorId << " " << latitude << " " << longitude << endl;
+            Sensor *sen = new Sensor();
+            sen->setLatitude(latitude);
+            sen->setLongitude(longitude);
+            sen->setSensorId(atoi(sensorId.c_str()));
             i++;
             file.get();
         }
@@ -60,7 +67,6 @@ void readSensors()
 
 void readCleaners()
 {
-    //File pointer
     ifstream file("./dataset/cleaners.csv");
     string buff;
     int i = 1;
@@ -107,7 +113,6 @@ void readCleaners()
 
 void readProviders()
 {
-    //File pointer
     ifstream file("./dataset/providers.csv");
     string buff;
     int i = 1;
@@ -128,7 +133,6 @@ void readProviders()
 
 void readUsers()
 {
-    //File pointer
     ifstream file("./dataset/users.csv");
     string buff;
     int i = 0;
@@ -149,7 +153,6 @@ void readUsers()
 
 void readMeasures()
 {
-    //File pointer
     ifstream file("./dataset/measurements.csv");
     string buff;
     int i = 1;
@@ -174,10 +177,18 @@ void readMeasures()
             string type = buff;
             getline(file, buff, ';');
             double val = stod(buff);
+            /*
             cout << i << " : " << year << " " << month << " " << day
                  << " -> " << id << " " << type << " " << val << endl;
+                 */
 
-            //Créer objet ici
+            Measure *me = new Measure();
+            //me->setAttribute(NULL); //Rajouter le bon attribu (recherche par id?)
+            me->setDate(&tmp);
+            me->setSensorId(atoi(id.c_str()));
+            me->setReliable(true);
+            me->setValue(val);
+            cout << me->toString() << endl;
             i++;
             file.get(); //Met pointeur au bon endroit
         }
@@ -185,7 +196,6 @@ void readMeasures()
 }
 void readAttributes()
 {
-    //File pointer
     ifstream file("./dataset/attributes.csv");
     string buff;
     int i = 1;

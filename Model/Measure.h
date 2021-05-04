@@ -5,18 +5,21 @@
 #ifndef AIRQUALITY_MEASURE_H
 #define AIRQUALITY_MEASURE_H
 
-
 #include <ctime>
 #include "Attribute.h"
 
-class Measure {
+class Measure
+{
 protected:
-    tm * date;
+    tm *date;
     int sensorId;
     Attribute attribute;
     double value;
     bool reliable;
+
 public:
+    Measure();
+
     tm *getDate() const;
 
     void setDate(tm *date);
@@ -36,7 +39,8 @@ public:
     bool isReliable() const;
 
     void setReliable(bool reliable);
-};
 
+    string toString();
+};
 
 #endif //AIRQUALITY_MEASURE_H

@@ -1,5 +1,5 @@
-main : Reader.o Attribute.o User.o Provider.o Cleaner.o
-	g++ -o main Attribute.o Reader.o User.o Provider.o Cleaner.o
+main : Reader.o Attribute.o User.o Measure.o Sensor.o
+	g++ -o main Attribute.o Reader.o User.o Measure.o Sensor.o
 
 
 Attribute.o : ../Model/Attribute.cpp
@@ -8,14 +8,11 @@ Attribute.o : ../Model/Attribute.cpp
 User.o : ../Model/User.cpp
 	g++ -c ../Model/User.cpp
 
-Provider.o : ../Model/Provider.cpp
-	g++ -c ../Model/Provider.cpp
+Measure.o : ../Model/Measure.cpp
+	g++ -c ../Model/Measure.cpp
 
-Cleaner.o : ../Model/Cleaner.cpp
-	g++ -c ../Model/Cleaner.cpp
-
-Reader.o : Reader.cpp
-	g++ -c Reader.cpp
+Sensor.o : ../Model/Sensor.cpp
+	g++ -c ../Model/Sensor.cpp
 
 clean :
 	rm *.o
