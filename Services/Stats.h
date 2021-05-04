@@ -10,7 +10,7 @@
 
 class Stats {
     public:
-    static double ATMOInstantMean(Sensor & sensor);
+    static double ATMOInstantMean(const Sensor & sensor);
 };
 
 

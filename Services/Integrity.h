@@ -12,10 +12,9 @@
 class Integrity {
 public:
     vector<Sensor> sensorReliability();
-    vector<Individual> detectFraud();
-    bool detectUserFraud(Individual value);
-    static bool detectDefectiveSensor(Sensor & value);
+    static vector<Individual> detectFraud();
+    static bool detectUserFraud(Individual & value);
+    static bool detectDefectiveSensor(const Sensor & value);
 };
-
 
 #endif //AIRQUALITY_INTEGRITY_H

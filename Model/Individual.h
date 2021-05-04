@@ -28,7 +28,7 @@ public:
 
     void setPoints(int points);
 
-    const Sensor &getSensor() const;
+    const Sensor & getSensor() const;
 
     void setSensor(const Sensor &sensor);
 };

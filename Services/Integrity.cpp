@@ -10,14 +10,25 @@ vector<Sensor> Integrity::sensorReliability() {
 }
 
 vector<Individual> Integrity::detectFraud() {
-
+    vector<User> users = DataAccess::getListUsers();
+    vector<Individual> individuals;
+    for(User user : users) {
+        if(typeid(user) == typeid(Individual)) {
+            User * ptrUser = &user;
+            Individual & individual = reinterpret_cast<Individual &>(ptrUser);
+            bool malicious = detectUserFraud(individual);
+            if(malicious) {
+                individuals.push_back(individual);
+            }
+        }
+    }
 }
 
-bool Integrity::detectUserFraud(Individual value) {
-
+bool Integrity::detectUserFraud(Individual & value) {
+    return detectDefectiveSensor(value.getSensor());
 }
 
-bool Integrity::detectDefectiveSensor(Sensor & value) {
+bool Integrity::detectDefectiveSensor(const Sensor & value) {
 
     double valueATMO = Stats::ATMOInstantMean(value);
     vector<Sensor> & allSensors = DataAccess::getListSensors();
@@ -46,7 +57,7 @@ bool Integrity::detectDefectiveSensor(Sensor & value) {
     double sumDiffs = 0.0;
     //Compute standard deviation
     for(auto sensor : closeSensors) {
-        sumDiffs = pow(average - sensor.distance(value), 2);
+        sumDiffs = pow(average - Stats::ATMOInstantMean(sensor), 2);
     }
     double variance = sumDiffs / n;
     double standardDeviation = sqrt(variance);

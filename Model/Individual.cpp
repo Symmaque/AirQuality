@@ -20,7 +20,7 @@ void Individual::setPoints(int points) {
     Individual::points = points;
 }
 
-const Sensor &Individual::getSensor() const {
+const Sensor & Individual::getSensor() const {
     return sensor;
 }
 

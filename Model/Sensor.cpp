@@ -37,7 +37,7 @@ void Sensor::setMeasures(const vector<Measure> &measures) {
     Sensor::measures = measures;
 }
 
-double Sensor::distance(Sensor & to) {
+double Sensor::distance(const Sensor & to) {
     return pow(to.latitude - this->latitude, 2) + pow(to.longitude - this->longitude, 2);
 }
 

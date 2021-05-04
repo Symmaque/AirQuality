@@ -34,7 +34,7 @@ public:
 
     void setMeasures(const vector<Measure> &measures);
 
-    double distance(Sensor & to);
+    double distance(const Sensor & to) const;
     double distance(double latitude, double longitude);
 
 };
