@@ -4,26 +4,26 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/d/CLionProjects/AirQuality/Data/DataAccess.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Data/Reader.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Data/Reader.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Interface/GovernmetInterface.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Interface/IndividualInterface.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Interface/ProviderInterface.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Interface/ProviderInterface.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Model/Attribute.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Attribute.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Model/Cleaner.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Cleaner.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Model/Government.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Government.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Model/Individual.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Individual.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Model/Measure.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Measure.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Model/Provider.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Provider.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Model/Sensor.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Sensor.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Model/User.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/User.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Services/ClearAnalysis.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Services/ClearAnalysis.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Services/Clustering.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Services/Clustering.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Services/Integrity.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Services/Stats.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Services/Stats.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/main.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/main.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Data/DataAccess.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Data/Reader.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Data/Reader.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Interface/GovernmetInterface.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Interface/IndividualInterface.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Interface/IndividualInterface.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Interface/ProviderInterface.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Interface/ProviderInterface.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Model/Attribute.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Attribute.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Cleaner.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Model/Government.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Government.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Model/Individual.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Individual.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Model/Measure.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Measure.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Model/Provider.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Provider.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Model/Sensor.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Sensor.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Model/User.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/User.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Services/ClearAnalysis.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Services/ClearAnalysis.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Services/Clustering.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Services/Clustering.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Services/Integrity.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Services/Integrity.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/Services/Stats.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Services/Stats.cpp.o"
+  "/Users/aguigal/CLionProjects/AirQuality/main.cpp" "/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
