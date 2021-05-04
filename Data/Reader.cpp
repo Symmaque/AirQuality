@@ -5,6 +5,7 @@
 #include "Reader.h"
 using namespace std;
 void readMeasures();
+void readAttributes();
 int main()
 {
     /*
@@ -14,6 +15,7 @@ int main()
     readUsers();
     */
     readMeasures();
+    readAttributes();
     return 0;
 }
 
@@ -81,13 +83,32 @@ void readMeasures()
     bool a = true;
     if (file.is_open())
     {
-        while (getline(file, buff, ';') && a)
+        while (getline(file, buff, ';') && a) //Dégagez le a
         {
             int year = atoi(buff.substr(0, 4).c_str());
             int month = atoi(buff.substr(5, 2).c_str());
-            //int day = atoi(buff.substr(8, 2).c_str());
-            cout << month << ";";
+            int day = atoi(buff.substr(8, 2).c_str());
+            cout << year << " " << month << " " << day << endl;
+            tm tmp = tm();
+            tmp.tm_mday = day;
+            tmp.tm_mon = month - 1;
+            tmp.tm_year = year - 1900;
+            time_t date = mktime(&tmp);
+
             a = false;
+        }
+    }
+}
+void readAttributes()
+{
+    //File pointer
+    ifstream file("./dataset/attributes.csv");
+    string buff;
+    if (file.is_open())
+    {
+        while (getline(file, buff, ';'))
+        {
+            cout << buff << ";";
         }
     }
 }
