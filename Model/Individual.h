@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "Sensor.h"
+#include "User.h"
 
 using namespace std;
 
