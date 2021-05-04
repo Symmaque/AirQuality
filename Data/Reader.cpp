@@ -15,8 +15,8 @@ int main()
     readCleaners();
     readProviders();
     */
-    readUsers();
-    readMeasures();
+    //readUsers();
+    //readMeasures();
     readAttributes();
     cout << "done";
     return 0;
@@ -125,6 +125,7 @@ void readAttributes()
     //File pointer
     ifstream file("./dataset/attributes.csv");
     string buff;
+    int i = 1;
     if (file.is_open())
     {
         getline(file, buff); //Saute première ligne (juste noms des valeurs)
@@ -135,9 +136,11 @@ void readAttributes()
             string unit = buff;
             getline(file, buff, ';');
             string description = buff;
-            cout << attributeID << " " << unit << " " << description << endl;
+            cout << i << " : " << attributeID << " " << unit << " " << description << endl;
             //Créer l'objet ici
+            file.get(); //Pourquoi 2? Aucune idée, mais ça marche pas sinon
             file.get();
+            i++;
         }
     }
 }
