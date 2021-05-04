@@ -34,7 +34,10 @@ public:
 
 protected :
     static vector<User> listUsers;
+    static vector<Sensor> listSensors;
     static vector<Provider> listProviders;
+    static vector<Measure> listMeasures;
+    static vector<Attribute> listAttributes;
 
 }
 

@@ -9,26 +9,24 @@
 using namespace std;
 
 User DataAccess::signIn(string id, string password) {
-    Reader r = new Reader();
-    User user = new User();//il faut contructeur par défaut
-
-    vector<User> userList = r.readUsers2();
+    User * user = new User();//il faut contructeur par défaut
+    vector<User> userList = Reader::readUsers2();
 
     //selon la méthode de martin
     //on récupère la liste des utilisateurs pour vérifier
     //si les coordonnées rentrées en paramètre sont bien présents dans notre base de données
 
     for (User user : listUsers) {
-        if (u.getId() == id && u.getPassword() == password) {
-            u = new User(id, password);
-            return u;
+        if (user.getId() == id && user.getPassword() == password) {
+            user = new User(id, password);
+            return user;
         }
     }
-    return null; //si et utilisateur n'existe pas
+    return nullptr; //si et utilisateur n'existe pas
 }
 
 vector<User> &DataAccess::getListUsers() {
-    return listUser;
+    return listUsers;
 }
 
 vector<Sensor> &DataAccess::getListSensors() {
@@ -36,22 +34,24 @@ vector<Sensor> &DataAccess::getListSensors() {
 }
 
 vector<Provider> &DataAccess::getListProviders() {
-    return listProvider;
+    return listProviders;
 }
 
 vector<Measure> &DataAccess::getListMeasures() {
     return listMeasures;
 }
 
-vector<Attribute> &DataAccess::getListAttributes() {
+vector<Attribute> &DataAccess::getListAttribute() {
     return listAttributes;
 }
 
 void DataAccess::init() {
-    Reader r = new Reader();
-    listUser = r.readUsers();
-    listSensors = r.readSensors();
-    listProvider = r.readProviders();
-    listMeasures = r.readMeasures();
-    listAttributes = r.readAttributes();
+    Reader * reader = new Reader();
+    listUsers = reader->readUsers();
+    listSensors = reader->readSensors();
+    listProviders = reader->readProviders();
+    listMeasures = reader->readMeasures();
+    listAttributes = reader->readAttributes();
 }
+
+

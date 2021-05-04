@@ -9,10 +9,19 @@ int User::getId() {
     return id;
 }
 
-std::string User::getPassword() {
+string User::getPassword() {
     return password;
 }
 
-void User::setPassword(std::string string) {
+void User::setPassword(string string) {
     password = string;
+}
+
+User::User(int id, string password) {
+    this->id = move(id);
+    this->password = move(password);
+}
+
+User::User() {
+
 }

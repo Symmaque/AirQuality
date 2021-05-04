@@ -21,5 +21,6 @@ bool Integrity::detectDefectiveSensor(Sensor value) {
 
     vector<Sensor> & allSensors = DataAccess::getListSensors();
 
+    
 
 }

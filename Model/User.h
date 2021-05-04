@@ -8,16 +8,23 @@
 
 #include <string>
 
+using namespace std;
+
 class User {
+
 protected:
-    int id;
-    std::string password;
+    int id{};
+    string password;
 
 public:
 
     int getId();
     std::string getPassword();
-    void setPassword(std::string string);
+    void setPassword(string string);
+
+    User();
+    User(int id, string password);
+
 };
 
 
