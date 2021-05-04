@@ -7,7 +7,7 @@
 
 
 class Stats {
-
+    public void ATMOInstantMean(Date )
 };
 
 

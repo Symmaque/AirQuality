@@ -21,3 +21,7 @@ const string &Attribute::getDescription() const {
 void Attribute::setDescription(const string &description) {
     Attribute::description = description;
 }
+
+Attribute::~Attribute() {
+
+}
