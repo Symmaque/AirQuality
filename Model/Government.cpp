@@ -3,3 +3,7 @@
 //
 
 #include "Government.h"
+
+string Government::toString() {
+    return "tostring government";
+}
