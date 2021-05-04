@@ -14,7 +14,7 @@ using namespace std;
 static vector<Sensor> readSensor();
 static void readCleaners();
 static void readProviders();
-static void readUsers();
+static vector<User> readUsers();
 static void readMeasures();
 static void readUsers2();
 static vector<Attribute> readAttributes();
@@ -134,11 +134,12 @@ void readProviders()
     }
 }
 
-void readUsers()
+vector<User> readUsers()
 {
     ifstream file("./dataset/users.csv");
     string buff;
     int i = 0;
+    vector<User> liste;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
@@ -148,10 +149,12 @@ void readUsers()
             string password = buff;
             //cout << i << " : " << userId << " " << sensorId << endl;
             User *us = new User(atoi(userId.c_str()), password);
+            liste.push_back(*us);
             i++;
             file.get();
         }
     }
+    return liste;
 }
 
 void readMeasures()

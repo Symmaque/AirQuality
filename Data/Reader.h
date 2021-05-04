@@ -18,7 +18,7 @@ public:
     static vector<Sensor> readSensor();
     static void readCleaners();
     static void readProviders();
-    static void readUsers();
+    static vector<User> readUsers();
     static void readMeasures();
     static void readUsers2();
     static vector<Attribute> readAttributes();
