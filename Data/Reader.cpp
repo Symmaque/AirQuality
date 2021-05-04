@@ -7,6 +7,7 @@
 #include "../Model/Attribute.h"
 #include "../Model/User.h"
 #include "../Model/Measure.h"
+#include "../Model/Sensor.h"
 using namespace std;
 
 void readSensors(); //Le header marche pas?
@@ -19,6 +20,7 @@ void readAttributes();
 int main()
 {
     readSensors();
+
     cout << "------" << endl;
     readCleaners();
     cout << "------" << endl;
@@ -29,6 +31,7 @@ int main()
     readMeasures();
     cout << "------" << endl;
     readAttributes();
+
     cout << "done";
     return 0;
 }
@@ -44,11 +47,16 @@ void readSensors()
         while (getline(file, buff, ';'))
         {
             string sensorId = buff;
+            sensorId.erase(0, 6); //Efface "Sensor"
             getline(file, buff, ';');
             double latitude = stod(buff);
             getline(file, buff, ';');
             double longitude = stod(buff);
             cout << i << " : " << sensorId << " " << latitude << " " << longitude << endl;
+            Sensor *sen = new Sensor();
+            sen->setLatitude(latitude);
+            sen->setLongitude(longitude);
+            sen->setSensorId(atoi(sensorId.c_str()));
             i++;
             file.get();
         }

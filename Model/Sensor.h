@@ -10,13 +10,15 @@
 
 using namespace std;
 
-class Sensor {
+class Sensor
+{
 
 protected:
     int sensorId;
     double latitude;
     double longitude;
     vector<Measure> measures;
+
 public:
     int getSensorId() const;
 
@@ -34,10 +36,10 @@ public:
 
     void setMeasures(const vector<Measure> &measures);
 
-    double distance(const Sensor & to) const;
+    double distance(const Sensor &to) const;
     double distance(double latitude, double longitude);
 
+    string toString();
 };
-
 
 #endif //AIRQUALITY_SENSOR_H

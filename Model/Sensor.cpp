@@ -5,42 +5,57 @@
 #include "Sensor.h"
 #include "math.h"
 
-int Sensor::getSensorId() const {
+int Sensor::getSensorId() const
+{
     return sensorId;
 }
 
-void Sensor::setSensorId(int sensorId) {
+void Sensor::setSensorId(int sensorId)
+{
     Sensor::sensorId = sensorId;
 }
 
-double Sensor::getLatitude() const {
+double Sensor::getLatitude() const
+{
     return latitude;
 }
 
-void Sensor::setLatitude(double latitude) {
+void Sensor::setLatitude(double latitude)
+{
     Sensor::latitude = latitude;
 }
 
-double Sensor::getLongitude() const {
+double Sensor::getLongitude() const
+{
     return longitude;
 }
 
-void Sensor::setLongitude(double longitude) {
+void Sensor::setLongitude(double longitude)
+{
     Sensor::longitude = longitude;
 }
 
-const vector<Measure> &Sensor::getMeasures() const {
+const vector<Measure> &Sensor::getMeasures() const
+{
     return measures;
 }
 
-void Sensor::setMeasures(const vector<Measure> &measures) {
+void Sensor::setMeasures(const vector<Measure> &measures)
+{
     Sensor::measures = measures;
 }
 
-double Sensor::distance(const Sensor & to) {
+double Sensor::distance(const Sensor &to) const
+{
     return pow(to.latitude - this->latitude, 2) + pow(to.longitude - this->longitude, 2);
 }
 
-double Sensor::distance(double latitude, double longitude) {
+double Sensor::distance(double latitude, double longitude)
+{
     return pow(latitude - this->latitude, 2) + pow(longitude - this->longitude, 2);
+}
+
+string Sensor::toString()
+{
+    return std::to_string(sensorId) + std::to_string(latitude) + std::to_string(longitude);
 }
