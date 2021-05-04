@@ -6,17 +6,20 @@
 #define AIRQUALITY_CLUSTERING_H
 
 using namespace std;
-
 #include <ctime>
 #include <vector>
+#include "../Model/Sensor.h"
+
 #include "Stats.h"
 
 class Clustering {
 
 public:
 
-    vector<Sensor> findSimilarSensors(Sensor s, time_t startDate, time_t endDate);
+    static vector<Sensor*> &findSimilarSensors(const Sensor &s, const tm & startDate, const tm & endDate);
+
 
 };
+
 
 #endif //AIRQUALITY_CLUSTERING_H

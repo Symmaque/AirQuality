@@ -18,6 +18,9 @@ protected:
     double longitude;
     vector<Measure> measures;
 public:
+    Sensor(int sensorId, double latitude, double longitude, const vector<Measure> &measures);
+    Sensor(int sensorId, double latitude, double longitude);
+
     int getSensorId() const;
 
     void setSensorId(int sensorId);

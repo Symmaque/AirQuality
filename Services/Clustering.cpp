@@ -2,36 +2,45 @@
 // Created by Aurélien on 04/05/2021.
 //
 
+#include <algorithm>
 #include "Clustering.h"
+#include "Stats.h"
 
-bool pairCompare(pair<Sensor&, double> p1, pair<Sensor&, double> p2){
+using namespace std;
+
+bool pairCompare(pair<Sensor*, double> p1, pair<Sensor*, double> p2){
     return p1.second < p2.second;
 }
 
-int firstElement( const pair<Sensor&, double> &p ) {
+Sensor * firstElement( const pair<Sensor*, double> &p ) {
     return p.first;
 }
 
-vector<Sensor> &findSimilarSensors(const Sensor &s, time_t startDate, time_t endDate){
+vector<Sensor*> &Clustering::findSimilarSensors(const Sensor &s, const tm & startDate, const tm & endDate){
 
-    vector<Sensor> &sensors = DataAccess.getSensors();
+    //vector<Sensor> &sensors = DataAccess.getSensors();
+    vector<Sensor> sensors = {*new Sensor(10,0,0), *new Sensor(10,0,0), *new Sensor(10,0,0)};
     //C'est un test
 
     double tempIndice;
     double tempDiff;
-    vector<pair<Sensor&, double>> deltas;
+    vector<pair<Sensor*, double>> deltas;
 
-    double indiceS = ATMOPeriodMean(startDate, endDate, s.getLongitude(), s.getLatitude());
-    for(auto it = sensors.begin(); it!= sensors.end(); ++it ){
-        if (it->getSensorId()!=s.getSensorId()){
-            tempIndice = ATMOPeriodMean(startDate, endDate, it->getLongitude(), it->getLatitude());
+    double indiceS = Stats::ATMOPeriodMean(startDate, endDate, s.getLongitude(), s.getLatitude());
+    for(auto & sensor : sensors){
+        if (sensor.getSensorId()!=s.getSensorId()){
+            tempIndice = Stats::ATMOPeriodMean(startDate, endDate, sensor.getLongitude(), sensor.getLatitude());
             tempDiff = abs(tempIndice - indiceS);
-            deltas.push(make_pair(*it,tempDiff));
+            auto tempPair = make_pair(&sensor,tempDiff);
+            deltas.push_back(tempPair);
         }
     }
 
     sort(deltas.begin(), deltas.end(), pairCompare);
-    transform( deltas.begin(), deltas.end(), back_inserter(deltas), firstElement);
+    auto * result = new vector<Sensor*>();   //Do not forget to delete
+    transform( deltas.begin(), deltas.end(), back_inserter(*result), firstElement);
 
-    return deltas;
+    return *result;
 }
+
+

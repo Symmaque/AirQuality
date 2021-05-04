@@ -37,10 +37,24 @@ void Sensor::setMeasures(const vector<Measure> &measures) {
     Sensor::measures = measures;
 }
 
-double Sensor::distance(const Sensor & to) {
+double Sensor::distance(const Sensor & to) const {
     return pow(to.latitude - this->latitude, 2) + pow(to.longitude - this->longitude, 2);
 }
 
 double Sensor::distance(double latitude, double longitude) {
     return pow(latitude - this->latitude, 2) + pow(longitude - this->longitude, 2);
+}
+
+Sensor::Sensor(int sensorId, double latitude, double longitude, const vector<Measure> &measures) {
+    Sensor::latitude = latitude;
+    Sensor::longitude = longitude;
+    Sensor::sensorId = sensorId;
+    Sensor::measures = measures;
+
+}
+
+Sensor::Sensor(int sensorId, double latitude, double longitude) {
+    Sensor::latitude = latitude;
+    Sensor::longitude = longitude;
+    Sensor::sensorId = sensorId;
 }

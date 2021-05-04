@@ -5,23 +5,30 @@
 #include "Integrity.h"
 #include "Stats.h"
 
-vector<Sensor> Integrity::sensorReliability() {
+//#include <algorithm>
+#include <cmath>
+#include <algorithm>
 
+using namespace std;
+vector<Sensor> Integrity::sensorReliability() {
+    return *new vector<Sensor>;
 }
 
 vector<Individual> Integrity::detectFraud() {
-    vector<User> users = DataAccess::getListUsers();
+    vector<User> users = *DataAccess::getListUsers();
     vector<Individual> individuals;
     for(User user : users) {
         if(typeid(user) == typeid(Individual)) {
             User * ptrUser = &user;
-            Individual & individual = reinterpret_cast<Individual &>(ptrUser);
-            bool malicious = detectUserFraud(individual);
+            auto * individual = reinterpret_cast<Individual*>(ptrUser);
+            bool malicious = detectUserFraud(*individual);
             if(malicious) {
-                individuals.push_back(individual);
+                individuals.push_back(*individual);
             }
         }
     }
+
+    return individuals;
 }
 
 bool Integrity::detectUserFraud(Individual & value) {
@@ -31,11 +38,13 @@ bool Integrity::detectUserFraud(Individual & value) {
 bool Integrity::detectDefectiveSensor(const Sensor & value) {
 
     double valueATMO = Stats::ATMOInstantMean(value);
-    vector<Sensor> & allSensors = DataAccess::getListSensors();
+    vector<Sensor> & allSensors = *DataAccess::getListSensors();
     vector<Sensor> closeSensors; //TODO Maybe use a map sensor-distance to avoid recomputing
 
-    sort (allSensors.begin(), allSensors.end(), [&value](Sensor& a, Sensor& b) {
-        return a.distance(value) < b.distance(value);
+
+
+    sort (allSensors.begin(), allSensors.end(), [](Sensor& a,Sensor& b) {
+        return a.distance(b) < b.distance(a);
     });
 
     int i = 0;

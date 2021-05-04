@@ -6,10 +6,8 @@
 #define AIRQUALITY_CLEANER_H
 
 #include <ctime>
-#include "Provider.h"
 
-class Cleaner
-{
+class Cleaner {
 public:
     int getId() const;
 
@@ -31,17 +29,16 @@ public:
 
     void setEndDate(tm *endDate);
 
-    const Provider &getProvider() const;
-
-    void setProvider(const Provider &provider);
 
 protected:
     int id;
     double latitude;
     double longitude;
-    tm *startDate;
-    tm *endDate;
-    Provider provider;
+    tm * startDate;
+    tm * endDate;
 };
+
+
+
 
 #endif //AIRQUALITY_CLEANER_H

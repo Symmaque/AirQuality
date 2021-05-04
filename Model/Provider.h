@@ -5,22 +5,23 @@
 #ifndef AIRQUALITY_PROVIDER_H
 #define AIRQUALITY_PROVIDER_H
 
+
 #include "User.h"
 #include "Cleaner.h"
 #include <vector>
 
 using namespace std;
-class Provider : public User
-{
+class Provider : public User{
 protected:
     int id;
-    vector<Cleaner> listCleaners;
+    vector<Cleaner> * listCleaners;
 
 public:
-    const vector<Cleaner> &getListCleaners() const;
-    void addCleaner(Cleaner cle);
+    vector<Cleaner> * getListCleaners() const;
     string toString();
+    void addCleaner(Cleaner cle);
     Provider();
 };
+
 
 #endif //AIRQUALITY_PROVIDER_H

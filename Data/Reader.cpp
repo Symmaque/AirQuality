@@ -16,6 +16,8 @@ void readMeasures();
 void readAttributes();
 //void readUsers();
 
+
+/*
 int main()
 {
     readSensors();
@@ -32,6 +34,7 @@ int main()
     cout << "done";
     return 0;
 }
+ */
 
 void readSensors()
 {

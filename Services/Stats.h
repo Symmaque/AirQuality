@@ -6,10 +6,13 @@
 #define AIRQUALITY_STATS_H
 
 
+#include <ctime>
 #include "../Model/Sensor.h"
 
 class Stats {
-    public:
+public:
+    static double ATMOPeriodMean(const tm & startDate, const tm &endDate, double longitude, double latitude);
+    static double ATMOInstantMean(const tm &date, double longitude, double latitude);
     static double ATMOInstantMean(const Sensor & sensor);
 };
 

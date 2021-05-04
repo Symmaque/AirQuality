@@ -4,21 +4,17 @@
 
 #include "Provider.h"
 
-Provider::Provider()
-{
-}
-
-const vector<Cleaner> &Provider::getListCleaners() const
-{
+vector<Cleaner> * Provider::getListCleaners() const {
     return listCleaners;
 }
 
 void Provider::addCleaner(Cleaner cle)
 {
-    listCleaners.push_back(cle);
+    listCleaners->push_back(cle);
 }
 
 string Provider::toString()
 {
     return "need to implement";
 }
+

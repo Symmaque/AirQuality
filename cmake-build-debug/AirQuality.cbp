@@ -8,184 +8,186 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug"/>
+				<Option working_dir="/mnt/d/CLionProjects/AirQuality/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug"/>
+				<Option working_dir="/mnt/d/CLionProjects/AirQuality/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug"/>
+				<Option working_dir="/mnt/d/CLionProjects/AirQuality/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="AirQuality">
-				<Option output="/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/AirQuality" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug"/>
+				<Option output="/mnt/d/CLionProjects/AirQuality/cmake-build-debug/AirQuality" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/CLionProjects/AirQuality/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 AirQuality"/>
-					<CompileFile command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 AirQuality"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="AirQuality/fast">
-				<Option output="/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/AirQuality" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug"/>
+				<Option output="/mnt/d/CLionProjects/AirQuality/cmake-build-debug/AirQuality" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/CLionProjects/AirQuality/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 AirQuality/fast"/>
-					<CompileFile command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j16 -f &quot;/Users/aguigal/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 AirQuality/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/d/CLionProjects/AirQuality/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Data/DataAccess.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Data/DataAccess.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Data/DataAccess.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Data/DataAccess.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Data/Reader.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Data/Reader.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Data/Reader.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Data/Reader.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Interface/GovernmetInterface.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Interface/GovernmetInterface.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Interface/GovernmetInterface.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Interface/GovernmetInterface.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Interface/IndividualInterface.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Interface/IndividualInterface.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Interface/ProviderInterface.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Interface/ProviderInterface.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Interface/ProviderInterface.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Interface/ProviderInterface.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Attribute.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Attribute.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Attribute.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Attribute.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Cleaner.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Cleaner.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Cleaner.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Government.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Government.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Government.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Government.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Individual.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Individual.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Individual.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Individual.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Measure.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Measure.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Measure.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Measure.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Provider.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Provider.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Provider.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Provider.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Sensor.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Sensor.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/Sensor.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/Sensor.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/User.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/User.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Model/User.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Model/User.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Services/ClearAnalysis.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Services/ClearAnalysis.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Services/ClearAnalysis.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Services/ClearAnalysis.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Services/Clustering.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Services/Clustering.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Services/Clustering.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Services/Clustering.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Services/Integrity.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Services/Integrity.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Services/Integrity.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Services/Integrity.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Services/Stats.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Services/Stats.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/Services/Stats.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Services/Stats.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/main.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/main.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/Users/aguigal/CLionProjects/AirQuality/CMakeLists.txt">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

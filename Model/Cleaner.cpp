@@ -45,10 +45,3 @@ void Cleaner::setEndDate(tm *endDate) {
     Cleaner::endDate = endDate;
 }
 
-const Provider &Cleaner::getProvider() const {
-    return provider;
-}
-
-void Cleaner::setProvider(const Provider &provider) {
-    Cleaner::provider = provider;
-}

@@ -8,7 +8,16 @@
 
 using namespace std;
 
+
+vector<User> DataAccess::listUsers = {};
+vector<Sensor> DataAccess::listSensors = {};
+vector<Attribute> DataAccess::listAttributes = {};
+vector<Measure> DataAccess::listMeasures = {};
+vector<Provider> DataAccess::listProviders = {};
+
+
 User DataAccess::signIn(string id, string password) {
+    /*
     User * user = new User();//il faut contructeur par défaut
     vector<User> userList = Reader::readUsers2();
 
@@ -23,35 +32,39 @@ User DataAccess::signIn(string id, string password) {
         }
     }
     return nullptr; //si et utilisateur n'existe pas
+     */
+    return *new User;
 }
 
-vector<User> &DataAccess::getListUsers() {
-    return listUsers;
+vector<User> *DataAccess::getListUsers() {
+    return &listUsers;
 }
 
-vector<Sensor> &DataAccess::getListSensors() {
-    return listSensors;
+vector<Sensor> *DataAccess::getListSensors() {
+    return &listSensors;
 }
 
-vector<Provider> &DataAccess::getListProviders() {
-    return listProviders;
+vector<Provider> *DataAccess::getListProviders() {
+    return &listProviders;
 }
 
-vector<Measure> &DataAccess::getListMeasures() {
-    return listMeasures;
+vector<Measure> *DataAccess::getListMeasures() {
+    return &listMeasures;
 }
 
-vector<Attribute> &DataAccess::getListAttribute() {
-    return listAttributes;
+vector<Attribute> *DataAccess::getListAttribute() {
+    return &listAttributes;
 }
 
 void DataAccess::init() {
+    /* Warning : you cannot assign with void functions
     Reader * reader = new Reader();
     listUsers = reader->readUsers();
     listSensors = reader->readSensors();
     listProviders = reader->readProviders();
     listMeasures = reader->readMeasures();
     listAttributes = reader->readAttributes();
+     */
 }
 
 
