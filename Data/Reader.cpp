@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <string.h>
 #include <ctime>
 #include "Reader.h"
 using namespace std;
@@ -85,6 +86,7 @@ void readMeasures()
     {
         while (getline(file, buff, ';') && a) //Dégagez le a
         {
+            //Récupère date en time_t
             int year = atoi(buff.substr(0, 4).c_str());
             int month = atoi(buff.substr(5, 2).c_str());
             int day = atoi(buff.substr(8, 2).c_str());
@@ -94,6 +96,13 @@ void readMeasures()
             tmp.tm_mon = month - 1;
             tmp.tm_year = year - 1900;
             time_t date = mktime(&tmp);
+            getline(file, buff, ';');
+            string id = buff;
+            getline(file, buff, ';');
+            string type = buff;
+            getline(file, buff, ';');
+            double val = stod(buff);
+            cout << id << " " << type << " " << val << endl;
 
             a = false;
         }
@@ -106,9 +115,16 @@ void readAttributes()
     string buff;
     if (file.is_open())
     {
+        getline(file, buff); //Saute première ligne (juste noms des valeurs)
         while (getline(file, buff, ';'))
         {
-            cout << buff << ";";
+            string attributeID = buff;
+            getline(file, buff, ';');
+            string unit = buff;
+            getline(file, buff, ';');
+            string description = buff;
+            cout << attributeID << ";";
+            //Créer l'objet ici
         }
     }
 }
