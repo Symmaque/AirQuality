@@ -4,7 +4,7 @@
 #include <ctime>
 #include "Reader.h"
 using namespace std;
-
+void readMeasures();
 int main()
 {
     /*
@@ -78,14 +78,16 @@ void readMeasures()
     //File pointer
     ifstream file("./dataset/measurements.csv");
     string buff;
+    bool a = true;
     if (file.is_open())
     {
-        while (getline(file, buff, ';'))
+        while (getline(file, buff, ';') && a)
         {
             int year = atoi(buff.substr(0, 4).c_str());
             int month = atoi(buff.substr(5, 2).c_str());
-            int day = atoi(buff.substr(8, 2).c_str());
-            cout << year << ";";
+            //int day = atoi(buff.substr(8, 2).c_str());
+            cout << month << ";";
+            a = false;
         }
     }
 }
