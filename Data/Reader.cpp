@@ -5,18 +5,24 @@
 #include <ctime>
 #include "Reader.h"
 using namespace std;
+void readSensors();
+void readCleaners();
+void readProviders();
 void readMeasures();
 void readAttributes();
 void readUsers();
 int main()
 {
-    /*
-    readSensor();
+    readSensors();
+    cout << "------" << endl;
     readCleaners();
+    cout << "------" << endl;
     readProviders();
-    */
-    //readUsers();
-    //readMeasures();
+    cout << "------" << endl;
+    readUsers();
+    cout << "------" << endl;
+    readMeasures();
+    cout << "------" << endl;
     readAttributes();
     cout << "done";
     return 0;
@@ -27,11 +33,19 @@ void readSensors()
     //File pointer
     ifstream file("./dataset/sensors.csv");
     string buff;
+    int i = 1;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
         {
-            cout << buff << ";";
+            string sensorId = buff;
+            getline(file, buff, ';');
+            double latitude = stod(buff);
+            getline(file, buff, ';');
+            double longitude = stod(buff);
+            cout << i << " : " << sensorId << " " << latitude << " " << longitude << endl;
+            i++;
+            file.get();
         }
     }
 }
@@ -41,11 +55,44 @@ void readCleaners()
     //File pointer
     ifstream file("./dataset/cleaners.csv");
     string buff;
+    int i = 1;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
         {
-            cout << buff << ";";
+            string cleanerId = buff;
+            getline(file, buff, ';');
+            double latitude = stod(buff);
+            getline(file, buff, ';');
+            double longitude = stod(buff);
+
+            //Lecture date début
+            getline(file, buff, ';');
+            int year = atoi(buff.substr(0, 4).c_str());
+            int month = atoi(buff.substr(5, 2).c_str());
+            int day = atoi(buff.substr(8, 2).c_str());
+            tm tmp = tm();
+            tmp.tm_mday = day;
+            tmp.tm_mon = month - 1;
+            tmp.tm_year = year - 1900;
+            time_t dateBegin = mktime(&tmp);
+
+            //Lecture date fin
+            getline(file, buff, ';');
+            int year2 = atoi(buff.substr(0, 4).c_str());
+            int month2 = atoi(buff.substr(5, 2).c_str());
+            int day2 = atoi(buff.substr(8, 2).c_str());
+            tmp.tm_mday = day;
+            tmp.tm_mon = month - 1;
+            tmp.tm_year = year - 1900;
+            time_t dateEnd = mktime(&tmp);
+
+            cout << i << " : " << cleanerId << " " << latitude << " " << longitude
+                 << " " << year << "/" << month << "/" << day << " - "
+                 << year2 << "/" << month2 << "/" << day2 << endl;
+
+            file.get();
+            i++;
         }
     }
 }
@@ -55,11 +102,18 @@ void readProviders()
     //File pointer
     ifstream file("./dataset/providers.csv");
     string buff;
+    int i = 1;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
         {
-            cout << buff << ";";
+            string providerId = buff;
+            getline(file, buff, ';');
+            string cleanerId = buff;
+            //Créer obj ici
+            cout << i << " : " << providerId << " " << cleanerId << endl;
+            file.get();
+            i++;
         }
     }
 }
@@ -98,7 +152,6 @@ void readMeasures()
             int year = atoi(buff.substr(0, 4).c_str());
             int month = atoi(buff.substr(5, 2).c_str());
             int day = atoi(buff.substr(8, 2).c_str());
-            cout << year << " " << month << " " << day << endl;
             tm tmp = tm();
             tmp.tm_mday = day;
             tmp.tm_mon = month - 1;
@@ -112,7 +165,8 @@ void readMeasures()
             string type = buff;
             getline(file, buff, ';');
             double val = stod(buff);
-            cout << i << " : " << id << " " << type << " " << val << endl;
+            cout << i << " : " << year << " " << month << " " << day
+                 << " -> " << id << " " << type << " " << val << endl;
 
             //Créer objet ici
             i++;
