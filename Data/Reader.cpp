@@ -86,6 +86,7 @@ void readMeasures()
             int month = atoi(buff.substr(5, 2).c_str());
             int day = atoi(buff.substr(8, 2).c_str());
             cout << year << ";";
+            cout << month << ";";
         }
     }
 }
