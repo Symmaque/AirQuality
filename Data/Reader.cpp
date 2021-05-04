@@ -38,7 +38,6 @@ int main()
 
 void readSensors()
 {
-    //File pointer
     ifstream file("./dataset/sensors.csv");
     string buff;
     int i = 1;
@@ -65,7 +64,6 @@ void readSensors()
 
 void readCleaners()
 {
-    //File pointer
     ifstream file("./dataset/cleaners.csv");
     string buff;
     int i = 1;
@@ -112,7 +110,6 @@ void readCleaners()
 
 void readProviders()
 {
-    //File pointer
     ifstream file("./dataset/providers.csv");
     string buff;
     int i = 1;
@@ -133,7 +130,6 @@ void readProviders()
 
 void readUsers()
 {
-    //File pointer
     ifstream file("./dataset/users.csv");
     string buff;
     int i = 0;
@@ -154,7 +150,6 @@ void readUsers()
 
 void readMeasures()
 {
-    //File pointer
     ifstream file("./dataset/measurements.csv");
     string buff;
     int i = 1;
@@ -198,7 +193,6 @@ void readMeasures()
 }
 void readAttributes()
 {
-    //File pointer
     ifstream file("./dataset/attributes.csv");
     string buff;
     int i = 1;
