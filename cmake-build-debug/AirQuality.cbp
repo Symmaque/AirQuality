@@ -94,10 +94,10 @@
 		<Unit filename="/mnt/d/CLionProjects/AirQuality/Data/Reader.h">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/mnt/d/CLionProjects/AirQuality/Interface/GovernmetInterface.cpp">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.cpp">
 			<Option target="AirQuality"/>
 		</Unit>
-		<Unit filename="/mnt/d/CLionProjects/AirQuality/Interface/GovernmetInterface.h">
+		<Unit filename="/mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.h">
 			<Option target="AirQuality"/>
 		</Unit>
 		<Unit filename="/mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.cpp">

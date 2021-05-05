@@ -197,32 +197,32 @@ Data/Reader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirQuality.dir/build.make CMakeFiles/AirQuality.dir/Data/Reader.cpp.s
 .PHONY : Data/Reader.cpp.s
 
-Interface/GovernmetInterface.o: Interface/GovernmetInterface.cpp.o
+Interface/GovernmentInterface.o: Interface/GovernmentInterface.cpp.o
 
-.PHONY : Interface/GovernmetInterface.o
+.PHONY : Interface/GovernmentInterface.o
 
 # target to build an object file
-Interface/GovernmetInterface.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirQuality.dir/build.make CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o
-.PHONY : Interface/GovernmetInterface.cpp.o
+Interface/GovernmentInterface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirQuality.dir/build.make CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.o
+.PHONY : Interface/GovernmentInterface.cpp.o
 
-Interface/GovernmetInterface.i: Interface/GovernmetInterface.cpp.i
+Interface/GovernmentInterface.i: Interface/GovernmentInterface.cpp.i
 
-.PHONY : Interface/GovernmetInterface.i
+.PHONY : Interface/GovernmentInterface.i
 
 # target to preprocess a source file
-Interface/GovernmetInterface.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirQuality.dir/build.make CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.i
-.PHONY : Interface/GovernmetInterface.cpp.i
+Interface/GovernmentInterface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirQuality.dir/build.make CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.i
+.PHONY : Interface/GovernmentInterface.cpp.i
 
-Interface/GovernmetInterface.s: Interface/GovernmetInterface.cpp.s
+Interface/GovernmentInterface.s: Interface/GovernmentInterface.cpp.s
 
-.PHONY : Interface/GovernmetInterface.s
+.PHONY : Interface/GovernmentInterface.s
 
 # target to generate assembly for a file
-Interface/GovernmetInterface.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirQuality.dir/build.make CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.s
-.PHONY : Interface/GovernmetInterface.cpp.s
+Interface/GovernmentInterface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirQuality.dir/build.make CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.s
+.PHONY : Interface/GovernmentInterface.cpp.s
 
 Interface/IndividualInterface.o: Interface/IndividualInterface.cpp.o
 
@@ -644,9 +644,9 @@ help:
 	@echo "... Data/Reader.o"
 	@echo "... Data/Reader.i"
 	@echo "... Data/Reader.s"
-	@echo "... Interface/GovernmetInterface.o"
-	@echo "... Interface/GovernmetInterface.i"
-	@echo "... Interface/GovernmetInterface.s"
+	@echo "... Interface/GovernmentInterface.o"
+	@echo "... Interface/GovernmentInterface.i"
+	@echo "... Interface/GovernmentInterface.s"
 	@echo "... Interface/IndividualInterface.o"
 	@echo "... Interface/IndividualInterface.i"
 	@echo "... Interface/IndividualInterface.s"

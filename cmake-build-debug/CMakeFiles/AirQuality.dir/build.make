@@ -207,18 +207,18 @@ CMakeFiles/AirQuality.dir/Interface/IndividualInterface.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirQuality.dir/Interface/IndividualInterface.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.cpp -o CMakeFiles/AirQuality.dir/Interface/IndividualInterface.cpp.s
 
-CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o: CMakeFiles/AirQuality.dir/flags.make
-CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o: ../Interface/GovernmetInterface.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o -c /mnt/d/CLionProjects/AirQuality/Interface/GovernmetInterface.cpp
+CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.o: CMakeFiles/AirQuality.dir/flags.make
+CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.o: ../Interface/GovernmentInterface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.o -c /mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.cpp
 
-CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/CLionProjects/AirQuality/Interface/GovernmetInterface.cpp > CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.i
+CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.cpp > CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.i
 
-CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/CLionProjects/AirQuality/Interface/GovernmetInterface.cpp -o CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.s
+CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.cpp -o CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.s
 
 CMakeFiles/AirQuality.dir/Interface/ProviderInterface.cpp.o: CMakeFiles/AirQuality.dir/flags.make
 CMakeFiles/AirQuality.dir/Interface/ProviderInterface.cpp.o: ../Interface/ProviderInterface.cpp
@@ -323,7 +323,7 @@ AirQuality_OBJECTS = \
 "CMakeFiles/AirQuality.dir/Model/Measure.cpp.o" \
 "CMakeFiles/AirQuality.dir/Model/Attribute.cpp.o" \
 "CMakeFiles/AirQuality.dir/Interface/IndividualInterface.cpp.o" \
-"CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o" \
+"CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.o" \
 "CMakeFiles/AirQuality.dir/Interface/ProviderInterface.cpp.o" \
 "CMakeFiles/AirQuality.dir/Services/Stats.cpp.o" \
 "CMakeFiles/AirQuality.dir/Services/Clustering.cpp.o" \
@@ -345,7 +345,7 @@ AirQuality: CMakeFiles/AirQuality.dir/Model/Sensor.cpp.o
 AirQuality: CMakeFiles/AirQuality.dir/Model/Measure.cpp.o
 AirQuality: CMakeFiles/AirQuality.dir/Model/Attribute.cpp.o
 AirQuality: CMakeFiles/AirQuality.dir/Interface/IndividualInterface.cpp.o
-AirQuality: CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o
+AirQuality: CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.o
 AirQuality: CMakeFiles/AirQuality.dir/Interface/ProviderInterface.cpp.o
 AirQuality: CMakeFiles/AirQuality.dir/Services/Stats.cpp.o
 AirQuality: CMakeFiles/AirQuality.dir/Services/Clustering.cpp.o

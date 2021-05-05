@@ -6,45 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/CLionProjects/AirQuality/Model/Attribute.h
+/mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.cpp
+GovernmentInterface.h
+/mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.h
+iostream
+-
+
+/mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.h
 string
 -
 
-/mnt/d/CLionProjects/AirQuality/Model/Measure.h
-ctime
--
-Attribute.h
-/mnt/d/CLionProjects/AirQuality/Model/Attribute.h
-
-/mnt/d/CLionProjects/AirQuality/Model/Sensor.h
-vector
--
+/mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.cpp
+IndividualInterface.h
+/mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.h
 iostream
 -
-Measure.h
-/mnt/d/CLionProjects/AirQuality/Model/Measure.h
 
-/mnt/d/CLionProjects/AirQuality/Services/Clustering.h
-ctime
+/mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.h
+string
 -
-vector
--
-../Model/Sensor.h
-/mnt/d/CLionProjects/AirQuality/Model/Sensor.h
-Stats.h
-/mnt/d/CLionProjects/AirQuality/Services/Stats.h
 
-/mnt/d/CLionProjects/AirQuality/Services/Stats.h
-ctime
--
-../Model/Sensor.h
-/mnt/d/CLionProjects/AirQuality/Model/Sensor.h
-
-/mnt/d/CLionProjects/AirQuality/main.cpp
+/mnt/d/CLionProjects/AirQuality/Interface/ProviderInterface.cpp
+ProviderInterface.h
+/mnt/d/CLionProjects/AirQuality/Interface/ProviderInterface.h
 iostream
 -
-ctime
+
+/mnt/d/CLionProjects/AirQuality/Interface/ProviderInterface.h
+string
 -
-Services/Clustering.h
-/mnt/d/CLionProjects/AirQuality/Services/Clustering.h
 

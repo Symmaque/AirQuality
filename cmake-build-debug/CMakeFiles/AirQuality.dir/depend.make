@@ -23,8 +23,8 @@ CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Model/Provider.h
 CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Model/Sensor.h
 CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Model/User.h
 
-CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o: ../Interface/GovernmetInterface.cpp
-CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o: ../Interface/GovernmetInterface.h
+CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.o: ../Interface/GovernmentInterface.cpp
+CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.o: ../Interface/GovernmentInterface.h
 
 CMakeFiles/AirQuality.dir/Interface/IndividualInterface.cpp.o: ../Interface/IndividualInterface.cpp
 CMakeFiles/AirQuality.dir/Interface/IndividualInterface.cpp.o: ../Interface/IndividualInterface.h
@@ -94,6 +94,9 @@ CMakeFiles/AirQuality.dir/Services/Stats.cpp.o: ../Model/Sensor.h
 CMakeFiles/AirQuality.dir/Services/Stats.cpp.o: ../Services/Stats.cpp
 CMakeFiles/AirQuality.dir/Services/Stats.cpp.o: ../Services/Stats.h
 
+CMakeFiles/AirQuality.dir/main.cpp.o: ../Interface/GovernmentInterface.h
+CMakeFiles/AirQuality.dir/main.cpp.o: ../Interface/IndividualInterface.h
+CMakeFiles/AirQuality.dir/main.cpp.o: ../Interface/ProviderInterface.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../Model/Attribute.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../Model/Measure.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../Model/Sensor.h

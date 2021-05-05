@@ -2,11 +2,11 @@
 // Created by Aurélien on 04/05/2021.
 //
 
-#ifndef AIRQUALITY_PROVIDERINTERFACE_H
-#define AIRQUALITY_PROVIDERINTERFACE_H
+#ifndef AIRQUALITY_GOVERNMENTINTERFACE_H
+#define AIRQUALITY_GOVERNMENTINTERFACE_H
 
 #include <string>
-class ProviderInterface {
+class GovernmentInterface {
 public:
     static void display();
     static bool authentication();
@@ -16,4 +16,4 @@ public:
 };
 
 
-#endif //AIRQUALITY_PROVIDERINTERFACE_H
+#endif //AIRQUALITY_GOVERNMENTINTERFACE_H

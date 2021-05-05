@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/d/CLionProjects/AirQuality/Data/DataAccess.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o"
   "/mnt/d/CLionProjects/AirQuality/Data/Reader.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Data/Reader.cpp.o"
-  "/mnt/d/CLionProjects/AirQuality/Interface/GovernmetInterface.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o"
+  "/mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.o"
   "/mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Interface/IndividualInterface.cpp.o"
   "/mnt/d/CLionProjects/AirQuality/Interface/ProviderInterface.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Interface/ProviderInterface.cpp.o"
   "/mnt/d/CLionProjects/AirQuality/Model/Attribute.cpp" "/mnt/d/CLionProjects/AirQuality/cmake-build-debug/CMakeFiles/AirQuality.dir/Model/Attribute.cpp.o"
