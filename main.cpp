@@ -1,25 +1,32 @@
 #include <iostream>
 #include <ctime>
 #include "Services/Clustering.h"
-#include "Model/Sensor.h"
+
 using namespace std;
-int foo(int & n){
-    return 2*n;
-}
 
 
 void testfindSimilarSensors(){
-    auto * sensor = new Sensor(1,2.0,2.0);
+    auto sensor1 = Sensor(1,2.0,2.0);
     time_t start = time(nullptr);
     time_t end = time(nullptr);
     cout << "Start : " << start << endl;
     cout << "End : " << end<< endl;
-    Clustering::findSimilarSensors(*sensor,start,end);
+    auto * similarSensors = Clustering::findSimilarSensors(sensor1,start,end);
+    if(similarSensors == nullptr){
+        cerr << "similarSensor is nullptr " << endl;
+        return;
+    }
+
+    for(auto & sensor : *similarSensors){
+        cout << *sensor << endl;
+    }
+
+    delete similarSensors;
 }
 
 int main() {
 
-    //testfindSimilarSensors();
+    testfindSimilarSensors();
 
     return 0;
 }

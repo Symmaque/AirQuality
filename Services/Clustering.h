@@ -16,7 +16,7 @@ class Clustering {
 
 public:
 
-    static vector<Sensor*> &findSimilarSensors(const Sensor &s, const time_t & startDate, const time_t & endDate);
+    static vector<Sensor *> * findSimilarSensors(const Sensor &s, const time_t & startDate, const time_t & endDate);
 
 
 };

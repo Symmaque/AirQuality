@@ -6,15 +6,20 @@ CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Data/DataAccess.h
 CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Data/Reader.h
 CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/Attribute.h
 CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/Cleaner.h
+CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/Individual.h
 CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/Measure.h
 CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/Provider.h
 CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/Sensor.h
 CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o: ../Model/User.h
 
+CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Data/DataAccess.h
 CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Data/Reader.cpp
 CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Data/Reader.h
 CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Model/Attribute.h
+CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Model/Cleaner.h
+CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Model/Individual.h
 CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Model/Measure.h
+CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Model/Provider.h
 CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Model/Sensor.h
 CMakeFiles/AirQuality.dir/Data/Reader.cpp.o: ../Model/User.h
 

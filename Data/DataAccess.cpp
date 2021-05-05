@@ -13,6 +13,7 @@ vector<Sensor> DataAccess::listSensors = {};
 vector<Attribute> DataAccess::listAttributes = {};
 vector<Measure> DataAccess::listMeasures = {};
 vector<Provider> DataAccess::listProviders = {};
+vector<Individual> DataAccess::listIndividuals = {};
 
 User DataAccess::signIn(string id, string password)
 {
@@ -62,12 +63,12 @@ vector<Attribute> *DataAccess::getListAttribute()
 
 void DataAccess::init()
 {
-    Reader *reader = new Reader();
-    listSensors = reader->readSensor();
-    listAttributes = reader->readAttributes();
-    listUsers = reader->readUsers();
-    listMeasures = reader->readMeasures();
-    listIndividuals = reader->readIndividuals();
+    //Reader *reader = new Reader();
+    listSensors = Reader::readSensor();
+    listAttributes = Reader::readAttributes();
+    listUsers = Reader::readUsers();
+    listMeasures = Reader::readMeasures();
+    listIndividuals = Reader::readIndividuals();
     /* Warning : you cannot assign with void functions
     listProviders = reader->readProviders();
      */

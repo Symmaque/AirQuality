@@ -1,8 +1,6 @@
 #include "Reader.h"
 #include <iostream>
-#include <fstream>
 #include <string>
-#include <string.h>
 #include <ctime>
 #include "Reader.h"
 #include "DataAccess.h"
@@ -238,6 +236,38 @@ vector<Measure> readMeasures()
         }
     }
     return liste;
+}
+
+vector<Sensor> Reader::readSensor() {
+    return vector<Sensor>();
+}
+
+void Reader::readCleaners() {
+
+}
+
+void Reader::readProviders() {
+
+}
+
+vector<User> Reader::readUsers() {
+    return vector<User>();
+}
+
+void Reader::readUsers2() {
+
+}
+
+vector<Attribute> Reader::readAttributes() {
+    return vector<Attribute>();
+}
+
+vector<Individual> Reader::readIndividuals() {
+    return vector<Individual>();
+}
+
+vector<Measure> Reader::readMeasures() {
+    return vector<Measure>();
 }
 
 vector<Attribute> readAttributes()

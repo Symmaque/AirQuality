@@ -29,7 +29,7 @@ protected:
 
 public:
     static User signIn(string id, string password);
-    void init();
+    static void init();
     static vector<User> *getListUsers();
     static vector<Sensor> *getListSensors();
     static vector<Provider> *getListProviders();
