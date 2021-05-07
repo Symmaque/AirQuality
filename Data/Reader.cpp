@@ -270,6 +270,7 @@ vector<Attribute> Reader::readAttributes()
             string description = buff;
             //cout << i << " : " << attributeID << " " << unit << " " << description << endl;
             Attribute *att = new Attribute();
+            att->setId(attributeID);
             att->setUnit(unit);
             att->setDescription(description);
             cout << i << " : " << att->toString() << endl;

@@ -39,3 +39,11 @@ ostream &operator<<(ostream& os, const Attribute& attribute) {
     os << attribute.unit << " " << attribute.description;
     return os;
 }
+
+const string &Attribute::getId() const {
+    return id;
+}
+
+void Attribute::setId(const string &id) {
+    Attribute::id = id;
+}

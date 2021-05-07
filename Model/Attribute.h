@@ -20,14 +20,17 @@ public:
 
     friend ostream& operator<<(ostream& os, const Attribute& attribute);
 
+    const string &getId() const;
+
+    void setId(const string &id);
+
 private:
+    string id;
     string unit;
+    string description;
 
 public:
     virtual ~Attribute();
-
-private:
-    string description;
 };
 
 #endif //AIRQUALITY_ATTRIBUTE_H

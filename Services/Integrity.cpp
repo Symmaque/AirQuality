@@ -36,11 +36,9 @@ bool Integrity::detectUserFraud(Individual & value) {
 
 bool Integrity::detectDefectiveSensor(const Sensor & value) {
 
-    double valueATMO = Stats::ATMOInstantMean(value);
+    double valueATMO = Stats::ATMOSensorLifespanMean(value);
     vector<Sensor> & allSensors = *DataAccess::getListSensors();
     vector<Sensor> closeSensors; //TODO Maybe use a map sensor-distance to avoid recomputing
-
-
 
     sort (allSensors.begin(), allSensors.end(), [&value](Sensor& a,Sensor& b) {
         return a.distance(value) < b.distance(value);
@@ -57,15 +55,15 @@ bool Integrity::detectDefectiveSensor(const Sensor & value) {
     unsigned long n = closeSensors.size();
     double sumTotal = 0.0;
     //Compute average
-    for(auto sensor : closeSensors) {
-        sumTotal += Stats::ATMOInstantMean(sensor); //TODO Add valid parameters
+    for(const auto& sensor : closeSensors) {
+        sumTotal += Stats::ATMOSensorLifespanMean(sensor); //TODO Add valid parameters
     }
     double average = sumTotal / n;
 
     double sumDiffs = 0.0;
     //Compute standard deviation
-    for(auto sensor : closeSensors) {
-        sumDiffs = pow(average - Stats::ATMOInstantMean(sensor), 2);
+    for(const auto& sensor : closeSensors) {
+        sumDiffs = pow(average - Stats::ATMOSensorLifespanMean(sensor), 2);
     }
     double variance = sumDiffs / n;
     double standardDeviation = sqrt(variance);
