@@ -94,12 +94,18 @@ CMakeFiles/AirQuality.dir/Services/Stats.cpp.o: ../Model/Sensor.h
 CMakeFiles/AirQuality.dir/Services/Stats.cpp.o: ../Services/Stats.cpp
 CMakeFiles/AirQuality.dir/Services/Stats.cpp.o: ../Services/Stats.h
 
+CMakeFiles/AirQuality.dir/main.cpp.o: ../Data/DataAccess.h
+CMakeFiles/AirQuality.dir/main.cpp.o: ../Data/Reader.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../Interface/GovernmentInterface.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../Interface/IndividualInterface.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../Interface/ProviderInterface.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../Model/Attribute.h
+CMakeFiles/AirQuality.dir/main.cpp.o: ../Model/Cleaner.h
+CMakeFiles/AirQuality.dir/main.cpp.o: ../Model/Individual.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../Model/Measure.h
+CMakeFiles/AirQuality.dir/main.cpp.o: ../Model/Provider.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../Model/Sensor.h
+CMakeFiles/AirQuality.dir/main.cpp.o: ../Model/User.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../Services/Clustering.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../Services/Stats.h
 CMakeFiles/AirQuality.dir/main.cpp.o: ../main.cpp

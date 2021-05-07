@@ -6,33 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.cpp
-GovernmentInterface.h
-/mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.h
+/mnt/d/CLionProjects/AirQuality/Model/Attribute.h
+string
+-
 iostream
 -
 
-/mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.h
-string
+/mnt/d/CLionProjects/AirQuality/Model/Measure.cpp
+Measure.h
+/mnt/d/CLionProjects/AirQuality/Model/Measure.h
+utility
 -
 
-/mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.cpp
-IndividualInterface.h
-/mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.h
+/mnt/d/CLionProjects/AirQuality/Model/Measure.h
+ctime
+-
+Attribute.h
+/mnt/d/CLionProjects/AirQuality/Model/Attribute.h
 iostream
--
-
-/mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.h
-string
--
-
-/mnt/d/CLionProjects/AirQuality/Interface/ProviderInterface.cpp
-ProviderInterface.h
-/mnt/d/CLionProjects/AirQuality/Interface/ProviderInterface.h
-iostream
--
-
-/mnt/d/CLionProjects/AirQuality/Interface/ProviderInterface.h
-string
 -
 

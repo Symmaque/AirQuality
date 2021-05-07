@@ -34,3 +34,8 @@ string Attribute::toString()
 {
     return Attribute::unit + ", " + Attribute::description;
 }
+
+ostream &operator<<(ostream& os, const Attribute& attribute) {
+    os << attribute.unit << " " << attribute.description;
+    return os;
+}

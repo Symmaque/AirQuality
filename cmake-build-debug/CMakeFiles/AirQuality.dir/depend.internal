@@ -95,12 +95,18 @@ CMakeFiles/AirQuality.dir/Services/Stats.cpp.o
  /mnt/d/CLionProjects/AirQuality/Services/Stats.cpp
  /mnt/d/CLionProjects/AirQuality/Services/Stats.h
 CMakeFiles/AirQuality.dir/main.cpp.o
+ /mnt/d/CLionProjects/AirQuality/Data/DataAccess.h
+ /mnt/d/CLionProjects/AirQuality/Data/Reader.h
  /mnt/d/CLionProjects/AirQuality/Interface/GovernmentInterface.h
  /mnt/d/CLionProjects/AirQuality/Interface/IndividualInterface.h
  /mnt/d/CLionProjects/AirQuality/Interface/ProviderInterface.h
  /mnt/d/CLionProjects/AirQuality/Model/Attribute.h
+ /mnt/d/CLionProjects/AirQuality/Model/Cleaner.h
+ /mnt/d/CLionProjects/AirQuality/Model/Individual.h
  /mnt/d/CLionProjects/AirQuality/Model/Measure.h
+ /mnt/d/CLionProjects/AirQuality/Model/Provider.h
  /mnt/d/CLionProjects/AirQuality/Model/Sensor.h
+ /mnt/d/CLionProjects/AirQuality/Model/User.h
  /mnt/d/CLionProjects/AirQuality/Services/Clustering.h
  /mnt/d/CLionProjects/AirQuality/Services/Stats.h
  /mnt/d/CLionProjects/AirQuality/main.cpp

@@ -5,6 +5,8 @@
 #include "Interface/ProviderInterface.h"
 #include "Interface/GovernmentInterface.h"
 
+#include "Data/DataAccess.h"
+#include "Data/Reader.h"
 using namespace std;
 
 
@@ -83,9 +85,17 @@ void displayFirstInterface(){
 }
 
 int main() {
-    displayFirstInterface();
+    //displayFirstInterface();
 
     //testfindSimilarSensors();
+    vector <Measure> measures = Reader::readMeasures();
+    for (auto& measure : measures){
+        //cout << measure << endl;
+    }
+    for(int i = 0; i < 10; i++)
+        cout << measures[i] << endl;
+
+
 
     return 0;
 }

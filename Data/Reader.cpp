@@ -39,7 +39,7 @@ int main()
 }
 */
 
-vector<Sensor> readSensor()
+vector<Sensor> Reader::readSensor()
 {
     ifstream file("./dataset/sensors.csv");
     string buff;
@@ -68,7 +68,7 @@ vector<Sensor> readSensor()
     return liste;
 }
 
-void readCleaners()
+void Reader::readCleaners()
 {
     ifstream file("./dataset/cleaners.csv");
     string buff;
@@ -94,6 +94,7 @@ void readCleaners()
             tmp.tm_year = year - 1900;
             time_t dateBegin = mktime(&tmp);
 
+
             //Lecture date fin
             getline(file, buff, ';');
             int year2 = atoi(buff.substr(0, 4).c_str());
@@ -114,7 +115,7 @@ void readCleaners()
     }
 }
 
-void readProviders()
+void Reader::readProviders()
 {
     ifstream file("./dataset/providers.csv");
     string buff;
@@ -134,7 +135,7 @@ void readProviders()
     }
 }
 
-vector<Individual> readIndividuals() //Lit les particuliers!
+vector<Individual> Reader::readIndividuals() //Lit les particuliers!
 {
     DataAccess *data = new DataAccess();
     ifstream file("./dataset/users.csv");
@@ -168,7 +169,7 @@ vector<Individual> readIndividuals() //Lit les particuliers!
     return liste;
 }
 
-vector<User> readUsers() //Lit les accounts!
+vector<User> Reader::readUsers() //Lit les accounts!
 {
     ifstream file("./dataset/account.csv");
     string buff;
@@ -191,25 +192,31 @@ vector<User> readUsers() //Lit les accounts!
     return liste;
 }
 
-vector<Measure> readMeasures()
+vector<Measure> Reader::readMeasures()
 {
-    ifstream file("./dataset/measurements.csv");
+    ifstream file("../Data/dataset/measurements.csv");
     string buff;
     int i = 1;
     vector<Measure> liste;
+
     if (file.is_open())
     {
-        while (getline(file, buff, ';') && i < 10) //Dégagez le a
+        while (getline(file, buff, ';')) //Dégagez le a
         {
+            if(buff == "\n")    //EOF
+                break;
+            /*
             //Récupère date en time_t
             int year = atoi(buff.substr(0, 4).c_str());
             int month = atoi(buff.substr(5, 2).c_str());
             int day = atoi(buff.substr(8, 2).c_str());
-            tm tmp = tm();
-            tmp.tm_mday = day;
-            tmp.tm_mon = month - 1;
-            tmp.tm_year = year - 1900;
-            time_t date = mktime(&tmp);
+            tm * tmp = new tm();
+            tmp->tm_mday = day;
+            tmp->tm_mon = month - 1;
+            tmp->tm_year = year - 1900;
+            time_t date = mktime(tmp);
+            */
+            Date date(buff.substr(0,10));
 
             //Reste des données
             getline(file, buff, ';');
@@ -225,52 +232,27 @@ vector<Measure> readMeasures()
 
             Measure *me = new Measure();
             //me->setAttribute(NULL); //Rajouter le bon attribu (recherche par id?)
-            me->setDate(&tmp);
+            me->setDate(&date);
             me->setSensorId(atoi(id.c_str()));
             me->setReliable(true);
             me->setValue(val);
             liste.push_back(*me);
-            cout << me->toString() << endl;
+            //cout << me->toString() << endl;
             i++;
-            file.get(); //Met pointeur au bon endroit
+            file.get(); //get ;
+            file.get(); //get \n
+            //delete tmp;
         }
     }
     return liste;
 }
 
-vector<Sensor> Reader::readSensor() {
-    return vector<Sensor>();
-}
-
-void Reader::readCleaners() {
-
-}
-
-void Reader::readProviders() {
-
-}
-
-vector<User> Reader::readUsers() {
-    return vector<User>();
-}
 
 void Reader::readUsers2() {
 
 }
 
-vector<Attribute> Reader::readAttributes() {
-    return vector<Attribute>();
-}
-
-vector<Individual> Reader::readIndividuals() {
-    return vector<Individual>();
-}
-
-vector<Measure> Reader::readMeasures() {
-    return vector<Measure>();
-}
-
-vector<Attribute> readAttributes()
+vector<Attribute> Reader::readAttributes()
 {
     ifstream file("./dataset/attributes.csv");
     string buff;

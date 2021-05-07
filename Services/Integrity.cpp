@@ -5,7 +5,6 @@
 #include "Integrity.h"
 #include "Stats.h"
 
-//#include <algorithm>
 #include <cmath>
 #include <algorithm>
 

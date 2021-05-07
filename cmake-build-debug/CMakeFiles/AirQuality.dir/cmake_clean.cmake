@@ -3,7 +3,7 @@ file(REMOVE_RECURSE
   "AirQuality.pdb"
   "CMakeFiles/AirQuality.dir/Data/DataAccess.cpp.o"
   "CMakeFiles/AirQuality.dir/Data/Reader.cpp.o"
-  "CMakeFiles/AirQuality.dir/Interface/GovernmetInterface.cpp.o"
+  "CMakeFiles/AirQuality.dir/Interface/GovernmentInterface.cpp.o"
   "CMakeFiles/AirQuality.dir/Interface/IndividualInterface.cpp.o"
   "CMakeFiles/AirQuality.dir/Interface/ProviderInterface.cpp.o"
   "CMakeFiles/AirQuality.dir/Model/Attribute.cpp.o"

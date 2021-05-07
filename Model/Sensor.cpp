@@ -76,6 +76,9 @@ ostream& operator<<(ostream& os, const Sensor & sensor)
     os << "Id : " << sensor.sensorId << endl;
     os << "Latitude : " << sensor.latitude << endl;
     os << "Longitude : " << sensor.longitude << endl;
-    //TODO implement cout for the measurements
+    os << "Measures : " << endl;
+    for (auto& measure : sensor.measures){
+        os << measure << endl;
+    }
     return os;
 }

@@ -7,11 +7,20 @@
 
 #include <ctime>
 #include "Attribute.h"
-
+#include <iostream>
+typedef struct Date{
+    string year;
+    string month;
+    string day;
+    Date(const string& date);
+    Date(string year, string month, string day);
+    Date();
+    friend ostream& operator<<(ostream& os, const Date& date);
+}Date;
 class Measure
 {
 protected:
-    tm *date;
+    Date * date;
     int sensorId;
     Attribute attribute;
     double value;
@@ -20,9 +29,9 @@ protected:
 public:
     Measure();
 
-    tm *getDate() const;
+    Date *getDate() const;
 
-    void setDate(tm *date);
+    void setDate(const Date *date);
 
     int getSensorId() const;
 
@@ -39,6 +48,8 @@ public:
     bool isReliable() const;
 
     void setReliable(bool reliable);
+
+    friend ostream & operator<<(ostream&, const Measure & measure);
 
     string toString();
 };
