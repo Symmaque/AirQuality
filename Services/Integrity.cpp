@@ -58,14 +58,14 @@ bool Integrity::detectDefectiveSensor(const Sensor & value) {
     for(const auto& sensor : closeSensors) {
         sumTotal += Stats::ATMOSensorLifespanMean(sensor); //TODO Add valid parameters
     }
-    double average = sumTotal / n;
+    double average = sumTotal / (double) n;
 
     double sumDiffs = 0.0;
     //Compute standard deviation
     for(const auto& sensor : closeSensors) {
         sumDiffs = pow(average - Stats::ATMOSensorLifespanMean(sensor), 2);
     }
-    double variance = sumDiffs / n;
+    double variance = sumDiffs / (double) n;
     double standardDeviation = sqrt(variance);
     //Confidence interval inclusion check
     double confidence = 2 * standardDeviation / sqrt(n);
