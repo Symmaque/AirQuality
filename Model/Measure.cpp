@@ -4,20 +4,20 @@
 
 #include "Measure.h"
 
-#include <utility>
 
 Measure::Measure()
 {
-    Measure::date = new Date;
+    Measure::date = new time_t;
+    Measure::attribute = new Attribute;
 }
-Date *Measure::getDate() const
+time_t *Measure::getDate() const
 {
     return date;
 }
 
-void Measure::setDate(const Date *date)
+void Measure::setDate(time_t date)
 {
-    *Measure::date = *date;
+    *Measure::date = date;
 }
 
 int Measure::getSensorId() const
@@ -32,12 +32,14 @@ void Measure::setSensorId(int sensorId)
 
 const Attribute &Measure::getAttribute() const
 {
-    return attribute;
+    return *attribute;
 }
 
 void Measure::setAttribute(const Attribute &attribute)
 {
-    Measure::attribute = attribute;
+
+    Measure::attribute->setUnit(attribute.getUnit());
+    Measure::attribute->setDescription(attribute.getDescription());
 }
 
 double Measure::getValue() const
@@ -77,29 +79,14 @@ string Measure::toString()
 }
 */
 ostream& operator<<(ostream& os, const Measure& measure) {
-    os << "[ Date : " << *measure.date << ", Reliable : " << measure.reliable << ", Sensor : " << measure.sensorId << ", Value :  "<< measure.value << ", Unit : " << measure.attribute << " ]";
+    struct tm * tmp = localtime(measure.date);
+    os << "[ Date : " << tmp->tm_year + 1900 << "-" << tmp->tm_mon + 1 << "-" << tmp->tm_mday << ", Reliable : " << measure.reliable << ", Sensor : " << measure.sensorId << ", Value :  "<< measure.value << ", Unit : " << *measure.attribute << " ]";
     return os;
 }
 
-Date::Date(const string& date) {
-    Date::year = date.substr(0,4);
-    Date::month = date.substr(5,2);
-    Date::day = date.substr(8,2);
+Measure::~Measure() {
+    //delete Measure::attribute;
+    //delete Measure::date;
 }
 
-Date::Date(string year, string month, string day) {
-    Date::year = std::move(year);
-    Date::month = std::move(month);
-    Date::day = std::move(day);
-}
 
-ostream &operator<<(ostream &os, const Date &date) {
-    os << date.year << " " << date.month << " " << date.day;
-    return os;
-}
-
-Date::Date() {
-    year = "YYYY";
-    month = "MM";
-    day = "DD";
-}

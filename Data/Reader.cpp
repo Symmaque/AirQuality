@@ -205,7 +205,7 @@ vector<Measure> Reader::readMeasures()
         {
             if(buff == "\n")    //EOF
                 break;
-            /*
+
             //Récupère date en time_t
             int year = atoi(buff.substr(0, 4).c_str());
             int month = atoi(buff.substr(5, 2).c_str());
@@ -215,8 +215,8 @@ vector<Measure> Reader::readMeasures()
             tmp->tm_mon = month - 1;
             tmp->tm_year = year - 1900;
             time_t date = mktime(tmp);
-            */
-            Date date(buff.substr(0,10));
+
+            //Date date(buff.substr(0,10));
 
             //Reste des données
             getline(file, buff, ';');
@@ -228,20 +228,23 @@ vector<Measure> Reader::readMeasures()
             /*
             cout << i << " : " << year << " " << month << " " << day
                  << " -> " << id << " " << type << " " << val << endl;
-                 */
+            */
 
-            Measure *me = new Measure();
-            //me->setAttribute(NULL); //Rajouter le bon attribu (recherche par id?)
-            me->setDate(&date);
-            me->setSensorId(atoi(id.c_str()));
-            me->setReliable(true);
-            me->setValue(val);
-            liste.push_back(*me);
+            Measure me;// = new Measure();
+            Attribute attribute;
+            attribute.setUnit(type);
+            me.setAttribute(attribute); //Rajouter le bon attribut (recherche par id?)
+            me.setDate(date);
+            me.setSensorId(atoi(id.c_str()));
+            me.setReliable(true);
+            me.setValue(val);
+            liste.push_back(me);
+            //delete me;
             //cout << me->toString() << endl;
             i++;
             file.get(); //get ;
             file.get(); //get \n
-            //delete tmp;
+            delete tmp;
         }
     }
     return liste;

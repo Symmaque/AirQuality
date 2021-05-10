@@ -12,7 +12,7 @@ class Attribute
 {
 public:
     Attribute();
-    const string &getUnit() const;
+    string getUnit() const;
     void setUnit(const string &unit);
     const string &getDescription() const;
     void setDescription(const string &description);

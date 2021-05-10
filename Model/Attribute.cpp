@@ -4,9 +4,12 @@
 
 #include "Attribute.h"
 
-Attribute::Attribute() {}
+Attribute::Attribute() {
+    unit = "";
+    description = "";
+}
 
-const string &Attribute::getUnit() const
+string Attribute::getUnit() const
 {
     return unit;
 }
@@ -27,8 +30,7 @@ void Attribute::setDescription(const string &description)
 }
 
 Attribute::~Attribute()
-{
-}
+{}
 
 string Attribute::toString()
 {
@@ -36,7 +38,7 @@ string Attribute::toString()
 }
 
 ostream &operator<<(ostream& os, const Attribute& attribute) {
-    os << attribute.unit << " " << attribute.description;
+    os << attribute.unit << ", " << attribute.description;
     return os;
 }
 
