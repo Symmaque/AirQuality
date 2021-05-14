@@ -32,8 +32,8 @@ double Stats::ATMOSensorLifespanMean(const Sensor & sensor) {
     //And return the mean
     return indiceSum / (double) measures.size() / 4.0;
 }
-double Stats::ATMOInstantMean(Date date, const Sensor & sensor) {
-
+double Stats::ATMOInstantMean(time_t date, const Sensor & sensor) {
+    return 0.0;
 }
 
 int Stats::ATMOGaz(const string& attributeId, double value) {

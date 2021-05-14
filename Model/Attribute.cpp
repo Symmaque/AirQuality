@@ -38,7 +38,7 @@ string Attribute::toString()
 }
 
 ostream &operator<<(ostream& os, const Attribute& attribute) {
-    os << attribute.unit << ", " << attribute.description;
+    os << attribute.id << ", " << attribute.unit << ", " << attribute.description;
     return os;
 }
 

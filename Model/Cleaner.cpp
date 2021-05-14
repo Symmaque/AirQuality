@@ -29,19 +29,24 @@ void Cleaner::setLongitude(double longitude) {
     Cleaner::longitude = longitude;
 }
 
-tm *Cleaner::getStartDate() const {
+time_t Cleaner::getStartDate() const {
     return startDate;
 }
 
-void Cleaner::setStartDate(tm *startDate) {
+void Cleaner::setStartDate(time_t startDate) {
     Cleaner::startDate = startDate;
 }
 
-tm *Cleaner::getEndDate() const {
+time_t Cleaner::getEndDate() const {
     return endDate;
 }
 
-void Cleaner::setEndDate(tm *endDate) {
+void Cleaner::setEndDate(time_t endDate) {
     Cleaner::endDate = endDate;
+}
+
+ostream &operator<<(ostream &os, const Cleaner &cleaner) {
+    os << "il faut implementer cette fonction pour les cleaners " << endl;
+    return os;
 }
 

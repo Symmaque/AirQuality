@@ -41,10 +41,10 @@ int main()
 
 vector<Sensor> Reader::readSensor()
 {
-    ifstream file("./dataset/sensors.csv");
+    ifstream file("../Data/dataset/sensors.csv");
     string buff;
     int i = 1;
-    vector<Sensor> liste;
+    vector<Sensor> list;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
@@ -60,18 +60,19 @@ vector<Sensor> Reader::readSensor()
             sen->setLatitude(latitude);
             sen->setLongitude(longitude);
             sen->setSensorId(atoi(sensorId.c_str()));
-            liste.push_back(*sen);
+            list.push_back(*sen);
             i++;
+            file.get();
             file.get();
         }
     }
-    return liste;
+    return list;
 }
 
-void Reader::readCleaners()
-{
-    ifstream file("./dataset/cleaners.csv");
+vector<Cleaner> Reader::readCleaners(){
+    ifstream file("../Data/dataset/cleaners.csv");
     string buff;
+    vector <Cleaner> list;
     int i = 1;
     if (file.is_open())
     {
@@ -115,20 +116,23 @@ void Reader::readCleaners()
     }
 }
 
-void Reader::readProviders()
+vector<Provider> Reader::readProviders()
 {
-    ifstream file("./dataset/providers.csv");
+    ifstream file("../Data/dataset/providers.csv");
     string buff;
+    vector<Provider> list;
     int i = 1;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
         {
-            string providerId = buff;
+            string providerId = buff.substr(8);
             getline(file, buff, ';');
-            string cleanerId = buff;
-            //Créer obj ici
-            cout << i << " : " << providerId << " " << cleanerId << endl;
+            string cleanerId = buff.substr(6);
+            Provider provider;
+            provider.setId(atoi(providerId.c_str()));
+            provider.addCleaner(&(*DataAccess::getListCleaners())[atol(cleanerId.c_str())]);
+            //cout << i << " : " << providerId << " " << cleanerId << endl;
             file.get();
             i++;
         }
@@ -138,43 +142,46 @@ void Reader::readProviders()
 vector<Individual> Reader::readIndividuals() //Lit les particuliers!
 {
     DataAccess *data = new DataAccess();
-    ifstream file("./dataset/users.csv");
+    ifstream file("../Data/dataset/users.csv");
     string buff;
     int i = 1;
-    vector<Individual> liste;
+    vector<Individual> list;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
         {
-            string individualId = buff;
-            individualId.erase(0, 3); //Enlève "U S E R";
+            string individualId = buff.substr(4,1);
+            //individualId.erase(0, 3); //Enlève "U S E R";
             getline(file, buff, ';');
-            string sensorId = buff;
-            sensorId.erase(0, 6); //Efface "Sensor"
+            string sensorId = buff.substr(6);
+            //sensorId.erase(0, 6); //Efface "Sensor"
             //Créer obj ici
             cout << i << " : " << individualId << " " << sensorId << endl;
-            Individual *ind = new Individual();
+            auto * ind = new Individual();
             ind->setMalicious(false);
             ind->setPoints(0);
             ind->setId(atoi(individualId.c_str()));
-            /* //Marche pas
-            vector<Sensor> *se = data->getListSensors();
-            ind->setSensor(se[sensorId]);
-            */
+
+            vector<Sensor> se = *DataAccess::getListSensors();
+            cout << se[atoi(sensorId.c_str())] << endl;
+            ind->setSensor(&se[atoi(sensorId.c_str())]);
+
 
             file.get();
+            file.get();
             i++;
+            list.push_back(*ind);
         }
     }
-    return liste;
+    return list;
 }
 
 vector<User> Reader::readUsers() //Lit les accounts!
 {
-    ifstream file("./dataset/account.csv");
+    ifstream file("../Data/dataset/account.csv");
     string buff;
     int i = 0;
-    vector<User> liste;
+    vector<User> list;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
@@ -184,12 +191,13 @@ vector<User> Reader::readUsers() //Lit les accounts!
             string password = buff;
             //cout << i << " : " << userId << " " << sensorId << endl;
             User *us = new User(atoi(userId.c_str()), password);
-            liste.push_back(*us);
+            list.push_back(*us);
             i++;
-            file.get();
+            file.get(); //get the ;
+            file.get(); //get the \n
         }
     }
-    return liste;
+    return list;
 }
 
 vector<Measure> Reader::readMeasures()
@@ -220,7 +228,7 @@ vector<Measure> Reader::readMeasures()
 
             //Reste des données
             getline(file, buff, ';');
-            string id = buff;
+            string id = buff.substr(6);
             getline(file, buff, ';');
             string type = buff;
             getline(file, buff, ';');
@@ -257,7 +265,7 @@ void Reader::readUsers2() {
 
 vector<Attribute> Reader::readAttributes()
 {
-    ifstream file("./dataset/attributes.csv");
+    ifstream file("../Data/dataset/attributes.csv");
     string buff;
     int i = 1;
     vector<Attribute> liste;

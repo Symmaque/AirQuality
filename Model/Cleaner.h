@@ -6,7 +6,9 @@
 #define AIRQUALITY_CLEANER_H
 
 #include <ctime>
+#include <iostream>
 
+using namespace std;
 class Cleaner {
 public:
     int getId() const;
@@ -21,21 +23,23 @@ public:
 
     void setLongitude(double longitude);
 
-    tm *getStartDate() const;
+    time_t getStartDate() const;
 
-    void setStartDate(tm *startDate);
+    void setStartDate(time_t startDate);
 
-    tm *getEndDate() const;
+    time_t getEndDate() const;
 
-    void setEndDate(tm *endDate);
+    void setEndDate(time_t endDate);
+
+    friend ostream& operator<<(ostream& os, const Cleaner& cleaner);
 
 
 protected:
     int id;
     double latitude;
     double longitude;
-    tm * startDate;
-    tm * endDate;
+    time_t startDate;
+    time_t endDate;
 };
 
 

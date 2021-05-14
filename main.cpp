@@ -88,12 +88,40 @@ int main() {
     //displayFirstInterface();
 
     //testfindSimilarSensors();
-    vector <Measure> measures = Reader::readMeasures();
-    for (auto& measure : measures){
-        //cout << measure << endl;
+
+
+    /*
+    for(const auto& individual: individuals){
+        cout << individual << endl;
+    }*/
+    /*
+    for(const auto& sensor: sensors){
+        cout << sensor << endl;
+    }*/
+
+    DataAccess::init();
+/*
+    for(const auto& measure: *DataAccess::getListMeasures()){
+        cout << measure << endl;
     }
-    for(int i = 0; i < 10; i++)
-        cout << measures[i] << endl;
+  */
+/*
+    for(const auto& attribute : *DataAccess::getListAttribute()){
+        cout << attribute << endl;
+    }
+  */
+/*
+    for(const auto& sensor : sensors){
+        cout << sensor << endl;
+    }*/
+    /*
+    for(const auto& individual : *DataAccess::getListIndividuals()){
+        cout << individual << endl;
+    }*/
+
+    for(const auto& cleaner : *DataAccess::getListCleaners()){
+        cout << cleaner << endl;
+    }
 
 
 

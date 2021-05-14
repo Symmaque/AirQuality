@@ -14,13 +14,16 @@ using namespace std;
 class Provider : public User{
 protected:
     int id;
-    vector<Cleaner> * listCleaners;
+    vector<Cleaner*> * listCleaners;
 
 public:
-    vector<Cleaner> * getListCleaners() const;
+    vector<Cleaner*> * getListCleaners();
+    void setId(int id);
     string toString();
-    void addCleaner(Cleaner cle);
+    void addCleaner(Cleaner * cle);
     Provider();
+
+    friend ostream& operator<<(ostream& os, const Provider& provider);
 };
 
 

@@ -6,21 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/CLionProjects/AirQuality/Model/Attribute.h
-string
+/mnt/d/CLionProjects/AirQuality/Model/Cleaner.h
+ctime
 -
 iostream
 -
 
-/mnt/d/CLionProjects/AirQuality/Model/Measure.cpp
-Measure.h
-/mnt/d/CLionProjects/AirQuality/Model/Measure.h
+/mnt/d/CLionProjects/AirQuality/Model/Provider.cpp
+Provider.h
+/mnt/d/CLionProjects/AirQuality/Model/Provider.h
 
-/mnt/d/CLionProjects/AirQuality/Model/Measure.h
-ctime
+/mnt/d/CLionProjects/AirQuality/Model/Provider.h
+User.h
+/mnt/d/CLionProjects/AirQuality/Model/User.h
+Cleaner.h
+/mnt/d/CLionProjects/AirQuality/Model/Cleaner.h
+vector
 -
-Attribute.h
-/mnt/d/CLionProjects/AirQuality/Model/Attribute.h
+
+/mnt/d/CLionProjects/AirQuality/Model/User.h
+string
+-
 iostream
 -
 

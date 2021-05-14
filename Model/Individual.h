@@ -17,7 +17,7 @@ protected:
     int id;
     bool malicious;
     int points;
-    Sensor sensor;
+    Sensor * sensor;
 
 public:
     string toString();
@@ -33,11 +33,13 @@ public:
 
     void setPoints(int points);
 
-    const Sensor &getSensor() const;
+    Sensor *getSensor() const;
 
-    void setSensor(const Sensor &sensor);
+    void setSensor(Sensor * sensor);
 
     Individual();
+
+    friend ostream& operator<<(ostream& os, const Individual& individual);
 };
 
 #endif //AIRQUALITY_INDIVIDUAL_H

@@ -15,7 +15,7 @@ public:
     static double ATMOInstantMean(const Sensor & sensor);
     static double ATMOInstantMean(const time_t &date, double longitude, double latitude);
 
-    double ATMOInstantMean(Date date, const Sensor &sensor);
+    double ATMOInstantMean(time_t date, const Sensor &sensor);
 
     static double ATMOSensorLifespanMean(const Sensor &sensor);
 

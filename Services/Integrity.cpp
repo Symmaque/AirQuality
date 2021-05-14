@@ -31,7 +31,7 @@ vector<Individual> Integrity::detectFraud() {
 }
 
 bool Integrity::detectUserFraud(Individual & value) {
-    return detectDefectiveSensor(value.getSensor());
+    return detectDefectiveSensor(*value.getSensor());
 }
 
 bool Integrity::detectDefectiveSensor(const Sensor & value) {

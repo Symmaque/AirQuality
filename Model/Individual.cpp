@@ -24,12 +24,12 @@ void Individual::setPoints(int points)
     Individual::points = points;
 }
 
-const Sensor &Individual::getSensor() const
+Sensor *Individual::getSensor() const
 {
     return sensor;
 }
 
-void Individual::setSensor(const Sensor &sensor)
+void Individual::setSensor(Sensor * sensor)
 {
     Individual::sensor = sensor;
 }
@@ -50,3 +50,8 @@ void Individual::setId(const int id)
 }
 
 Individual::Individual() {}
+
+ostream &operator<<(ostream &os, const Individual &individual) {
+    os << "Id : " << individual.id << endl << "Password : " << individual.password << endl << "SensorId : " << individual.sensor->getSensorId() << endl;
+    return os;
+}

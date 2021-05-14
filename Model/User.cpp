@@ -21,8 +21,8 @@ void User::setPassword(string string)
 
 User::User(int id, string password)
 {
-    this->id = move(id);
-    this->password = move(password);
+    User::id = move(id);
+    User::password = move(password);
 }
 
 User::User()
@@ -32,4 +32,9 @@ User::User()
 string User::toString()
 {
     return User::id + " " + User::password;
+}
+
+ostream &operator<<(ostream &os, const User &user) {
+    os << "Id : " << user.id << endl << "Password : " << user.password << endl;
+    return os;
 }

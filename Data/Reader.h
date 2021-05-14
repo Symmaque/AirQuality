@@ -17,9 +17,9 @@ class Reader
 {
 public:
     static vector<Sensor> readSensor();
-    static void readCleaners();
+    static vector<Cleaner> readCleaners();
     static vector<Individual> readIndividuals();
-    static void readProviders();
+    static vector<Provider> readProviders();
     static vector<User> readUsers();
     static vector<Measure> readMeasures();
     static void readUsers2();

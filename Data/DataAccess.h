@@ -26,6 +26,7 @@ protected:
     static vector<Measure> listMeasures;
     static vector<Attribute> listAttributes;
     static vector<Individual> listIndividuals;
+    static vector<Cleaner> listCleaners;
 
 public:
     static User signIn(string id, string password);
@@ -35,6 +36,10 @@ public:
     static vector<Provider> *getListProviders();
     static vector<Measure> *getListMeasures();
     static vector<Attribute> *getListAttribute();
+    static vector<Individual> *getListIndividuals();
+    static vector<Cleaner> *getListCleaners();
+
+    static void initLists();
 
     static void setListUsers(const vector<User> &listUsers);
 
