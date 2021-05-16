@@ -17,11 +17,11 @@ double Stats::ATMOSensorLifespanMean(const Sensor & sensor) {
     int indiceSum = 0;
     auto measures = sensor.getMeasures();
 
-    for (auto it = measures.begin() ; it != measures.end(); it += 4) {
-        Measure O3Measure = it[0];
-        Measure NO2Measure = it[1];
-        Measure SO2Measure = it[2];
-        Measure PM10Measure = it[3];
+    for (auto it = measures->begin() ; it != measures->end(); it += 4) {
+        Measure O3Measure = *it[0];
+        Measure NO2Measure = *it[1];
+        Measure SO2Measure = *it[2];
+        Measure PM10Measure = *it[3];
         int o3 = ATMOGaz(O3Measure.getAttribute().getId(), O3Measure.getValue());
         int no2 = ATMOGaz(NO2Measure.getAttribute().getId(), O3Measure.getValue());
         int so2 = ATMOGaz(SO2Measure.getAttribute().getId(), O3Measure.getValue());
@@ -30,7 +30,7 @@ double Stats::ATMOSensorLifespanMean(const Sensor & sensor) {
         indiceSum += maxIndice;
     }
     //And return the mean
-    return indiceSum / (double) measures.size() / 4.0;
+    return indiceSum / (double) measures->size() / 4.0;
 }
 double Stats::ATMOInstantMean(time_t date, const Sensor & sensor) {
     return 0.0;

@@ -23,11 +23,22 @@ std::pair<std::string, std::string> ProviderInterface::getLogInInformations() {
     return std::make_pair(id,password);
 }
 
-void ProviderInterface::chooseAction() {
-    int choice = 0;
-    displayMenu();
+int inputNumber(){
+    string input;
+    while (true){
+        cin >> input;
+        try{
+            int res = stoi(input);
+            return res;
+        } catch (...) {
+            cout << "Please enter an integer" << endl;
+        }
+    }
+}
 
-    cin >> choice;  //TODO : safe input
+void ProviderInterface::chooseAction() {
+    displayMenu();
+    int choice = inputNumber();
 
     while(true) {
         switch (choice) {
@@ -40,8 +51,8 @@ void ProviderInterface::chooseAction() {
                 cout << "GoodBye" << endl;
                 return;
             default:
-                cout << "Enter a valid number" << endl;
-                cin >> choice;
+                cout << "Enter a number between 1 and 2" << endl;
+                choice = inputNumber();
                 break;
         }
     }

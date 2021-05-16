@@ -16,14 +16,14 @@
 class Reader
 {
 public:
-    static vector<Sensor> readSensor();
-    static vector<Cleaner> readCleaners();
-    static vector<Individual> readIndividuals();
-    static vector<Provider> readProviders();
+    static void readSensor();
+    static void readCleaners();
+    static void readIndividuals();
+    static void readProviders();
     static vector<User> readUsers();
-    static vector<Measure> readMeasures();
+    static void readMeasures();
     static void readUsers2();
-    static vector<Attribute> readAttributes();
+    static void readAttributes();
 };
 
 #endif //READER_H

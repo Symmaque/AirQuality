@@ -23,12 +23,24 @@ std::pair<std::string, std::string> IndividualInterface::getLogInInformations() 
     cin >> password;
     return std::make_pair(id,password);
 }
+int inputNumber(){
+    string input;
+    while (true){
+        cin >> input;
+        try{
+            int res = stoi(input);
+            return res;
+        } catch (...) {
+            cout << "Please enter an integer" << endl;
+        }
+    }
+}
 
 void IndividualInterface::chooseAction() {
-    int choice = 0;
+
     displayMenu();
 
-    cin >> choice;  //TODO : safe input
+    int choice = inputNumber();
 
     while(true) {
         switch (choice) {
@@ -51,8 +63,8 @@ void IndividualInterface::chooseAction() {
                 cout << "GoodBye" << endl;
                 return;
             default:
-                cout << "Enter a valid number" << endl;
-                cin >> choice;
+                cout << "Enter a number between 1 and 4" << endl;
+                choice = inputNumber();
                 break;
         }
     }

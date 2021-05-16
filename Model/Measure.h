@@ -31,7 +31,7 @@ public:
 
     const Attribute &getAttribute() const;
 
-    void setAttribute(const Attribute &attribute);
+    void setAttribute(Attribute *attribute);
 
     double getValue() const;
 

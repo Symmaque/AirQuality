@@ -25,21 +25,16 @@ int Measure::getSensorId() const
     return sensorId;
 }
 
-void Measure::setSensorId(int sensorId)
-{
+void Measure::setSensorId(int sensorId){
     Measure::sensorId = sensorId;
 }
 
-const Attribute &Measure::getAttribute() const
-{
+const Attribute &Measure::getAttribute() const{
     return *attribute;
 }
 
-void Measure::setAttribute(const Attribute &attribute)
-{
-
-    Measure::attribute->setUnit(attribute.getUnit());
-    Measure::attribute->setDescription(attribute.getDescription());
+void Measure::setAttribute(Attribute *attribute){
+    Measure::attribute = attribute;
 }
 
 double Measure::getValue() const
@@ -79,7 +74,7 @@ string Measure::toString()
 }
 */
 ostream& operator<<(ostream& os, const Measure& measure) {
-    struct tm * tmp = localtime(measure.date);
+    auto * tmp = localtime(measure.date);
     os << "[ Date : " << tmp->tm_year + 1900 << "-" << tmp->tm_mon + 1 << "-" << tmp->tm_mday << ", Reliable : " << measure.reliable << ", Sensor : " << measure.sensorId << ", Value :  "<< measure.value << ", Unit : " << *measure.attribute << " ]";
     return os;
 }

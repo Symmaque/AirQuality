@@ -46,7 +46,20 @@ void Cleaner::setEndDate(time_t endDate) {
 }
 
 ostream &operator<<(ostream &os, const Cleaner &cleaner) {
-    os << "il faut implementer cette fonction pour les cleaners " << endl;
+    auto * time = localtime(&cleaner.startDate);
+    os << "Cleaner : " << cleaner.id << endl << "Lat :  " << cleaner.latitude << ", Long : " << cleaner.longitude << endl;
+    os << "Start Date : " << time->tm_year + 1900 << "-" << time->tm_mon + 1 << "-" << time->tm_mday << endl;
+    time = localtime(&cleaner.endDate);
+    os << "End Date : " << time->tm_year + 1900 << "-" << time->tm_mon + 1 << "-" << time->tm_mday << endl;
+
     return os;
+}
+
+Cleaner::Cleaner(int id, double latitude, double longitude, time_t startDate, time_t endDate){
+    Cleaner::id = id;
+    Cleaner::latitude = latitude;
+    Cleaner::longitude = longitude;
+    Cleaner::startDate = startDate;
+    Cleaner::endDate = endDate;
 }
 

@@ -62,16 +62,14 @@ vector<Attribute> *DataAccess::getListAttribute()
     return &listAttributes;
 }
 
-void DataAccess::init()
-{
-    //Reader *reader = new Reader();
-    listMeasures = Reader::readMeasures();
-    listAttributes = Reader::readAttributes();
-    listSensors = Reader::readSensor();
-    listCleaners = Reader::readCleaners();
-    listUsers = Reader::readUsers();
-    listIndividuals = Reader::readIndividuals();
-    listProviders = Reader::readProviders();
+void DataAccess::init(){
+    Reader::readAttributes();
+    Reader::readMeasures();
+    Reader::readSensor();
+    Reader::readCleaners();
+    Reader::readIndividuals();
+    Reader::readProviders();
+    //listUsers = Reader::readUsers(); file "accounts" needed
 
 }
 

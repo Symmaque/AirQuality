@@ -33,6 +33,7 @@ public:
 
     friend ostream& operator<<(ostream& os, const Cleaner& cleaner);
 
+    Cleaner(int id, double latitude, double longitude, time_t startDate, time_t endDate);
 
 protected:
     int id;

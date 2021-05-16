@@ -39,12 +39,12 @@ int main()
 }
 */
 
-vector<Sensor> Reader::readSensor()
+void Reader::readSensor()
 {
     ifstream file("../Data/dataset/sensors.csv");
     string buff;
     int i = 1;
-    vector<Sensor> list;
+    vector<Sensor> * list = DataAccess::getListSensors();
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
@@ -56,29 +56,37 @@ vector<Sensor> Reader::readSensor()
             getline(file, buff, ';');
             double longitude = stod(buff);
             cout << i << " : " << sensorId << " " << latitude << " " << longitude << endl;
-            Sensor *sen = new Sensor();
-            sen->setLatitude(latitude);
-            sen->setLongitude(longitude);
-            sen->setSensorId(atoi(sensorId.c_str()));
-            list.push_back(*sen);
+            Sensor sen(stoi(sensorId),latitude,longitude);
+
+            auto * measurements = DataAccess::getListMeasures();
+            auto * sensorMeasures = new vector<Measure*>();
+            for(auto& measurement : *measurements){
+                if(measurement.getSensorId() == sen.getSensorId()){
+                    sensorMeasures->push_back(&measurement);
+                }
+            }
+            sen.setMeasures(sensorMeasures);
+            list->push_back(sen);
             i++;
             file.get();
             file.get();
         }
     }
-    return list;
+    //return list;
 }
 
-vector<Cleaner> Reader::readCleaners(){
+void Reader::readCleaners(){
     ifstream file("../Data/dataset/cleaners.csv");
     string buff;
-    vector <Cleaner> list;
+    auto * list = DataAccess::getListCleaners();
     int i = 1;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
         {
-            string cleanerId = buff;
+            if(buff == "\n")    //EOF
+                break;
+            int cleanerId = stoi(buff.substr(7));
             getline(file, buff, ';');
             double latitude = stod(buff);
             getline(file, buff, ';');
@@ -86,9 +94,9 @@ vector<Cleaner> Reader::readCleaners(){
 
             //Lecture date début
             getline(file, buff, ';');
-            int year = atoi(buff.substr(0, 4).c_str());
-            int month = atoi(buff.substr(5, 2).c_str());
-            int day = atoi(buff.substr(8, 2).c_str());
+            int year = stoi(buff.substr(0, 4));
+            int month = stoi(buff.substr(5, 2));
+            int day = stoi(buff.substr(8, 2));
             tm tmp = tm();
             tmp.tm_mday = day;
             tmp.tm_mon = month - 1;
@@ -98,58 +106,67 @@ vector<Cleaner> Reader::readCleaners(){
 
             //Lecture date fin
             getline(file, buff, ';');
-            int year2 = atoi(buff.substr(0, 4).c_str());
-            int month2 = atoi(buff.substr(5, 2).c_str());
-            int day2 = atoi(buff.substr(8, 2).c_str());
-            tmp.tm_mday = day;
-            tmp.tm_mon = month - 1;
-            tmp.tm_year = year - 1900;
+            int year2 = stoi(buff.substr(0, 4));
+            int month2 = stoi(buff.substr(5, 2));
+            int day2 = stoi(buff.substr(8, 2));
+            tmp.tm_mday = day2;
+            tmp.tm_mon = month2 - 1;
+            tmp.tm_year = year2 - 1900;
             time_t dateEnd = mktime(&tmp);
-
+            Cleaner cleaner(cleanerId, latitude, longitude, dateBegin, dateEnd);
             cout << i << " : " << cleanerId << " " << latitude << " " << longitude
                  << " " << year << "/" << month << "/" << day << " - "
                  << year2 << "/" << month2 << "/" << day2 << endl;
-
+            list->push_back(cleaner);
+            file.get();
             file.get();
             i++;
         }
     }
 }
 
-vector<Provider> Reader::readProviders()
+void Reader::readProviders()
 {
     ifstream file("../Data/dataset/providers.csv");
     string buff;
-    vector<Provider> list;
+    vector<Provider> * list = DataAccess::getListProviders();
+    vector<Cleaner> * cleaners = DataAccess::getListCleaners();
     int i = 1;
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
         {
+            if(buff == "\n")    //EOF
+                break;
             string providerId = buff.substr(8);
             getline(file, buff, ';');
-            string cleanerId = buff.substr(6);
+            string cleanerId = buff.substr(7);
             Provider provider;
-            provider.setId(atoi(providerId.c_str()));
-            provider.addCleaner(&(*DataAccess::getListCleaners())[atol(cleanerId.c_str())]);
+            provider.setId(stoi(providerId));
+            provider.addCleaner(&(*cleaners)[stoi(cleanerId)]);
             //cout << i << " : " << providerId << " " << cleanerId << endl;
             file.get();
+            file.get();
+            list->push_back(provider);
+
             i++;
         }
     }
 }
 
-vector<Individual> Reader::readIndividuals() //Lit les particuliers!
+void Reader::readIndividuals() //Lit les particuliers!
 {
-    DataAccess *data = new DataAccess();
+
     ifstream file("../Data/dataset/users.csv");
     string buff;
     int i = 1;
-    vector<Individual> list;
+    vector<Individual> * list = DataAccess::getListIndividuals();
     if (file.is_open())
     {
         while (getline(file, buff, ';'))
         {
+            if(buff == "\n")
+                break;
             string individualId = buff.substr(4,1);
             //individualId.erase(0, 3); //Enlève "U S E R";
             getline(file, buff, ';');
@@ -157,23 +174,22 @@ vector<Individual> Reader::readIndividuals() //Lit les particuliers!
             //sensorId.erase(0, 6); //Efface "Sensor"
             //Créer obj ici
             cout << i << " : " << individualId << " " << sensorId << endl;
-            auto * ind = new Individual();
-            ind->setMalicious(false);
-            ind->setPoints(0);
-            ind->setId(atoi(individualId.c_str()));
+            Individual ind;
+            ind.setMalicious(false);
+            ind.setPoints(0);
+            ind.setId(stoi(individualId));
 
-            vector<Sensor> se = *DataAccess::getListSensors();
-            cout << se[atoi(sensorId.c_str())] << endl;
-            ind->setSensor(&se[atoi(sensorId.c_str())]);
+            vector <Sensor> * sensors = DataAccess::getListSensors();
+            ind.setSensor(&(*sensors)[stoi(sensorId)]);
+
 
 
             file.get();
             file.get();
             i++;
-            list.push_back(*ind);
+            list->push_back(ind);
         }
     }
-    return list;
 }
 
 vector<User> Reader::readUsers() //Lit les accounts!
@@ -190,8 +206,8 @@ vector<User> Reader::readUsers() //Lit les accounts!
             getline(file, buff, ';');
             string password = buff;
             //cout << i << " : " << userId << " " << sensorId << endl;
-            User *us = new User(atoi(userId.c_str()), password);
-            list.push_back(*us);
+            User us(stoi(userId), password);
+            list.push_back(us);
             i++;
             file.get(); //get the ;
             file.get(); //get the \n
@@ -200,12 +216,12 @@ vector<User> Reader::readUsers() //Lit les accounts!
     return list;
 }
 
-vector<Measure> Reader::readMeasures()
+void Reader::readMeasures()
 {
     ifstream file("../Data/dataset/measurements.csv");
     string buff;
     int i = 1;
-    vector<Measure> liste;
+    vector<Measure> * list = DataAccess::getListMeasures();
 
     if (file.is_open())
     {
@@ -214,10 +230,10 @@ vector<Measure> Reader::readMeasures()
             if(buff == "\n")    //EOF
                 break;
 
-            //Récupère date en time_t
-            int year = atoi(buff.substr(0, 4).c_str());
-            int month = atoi(buff.substr(5, 2).c_str());
-            int day = atoi(buff.substr(8, 2).c_str());
+            //fetch date by time_t
+            int year = stoi(buff.substr(0, 4));
+            int month = stoi(buff.substr(5, 2));
+            int day = stoi(buff.substr(8, 2));
             tm * tmp = new tm();
             tmp->tm_mday = day;
             tmp->tm_mon = month - 1;
@@ -226,7 +242,7 @@ vector<Measure> Reader::readMeasures()
 
             //Date date(buff.substr(0,10));
 
-            //Reste des données
+            //Remaining data
             getline(file, buff, ';');
             string id = buff.substr(6);
             getline(file, buff, ';');
@@ -237,16 +253,22 @@ vector<Measure> Reader::readMeasures()
             cout << i << " : " << year << " " << month << " " << day
                  << " -> " << id << " " << type << " " << val << endl;
             */
+            vector<Attribute> * attributes = DataAccess::getListAttribute();
 
             Measure me;// = new Measure();
-            Attribute attribute;
-            attribute.setUnit(type);
-            me.setAttribute(attribute); //Rajouter le bon attribut (recherche par id?)
+            //TODO : use map instead of vector of attributes to avoid the loop
+            for (auto& att : *attributes){
+                string unit = att.getId();
+                if(att.getId() == type){
+                    me.setAttribute(&att);
+                    break;
+                }
+            }
             me.setDate(date);
-            me.setSensorId(atoi(id.c_str()));
+            me.setSensorId(stoi(id));
             me.setReliable(true);
             me.setValue(val);
-            liste.push_back(me);
+            list->push_back(me);
             //delete me;
             //cout << me->toString() << endl;
             i++;
@@ -255,7 +277,6 @@ vector<Measure> Reader::readMeasures()
             delete tmp;
         }
     }
-    return liste;
 }
 
 
@@ -263,33 +284,34 @@ void Reader::readUsers2() {
 
 }
 
-vector<Attribute> Reader::readAttributes()
+void Reader::readAttributes()
 {
     ifstream file("../Data/dataset/attributes.csv");
     string buff;
     int i = 1;
-    vector<Attribute> liste;
+    vector<Attribute>* list = DataAccess::getListAttribute();
     if (file.is_open())
     {
         getline(file, buff); //Saute première ligne (juste noms des valeurs)
         while (getline(file, buff, ';'))
         {
+            if(buff == "\n")    //EOF
+                break;
             string attributeID = buff;
             getline(file, buff, ';');
             string unit = buff;
             getline(file, buff, ';');
             string description = buff;
             //cout << i << " : " << attributeID << " " << unit << " " << description << endl;
-            Attribute *att = new Attribute();
+            auto *att = new Attribute();
             att->setId(attributeID);
             att->setUnit(unit);
             att->setDescription(description);
             cout << i << " : " << att->toString() << endl;
-            liste.push_back(*att);
-            file.get(); //Pourquoi 2? Aucune idée, mais ça marche pas sinon
-            file.get();
+            list->push_back(*att);
+            file.get(); //get ;
+            file.get(); //get \n
             i++;
         }
     }
-    return liste;
 }

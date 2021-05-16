@@ -23,12 +23,16 @@ void Provider::setId(int id) {
 }
 
 ostream &operator<<(ostream &os, const Provider &provider) {
-    os << "Id : " << provider.id << ", Password : " << provider.password << ", AdressListCleaners : " << provider.listCleaners << endl;
+    os << "Id : " << provider.id << ", Password : " << provider.password << ", AddressListCleaners : " << provider.listCleaners << endl;
+    for (const auto& cleaner : *provider.listCleaners){
+        cout << *cleaner <<endl;
+    }
+    cout << "Fin de Provider" << endl << endl;
     return os;
 }
 
 Provider::Provider() {
-
+    Provider::listCleaners = new vector<Cleaner*>();
 }
 
 

@@ -3,7 +3,7 @@
 //
 
 #include "Sensor.h"
-#include "math.h"
+#include <cmath>
 
 int Sensor::getSensorId() const {
     return sensorId;
@@ -29,11 +29,11 @@ void Sensor::setLongitude(double longitude) {
     Sensor::longitude = longitude;
 }
 
-const vector<Measure> &Sensor::getMeasures() const {
+const vector<Measure*> *Sensor::getMeasures() const {
     return measures;
 }
 
-void Sensor::setMeasures(const vector<Measure> &measures) {
+void Sensor::setMeasures(vector<Measure*> *measures) {
     Sensor::measures = measures;
 }
 
@@ -45,7 +45,7 @@ double Sensor::distance(double latitude, double longitude) {
     return pow(latitude - this->latitude, 2) + pow(longitude - this->longitude, 2);
 }
 
-Sensor::Sensor(int sensorId, double latitude, double longitude, const vector<Measure> &measures) {
+Sensor::Sensor(int sensorId, double latitude, double longitude, vector<Measure*> *measures) {
     Sensor::latitude = latitude;
     Sensor::longitude = longitude;
     Sensor::sensorId = sensorId;
@@ -57,6 +57,7 @@ Sensor::Sensor(int sensorId, double latitude, double longitude) {
     Sensor::latitude = latitude;
     Sensor::longitude = longitude;
     Sensor::sensorId = sensorId;
+    Sensor::measures = new vector<Measure*>();
 }
 
 
@@ -77,8 +78,8 @@ ostream& operator<<(ostream& os, const Sensor & sensor)
     os << "Latitude : " << sensor.latitude << endl;
     os << "Longitude : " << sensor.longitude << endl;
     os << "Measures : " << endl;
-    for (auto& measure : sensor.measures){
-        os << measure << endl;
+    for (auto& measure : *sensor.measures){
+        os << *measure << endl;
     }
     return os;
 }

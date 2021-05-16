@@ -32,11 +32,23 @@ void GovernmentInterface::displayMenu(){
     cout << "8-Quitter" << endl;
     cout << endl << "Enter you choice :" << endl;
 }
+int inputNumber(){
+    string input;
+    while (true){
+        cin >> input;
+        try{
+            int res = stoi(input);
+            return res;
+        } catch (...) {
+            cout << "Please enter an integer" << endl;
+        }
+    }
+}
+
 void GovernmentInterface::chooseAction() {
-    int choice = 0;
     displayMenu();
 
-    cin >> choice;  //TODO : safe input
+    int choice = inputNumber();
 
     while(true) {
         switch (choice) {
@@ -72,8 +84,8 @@ void GovernmentInterface::chooseAction() {
                 cout << "GoodBye" << endl;
                 return;
             default:
-                cout << "Enter a valid number" << endl;
-                cin >> choice;
+                cout << "Enter a number between 1 and 8" << endl;
+                choice = inputNumber();
                 break;
         }
     }
