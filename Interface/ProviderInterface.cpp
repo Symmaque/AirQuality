@@ -3,6 +3,7 @@
 //
 
 #include "ProviderInterface.h"
+#include "InterfaceUtils.h"
 #include <iostream>
 using namespace std;
 void ProviderInterface::display() {
@@ -23,22 +24,9 @@ std::pair<std::string, std::string> ProviderInterface::getLogInInformations() {
     return std::make_pair(id,password);
 }
 
-int inputNumber(){
-    string input;
-    while (true){
-        cin >> input;
-        try{
-            int res = stoi(input);
-            return res;
-        } catch (...) {
-            cout << "Please enter an integer" << endl;
-        }
-    }
-}
-
 void ProviderInterface::chooseAction() {
     displayMenu();
-    int choice = inputNumber();
+    int choice = InterfaceUtils::inputNumber();
 
     while(true) {
         switch (choice) {
@@ -52,7 +40,7 @@ void ProviderInterface::chooseAction() {
                 return;
             default:
                 cout << "Enter a number between 1 and 2" << endl;
-                choice = inputNumber();
+                choice = InterfaceUtils::inputNumber();
                 break;
         }
     }

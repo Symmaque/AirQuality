@@ -3,6 +3,7 @@
 //
 
 #include "IndividualInterface.h"
+#include "InterfaceUtils.h"
 #include <iostream>
 using namespace std;
 void IndividualInterface::display() {
@@ -23,24 +24,12 @@ std::pair<std::string, std::string> IndividualInterface::getLogInInformations() 
     cin >> password;
     return std::make_pair(id,password);
 }
-int inputNumber(){
-    string input;
-    while (true){
-        cin >> input;
-        try{
-            int res = stoi(input);
-            return res;
-        } catch (...) {
-            cout << "Please enter an integer" << endl;
-        }
-    }
-}
 
 void IndividualInterface::chooseAction() {
 
     displayMenu();
 
-    int choice = inputNumber();
+    int choice = InterfaceUtils::inputNumber();
 
     while(true) {
         switch (choice) {
@@ -64,7 +53,7 @@ void IndividualInterface::chooseAction() {
                 return;
             default:
                 cout << "Enter a number between 1 and 4" << endl;
-                choice = inputNumber();
+                choice = InterfaceUtils::inputNumber();
                 break;
         }
     }
