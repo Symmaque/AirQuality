@@ -4,6 +4,7 @@
 
 #include "GovernmentInterface.h"
 #include "InterfaceUtils.h"
+#include "../Services/Integrity.h"
 #include <iostream>
 using namespace std;
 
@@ -14,9 +15,9 @@ bool GovernmentInterface::authentication() {
 
 std::pair<std::string, std::string> GovernmentInterface::getLogInInformations() {
     string id, password;
-    cout << "Enter you id : " << endl;
+    cout << "Enter your id : " << endl;
     cin >> id;
-    cout << "Enter you password : " << endl;
+    cout << "Enter your password : " << endl;
     cin >> password;
     return std::make_pair(id,password);
 }
@@ -59,7 +60,7 @@ void GovernmentInterface::chooseAction() {
                 break;
             case 5:
                 cout << "Call detectFraudeurs method" << endl;
-                //displayMenu();
+                displayDetectFraud();
                 break;
             case 6:
                 cout << "Call reliabilitySensor method" << endl;
@@ -86,3 +87,12 @@ void GovernmentInterface::display() {
     chooseAction();
 }
 
+void GovernmentInterface::displayDetectFraud() {
+    cout << "Entrez l'identifiant d'un utilisateur" << endl;
+    int userId;
+    cin >> userId;
+    Individual & individual = DataAccess::findIndividual(userId);
+    cout << "Found user sensor = " << individual.getSensor() << endl;
+    bool fraud = Integrity::detectUserFraud(individual);
+    cout << " Fraud = " << fraud << endl;
+}

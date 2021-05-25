@@ -30,6 +30,7 @@ void testfindSimilarSensors(){
 }
 
 enum userType {INDIVIDUAL = 1, PROVIDER, GOVERNMENT, ADMIN};
+
 bool menu(int& choice){
 
     switch(choice){
@@ -85,7 +86,6 @@ void displayFirstInterface(){
 }
 
 int main() {
-    //displayFirstInterface();
 
     //testfindSimilarSensors();
 
@@ -100,7 +100,9 @@ int main() {
     }*/
 
     DataAccess::init();
-/*
+    displayFirstInterface();
+
+    /*
     for(const auto& measure: *DataAccess::getListMeasures()){
         cout << measure << endl;
     }

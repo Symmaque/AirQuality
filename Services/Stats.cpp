@@ -14,21 +14,25 @@ double Stats::ATMOInstantMean(const time_t &date, double longitude, double latit
 }
 
 double Stats::ATMOSensorLifespanMean(const Sensor & sensor) {
+    cout << " Sensor pointer = " << sensor.getSensorId() << endl;
     int indiceSum = 0;
     auto measures = sensor.getMeasures();
 
     for (auto it = measures->begin() ; it != measures->end(); it += 4) {
+        //cout << "Measure = " << (*it)->getValue() << endl;
         Measure O3Measure = *it[0];
         Measure NO2Measure = *it[1];
         Measure SO2Measure = *it[2];
         Measure PM10Measure = *it[3];
         int o3 = ATMOGaz(O3Measure.getAttribute().getId(), O3Measure.getValue());
-        int no2 = ATMOGaz(NO2Measure.getAttribute().getId(), O3Measure.getValue());
-        int so2 = ATMOGaz(SO2Measure.getAttribute().getId(), O3Measure.getValue());
-        int pm10 = ATMOGaz(PM10Measure.getAttribute().getId(), O3Measure.getValue());
+        int no2 = ATMOGaz(NO2Measure.getAttribute().getId(), NO2Measure.getValue());
+        int so2 = ATMOGaz(SO2Measure.getAttribute().getId(), SO2Measure.getValue());
+        int pm10 = ATMOGaz(PM10Measure.getAttribute().getId(), PM10Measure.getValue());
+        //cout << " O3 = " << o3 << " NO2 = " << no2 << " SO2 " << so2 << " PM10 " << pm10 << endl;
         int maxIndice = max(max(max(o3, no2), so2), pm10);
         indiceSum += maxIndice;
     }
+    cout << "Returned mean = " << indiceSum << endl;
     //And return the mean
     return indiceSum / (double) measures->size() / 4.0;
 }
@@ -37,7 +41,8 @@ double Stats::ATMOInstantMean(time_t date, const Sensor & sensor) {
 }
 
 int Stats::ATMOGaz(const string& attributeId, double value) {
-    if (attributeId == "O2") {
+    //cout << "Attribute asked : " << attributeId << " value = " << value << endl;
+    if (attributeId == "O3") {
         if(value >= 0 && value <= 29) return 1;
         if(value >= 30 && value <= 54) return 2;
         if(value >= 55 && value <= 79) return 3;
