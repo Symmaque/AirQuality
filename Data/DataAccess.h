@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 
 #include "../Model/Sensor.h"
 #include "../Model/Provider.h"
@@ -39,10 +40,10 @@ public:
     static vector<Individual> *getListIndividuals();
     static vector<Cleaner> *getListCleaners();
 
+    static Individual & findIndividual(int id);
+
     static void initLists();
-
     static void setListUsers(const vector<User> &listUsers);
-
     static void setListProviders(const vector<Provider> &listProviders);
 };
 

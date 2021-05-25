@@ -81,3 +81,8 @@ vector<Cleaner> *DataAccess::getListCleaners() {
     return &listCleaners;
 }
 
+Individual & DataAccess::findIndividual(int id) {
+    for(auto & it : listIndividuals) {
+        if(it.getId() == id) return it;
+    }
+}
