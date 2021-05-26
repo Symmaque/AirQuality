@@ -14,7 +14,7 @@ double Stats::ATMOInstantMean(const time_t &date, double longitude, double latit
 }
 
 double Stats::ATMOSensorLifespanMean(const Sensor & sensor) {
-    cout << " Sensor pointer = " << sensor.getSensorId() << endl;
+    cout << " Sensor id = " << sensor.getSensorId() << endl;
     int indiceSum = 0;
     auto measures = sensor.getMeasures();
 
@@ -32,9 +32,9 @@ double Stats::ATMOSensorLifespanMean(const Sensor & sensor) {
         int maxIndice = max(max(max(o3, no2), so2), pm10);
         indiceSum += maxIndice;
     }
-    cout << "Returned mean = " << indiceSum << endl;
+    cout << "Returned mean = " << indiceSum / ((double) measures->size() / 4.0) << endl;
     //And return the mean
-    return indiceSum / (double) measures->size() / 4.0;
+    return indiceSum / ((double) measures->size() / 4.0);
 }
 double Stats::ATMOInstantMean(time_t date, const Sensor & sensor) {
     return 0.0;
@@ -44,48 +44,48 @@ int Stats::ATMOGaz(const string& attributeId, double value) {
     //cout << "Attribute asked : " << attributeId << " value = " << value << endl;
     if (attributeId == "O3") {
         if(value >= 0 && value <= 29) return 1;
-        if(value >= 30 && value <= 54) return 2;
-        if(value >= 55 && value <= 79) return 3;
-        if(value >= 80 && value <= 104) return 4;
-        if(value >= 105 && value <= 129) return 5;
-        if(value >= 130 && value <= 149) return 6;
-        if(value >= 150 && value <= 179) return 7;
-        if(value >= 180 && value <= 209) return 8;
-        if(value >= 210 && value <= 239) return 9;
-        if(value >= 240) return 10;
+        if(value >= 29 && value <= 54) return 2;
+        if(value >= 54 && value <= 79) return 3;
+        if(value >= 79 && value <= 104) return 4;
+        if(value >= 104 && value <= 129) return 5;
+        if(value >= 129 && value <= 149) return 6;
+        if(value >= 149 && value <= 179) return 7;
+        if(value >= 179 && value <= 209) return 8;
+        if(value >= 209 && value <= 239) return 9;
+        if(value >= 239) return 10;
     } else if(attributeId == "SO2") {
         if(value >= 0 && value < 39) return 1;
-        if(value >= 40 && value < 79) return 2;
-        if(value >= 80 && value < 119) return 3;
-        if(value >= 120 && value < 159) return 4;
-        if(value >= 160 && value < 199) return 5;
-        if(value >= 200 && value < 249) return 6;
-        if(value >= 250 && value < 299) return 7;
-        if(value >= 250 && value < 299) return 8;
-        if(value >= 300 && value < 399) return 9;
-        if(value >= 400 && value < 499) return 10;
+        if(value >= 39 && value < 79) return 2;
+        if(value >= 79 && value < 119) return 3;
+        if(value >= 119 && value < 159) return 4;
+        if(value >= 159 && value < 199) return 5;
+        if(value >= 199 && value < 249) return 6;
+        if(value >= 249 && value < 299) return 7;
+        if(value >= 299 && value < 399) return 8;
+        if(value >= 399 && value < 499) return 9;
+        if(value >= 499) return 10;
     } else if(attributeId == "NO2") {
         if(value >= 0 && value < 29) return 1;
-        if(value >= 30 && value < 54) return 2;
-        if(value >= 55 && value < 84) return 3;
-        if(value >= 85 && value < 109) return 4;
-        if(value >= 110 && value < 134) return 5;
-        if(value >= 135 && value < 164) return 6;
-        if(value >= 165 && value < 199) return 7;
-        if(value >= 200 && value < 274) return 8;
-        if(value >= 275 && value < 399) return 9;
-        if(value >= 400) return 10;
+        if(value >= 29 && value < 54) return 2;
+        if(value >= 54 && value < 84) return 3;
+        if(value >= 84 && value < 109) return 4;
+        if(value >= 109 && value < 134) return 5;
+        if(value >= 134 && value < 164) return 6;
+        if(value >= 164 && value < 199) return 7;
+        if(value >= 199 && value < 274) return 8;
+        if(value >= 274 && value < 399) return 9;
+        if(value >= 399) return 10;
     } else if(attributeId == "PM10") {
         if(value >= 0 && value < 6) return 1;
-        if(value >= 7 && value < 13) return 2;
-        if(value >= 14 && value < 20) return 3;
-        if(value >= 21 && value < 27) return 4;
-        if(value >= 28 && value < 34) return 5;
-        if(value >= 35 && value < 41) return 6;
-        if(value >= 42 && value < 49) return 7;
-        if(value >= 50 && value < 64) return 8;
-        if(value >= 65 && value < 79) return 9;
-        if(value >= 80) return 10;
+        if(value >= 6 && value < 13) return 2;
+        if(value >= 13 && value < 20) return 3;
+        if(value >= 20 && value < 27) return 4;
+        if(value >= 27 && value < 34) return 5;
+        if(value >= 34 && value < 41) return 6;
+        if(value >= 41 && value < 49) return 7;
+        if(value >= 49 && value < 64) return 8;
+        if(value >= 64 && value < 79) return 9;
+        if(value >= 79) return 10;
     }
 }
 

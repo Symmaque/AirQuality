@@ -92,7 +92,7 @@ void GovernmentInterface::displayDetectFraud() {
     int userId;
     cin >> userId;
     Individual & individual = DataAccess::findIndividual(userId);
-    cout << "Found user sensor = " << individual.getSensor() << endl;
+    cout << "Found user asked = " << userId << " sensor = " << individual.getSensor()->getSensorId() << endl;
     bool fraud = Integrity::detectUserFraud(individual);
     cout << " Fraud = " << fraud << endl;
 }

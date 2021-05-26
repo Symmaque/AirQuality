@@ -40,7 +40,7 @@ bool Integrity::detectDefectiveSensor(const Sensor & value) {
 
     cout << "Value ATMO " << valueATMO << endl;
 
-    vector<Sensor> & allSensors = *DataAccess::getListSensors();
+    vector<Sensor> allSensors = *DataAccess::getListSensors();
     vector<Sensor> closeSensors; //TODO Maybe use a map sensor-distance to avoid recomputing
 
     sort (allSensors.begin(), allSensors.end(), [&value](Sensor& a,Sensor& b) {
@@ -56,8 +56,11 @@ bool Integrity::detectDefectiveSensor(const Sensor & value) {
     int i = 0;
     //We loop through the 10 closest sensors without going out of the index bound
     for(auto it = allSensors.begin(); it != allSensors.end() && i < 10; ++it, i++) {
-        cout << " Distance " << it->distance(value) << endl;
-        if(it->distance(value) < 100) { //Only include close sensors
+        if(it->distance(value) == 0) { //It means it is the current sensor (value) and we have to exclude it from the comparison
+            allSensors.erase(it);
+        }
+        if(it->distance(value) < 0.2) { //Only include close sensors
+            cout << " Distance " << it->distance(value) << endl;
             closeSensors.push_back(*it);
         }
     }
@@ -75,12 +78,13 @@ bool Integrity::detectDefectiveSensor(const Sensor & value) {
     double sumDiffs = 0.0;
     //Compute standard deviation
     for(const auto& sensor : closeSensors) {
-        sumDiffs = pow(average - Stats::ATMOSensorLifespanMean(sensor), 2);
+        sumDiffs += pow(average - Stats::ATMOSensorLifespanMean(sensor), 2);
     }
+
     double variance = sumDiffs / (double) n;
     double standardDeviation = sqrt(variance);
     //Confidence interval inclusion check
     double confidence = 2 * standardDeviation / sqrt(n);
 
-    return (average - confidence) < valueATMO || average + confidence > valueATMO;
+    return valueATMO < (average - confidence) || valueATMO > (average + confidence);
 }
