@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Clustering.h"
 #include "Stats.h"
+#include "../Data/DataAccess.h"
 
 using namespace std;
 
@@ -19,11 +20,11 @@ Sensor *firstElement(const pair<Sensor *, double> &p) {
 
 vector<Sensor *> *Clustering::findSimilarSensors(const Sensor &s, const time_t &startDate, const time_t &endDate) {
 
-    //vector<Sensor> &sensors = DataAccess.getSensors();
-    vector<Sensor> sensors = { Sensor(10, 1, 1), Sensor(11, 13, 10), Sensor(15, 10, 0) };
+    auto * sensors = DataAccess::getListSensors();
+    //vector<Sensor> sensors = { Sensor(10, 1, 1), Sensor(11, 13, 10), Sensor(15, 10, 0) };
     //vector <Sensor> sensors = {};
 
-    if (sensors.empty()) {
+    if (sensors->empty()) {
         cerr << "Warning in file " << __FILE__ << " at line " << __LINE__
              << " : vector sensors is empty thus the function " << __FUNCTION__ << " has returned nullptr" << endl;
         return nullptr;
@@ -39,10 +40,10 @@ vector<Sensor *> *Clustering::findSimilarSensors(const Sensor &s, const time_t &
     double tempDiff;
     vector<pair<Sensor *, double>> deltas;
 
-    double indiceS = Stats::ATMOPeriodMean(startDate, endDate, s.getLongitude(), s.getLatitude());
-    for (auto &sensor : sensors) {
+    double indiceS = Stats::ATMOPeriodMean(s, startDate, endDate, s.getLongitude(), s.getLatitude());
+    for (auto &sensor : *sensors) {
         if (sensor.getSensorId() != s.getSensorId()) {
-            tempIndice = Stats::ATMOPeriodMean(startDate, endDate, sensor.getLongitude(), sensor.getLatitude());
+            tempIndice = Stats::ATMOPeriodMean(sensor, startDate, endDate, sensor.getLongitude(), sensor.getLatitude());
             tempDiff = abs(tempIndice - indiceS);
             auto tempPair = make_pair(&sensor, tempDiff);
             deltas.push_back(tempPair);
@@ -58,11 +59,11 @@ vector<Sensor *> *Clustering::findSimilarSensors(const Sensor &s, const time_t &
 #endif
 
     sort(deltas.begin(), deltas.end(), pairCompare);
+
 #ifdef DEBUG
-    cout << "Begin deltas sorted : " << endl;
+    ccout << "Begin deltas sorted : " << endl;
     for(auto & delta : deltas){
-        //cout << "Delta.first :" << *delta.first << endl;
-        cout << "Delta.second :" << delta.second << endl;
+        cout << "Id :" << delta.first->getSensorId() << "   Delta : " << delta.second << endl;
     }
     cout << "End sorted deltas------------------" << endl;
 #endif

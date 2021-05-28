@@ -4,8 +4,29 @@
 
 #include "Stats.h"
 
-double Stats::ATMOPeriodMean(const time_t &startDate, const time_t &endDate, double longitude, double latitude) {
-    return latitude;
+double Stats::ATMOPeriodMean(const Sensor& sensor, const time_t &startDate, const time_t &endDate, double longitude, double latitude) {
+    int indiceSum = 0;
+    auto * measures = sensor.getMeasures();
+
+    auto nbMeasures = (double) measures->size();
+    for (auto it = measures->begin() ; it != measures->end(); it += 4) {
+        if(*it[0]->getDate() < startDate || *it[0]->getDate() > endDate){
+            nbMeasures -= 4;
+            continue;
+        }
+        Measure O3Measure = *it[0];
+        Measure NO2Measure = *it[1];
+        Measure SO2Measure = *it[2];
+        Measure PM10Measure = *it[3];
+        int o3 = ATMOGaz(O3Measure.getAttribute().getId(), O3Measure.getValue());
+        int no2 = ATMOGaz(NO2Measure.getAttribute().getId(), O3Measure.getValue());
+        int so2 = ATMOGaz(SO2Measure.getAttribute().getId(), O3Measure.getValue());
+        int pm10 = ATMOGaz(PM10Measure.getAttribute().getId(), O3Measure.getValue());
+        int maxIndice = max(max(max(o3, no2), so2), pm10);
+        indiceSum += maxIndice;
+    }
+    //And return the mean
+    return indiceSum / nbMeasures / 4.0;
 }
 
 double Stats::ATMOInstantMean(const time_t &date, double longitude, double latitude) {
