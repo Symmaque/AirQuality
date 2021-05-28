@@ -8,6 +8,7 @@
 using namespace std;
 #include <ctime>
 #include <vector>
+#include <cmath>
 #include "../Model/Sensor.h"
 
 #include "Stats.h"

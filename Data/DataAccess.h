@@ -41,6 +41,7 @@ public:
     static vector<Cleaner> *getListCleaners();
 
     static Individual & findIndividual(int id);
+    static Sensor & findSensor(int id);
 
     static void initLists();
     static void setListUsers(const vector<User> &listUsers);

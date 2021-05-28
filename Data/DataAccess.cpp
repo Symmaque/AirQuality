@@ -86,3 +86,9 @@ Individual & DataAccess::findIndividual(int id) {
         if(it.getId() == id) return it;
     }
 }
+
+Sensor & DataAccess::findSensor(int id) {
+    for(auto & it : listSensors) {
+        if(it.getSensorId() == id) return it;
+    }
+}

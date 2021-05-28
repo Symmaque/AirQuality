@@ -85,7 +85,7 @@ void displayFirstInterface(){
 }
 
 int main() {
-    //displayFirstInterface();
+    
 
     //testfindSimilarSensors();
 
@@ -100,6 +100,7 @@ int main() {
     }*/
 
     DataAccess::init();
+    displayFirstInterface();
 /*
     for(const auto& measure: *DataAccess::getListMeasures()){
         cout << measure << endl;
