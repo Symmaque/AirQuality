@@ -37,17 +37,30 @@ bool Integrity::detectUserFraud(Individual & value) {
 bool Integrity::detectDefectiveSensor(const Sensor & value) {
 
     double valueATMO = Stats::ATMOSensorLifespanMean(value);
-    vector<Sensor> & allSensors = *DataAccess::getListSensors();
+
+    cout << "Value ATMO " << valueATMO << endl;
+
+    vector<Sensor> allSensors = *DataAccess::getListSensors();
     vector<Sensor> closeSensors; //TODO Maybe use a map sensor-distance to avoid recomputing
 
     sort (allSensors.begin(), allSensors.end(), [&value](Sensor& a,Sensor& b) {
         return a.distance(value) < b.distance(value);
     });
 
+    for (auto it = allSensors.begin(); it != allSensors.end(); ++it) {
+        if(it->getSensorId() == value.getSensorId()) {
+            allSensors.erase(it);
+        }
+    }
+
     int i = 0;
     //We loop through the 10 closest sensors without going out of the index bound
     for(auto it = allSensors.begin(); it != allSensors.end() && i < 10; ++it, i++) {
-        if(it->distance(value) < 100.0) { //Only include close sensors
+        if(it->distance(value) == 0) { //It means it is the current sensor (value) and we have to exclude it from the comparison
+            allSensors.erase(it);
+        }
+        if(it->distance(value) < 1.0) { //Only include close sensors
+            cout << " Distance " << it->distance(value) << endl;
             closeSensors.push_back(*it);
         }
     }
@@ -60,15 +73,24 @@ bool Integrity::detectDefectiveSensor(const Sensor & value) {
     }
     double average = sumTotal / (double) n;
 
+    cout << " Value target = " << valueATMO << " Average = " << average << endl;
+
     double sumDiffs = 0.0;
     //Compute standard deviation
     for(const auto& sensor : closeSensors) {
-        sumDiffs = pow(average - Stats::ATMOSensorLifespanMean(sensor), 2);
+        sumDiffs += pow(average - Stats::ATMOSensorLifespanMean(sensor), 2);
     }
+
     double variance = sumDiffs / (double) n;
     double standardDeviation = sqrt(variance);
     //Confidence interval inclusion check
-    double confidence = 2 * standardDeviation / sqrt(n);
+    double confidence = standardDeviation / sqrt(n);
+    cout << " Target = " << valueATMO << endl;
+    cout << " average " << average << endl;
+    cout << " SD = " << standardDeviation << endl;
+    cout << " confidence = " << confidence << endl;
+    cout << " lower bound " << average - confidence;
+    cout << " upper bound " << average + confidence;
 
-    return (average - confidence) < valueATMO || average + confidence > valueATMO;
+    return valueATMO < (average - confidence) || valueATMO > (average + confidence);
 }

@@ -19,7 +19,6 @@ public:
 
     static vector<Sensor *> * findSimilarSensors(const Sensor &s, const time_t & startDate, const time_t & endDate);
 
-
 };
 
 

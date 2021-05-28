@@ -280,7 +280,7 @@ void Reader::readAttributes() {
             string unit = buff;
             getline(file, buff, ';');
             string description = buff;
-            //cout << i << " : " << attributeID << " " << unit << " " << description << endl;
+            cout << i << " : " << attributeID << " " << unit << " " << description << endl;
             auto *att = new Attribute();
             att->setId(attributeID);
             att->setUnit(unit);

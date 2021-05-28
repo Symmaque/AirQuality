@@ -11,7 +11,7 @@
 
 class Integrity {
 public:
-    vector<Sensor> sensorReliability();
+    static vector<Sensor> sensorReliability();
     static vector<Individual> detectFraud();
     static bool detectUserFraud(Individual & value);
     static bool detectDefectiveSensor(const Sensor & value);

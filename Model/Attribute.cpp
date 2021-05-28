@@ -29,8 +29,7 @@ void Attribute::setDescription(const string &description)
     Attribute::description = description;
 }
 
-Attribute::~Attribute()
-{}
+Attribute::~Attribute(){}
 
 string Attribute::toString()
 {
