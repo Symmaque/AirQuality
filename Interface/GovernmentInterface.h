@@ -13,6 +13,10 @@ public:
     static std::pair<std::string, std::string> getLogInInformations();
     static void chooseAction();
     static void displayMenu();
+
+    static void displayDetectUserFraud();
+
+    static void displayDetectAnyFraud();
 };
 
 

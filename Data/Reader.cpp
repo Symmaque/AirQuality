@@ -68,6 +68,7 @@ void Reader::readSensor() {
             list->push_back(sen);
             i++;
             file.get();
+            file.get();
         }
     }
     //return list;
@@ -115,6 +116,7 @@ void Reader::readCleaners() {
                  << year2 << "/" << month2 << "/" << day2 << endl;
             list->push_back(cleaner);
             file.get();
+            file.get();
             i++;
         }
     }
@@ -137,6 +139,7 @@ void Reader::readProviders() {
             provider.setId(stoi(providerId));
             provider.addCleaner(&(*cleaners)[stoi(cleanerId)]);
             //cout << i << " : " << providerId << " " << cleanerId << endl;
+            file.get();
             file.get();
             list->push_back(provider);
 
@@ -171,6 +174,7 @@ void Reader::readIndividuals() //Lit les particuliers!
             ind.setSensor(&(*sensors)[stoi(sensorId)]);
 
 
+            file.get();
             file.get();
             i++;
             list->push_back(ind);
@@ -255,6 +259,7 @@ void Reader::readMeasures() {
             //cout << me->toString() << endl;
             i++;
             file.get(); //get ;
+            file.get();
             delete tmp;
         }
     }
@@ -280,7 +285,7 @@ void Reader::readAttributes() {
             string unit = buff;
             getline(file, buff, ';');
             string description = buff;
-            //cout << i << " : " << attributeID << " " << unit << " " << description << endl;
+            cout << i << " : " << attributeID << " " << unit << " " << description << endl;
             auto *att = new Attribute();
             att->setId(attributeID);
             att->setUnit(unit);
@@ -288,6 +293,7 @@ void Reader::readAttributes() {
             cout << i << " : " << att->toString() << endl;
             list->push_back(*att);
             file.get(); //get ;
+            file.get();
             i++;
         }
     }

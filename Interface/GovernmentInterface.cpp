@@ -4,6 +4,7 @@
 
 #include "GovernmentInterface.h"
 #include "InterfaceUtils.h"
+#include "../Services/Integrity.h"
 #include <iostream>
 using namespace std;
 
@@ -14,9 +15,9 @@ bool GovernmentInterface::authentication() {
 
 std::pair<std::string, std::string> GovernmentInterface::getLogInInformations() {
     string id, password;
-    cout << "Enter you id : " << endl;
+    cout << "Enter your id : " << endl;
     cin >> id;
-    cout << "Enter you password : " << endl;
+    cout << "Enter your password : " << endl;
     cin >> password;
     return std::make_pair(id,password);
 }
@@ -27,11 +28,12 @@ void GovernmentInterface::displayMenu(){
     cout << "2-Calcul de la moyenne de l’indice ATMO dans un lieu souhaité sur une durée donnée" << endl;
     cout << "3-Mesurer l’efficacité d’un cleaner" << endl;
     cout << "4-Trouver tous les capteurs similaires au capteur de votre choix" << endl;
-    cout << "5-Détecter les fraudeurs" << endl;
-    cout << "6-Mesurer la fiabilité du capteur de votre choix" << endl;
-    cout << "7-Vérifier la cohérence des données de vos capteurs" << endl;
-    cout << "8-Quitter" << endl;
-    cout << endl << "Enter you choice :" << endl;
+    cout << "5-Détecter si un utilisateur fraude" << endl;
+    cout << "6-Détecter les fraudeurs" << endl;
+    cout << "7-Mesurer la fiabilité du capteur de votre choix" << endl;
+    cout << "8-Vérifier la cohérence des données de vos capteurs" << endl;
+    cout << "9-Quitter" << endl;
+    cout << endl << "Enter your choice :" << endl;
 }
 
 void GovernmentInterface::chooseAction() {
@@ -58,22 +60,30 @@ void GovernmentInterface::chooseAction() {
                 //displayMenu();
                 break;
             case 5:
-                cout << "Call detectFraudeurs method" << endl;
-                //displayMenu();
+                cout << "Call detectUserFraud method" << endl;
+                displayDetectUserFraud();
+                cout << endl << "Enter your choice :" << endl;
+                choice = InterfaceUtils::inputNumber();
                 break;
             case 6:
+                cout << "Call detectAnyFraud method" << endl;
+                displayDetectAnyFraud();
+                cout << endl << "Enter your choice :" << endl;
+                choice = InterfaceUtils::inputNumber();
+                break;
+            case 7:
                 cout << "Call reliabilitySensor method" << endl;
                 //displayMenu();
                 break;
-            case 7:
+            case 8:
                 cout << "Call consistencySensorValue method" << endl;
                 //displayMenu();
                 break;
-            case 8:
+            case 9:
                 cout << "GoodBye" << endl;
                 return;
             default:
-                cout << "Enter a number between 1 and 8" << endl;
+                cout << "Enter a number between 1 and 9" << endl;
                 choice = InterfaceUtils::inputNumber();
                 break;
         }
@@ -86,3 +96,21 @@ void GovernmentInterface::display() {
     chooseAction();
 }
 
+void GovernmentInterface::displayDetectUserFraud() {
+    cout << "Entrez l'identifiant d'un utilisateur" << endl;
+    int userId;
+    cin >> userId;
+    Individual & individual = DataAccess::findIndividual(userId);
+    cout << "Found user asked = " << userId << " sensor = " << individual.getSensor()->getSensorId() << endl;
+    bool fraud = Integrity::detectUserFraud(individual);
+    cout << " Fraud = " << fraud << endl;
+}
+
+void GovernmentInterface::displayDetectAnyFraud() {
+    cout << "Détection des fraudeurs..." << endl;
+    vector<Individual> fraud = Integrity::detectFraud();
+    for(const Individual& individual : fraud) {
+        cout << " Malicious user found " << individual << endl;
+    }
+
+}

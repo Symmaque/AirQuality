@@ -17,11 +17,11 @@ bool ProviderInterface::authentication() {
 
 std::pair<std::string, std::string> ProviderInterface::getLogInInformations() {
     string id, password;
-    cout << "Enter you id : " << endl;
+    cout << "Enter your id : " << endl;
     cin >> id;
-    cout << "Enter you password : " << endl;
+    cout << "Enter your password : " << endl;
     cin >> password;
-    return std::make_pair(id,password);
+    return std::make_pair(id, password);
 }
 
 void ProviderInterface::chooseAction() {
@@ -50,5 +50,5 @@ void ProviderInterface::displayMenu() {
     cout << "Veuillez choisir le service souhaité dans le menu déroulant :" << endl << endl;
     cout << "1-Mesurer l’efficacité d’un cleaner" << endl;
     cout << "2-Quitter" << endl;
-    cout << endl << "Enter you choice :" << endl;
+    cout << endl << "Enter your choice :" << endl;
 }

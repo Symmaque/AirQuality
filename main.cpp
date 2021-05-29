@@ -11,19 +11,32 @@ using namespace std;
 
 
 void testfindSimilarSensors(){
-    auto sensor1 = Sensor(1,2.0,2.0);
-    time_t start = time(nullptr);
-    time_t end = time(nullptr);
+    auto * sensors = DataAccess::getListSensors();
+
+    auto sensor1 = (*sensors)[0];
+
+    tm *tmp = new tm();
+    tmp->tm_mday = 16;
+    tmp->tm_mon = 7 - 1;
+    tmp->tm_year = 2019 - 1900;
+    time_t start = mktime(tmp);
+
+    tmp->tm_mday = 16;
+    tmp->tm_mon = 10 - 1;
+    tmp->tm_year = 2019 - 1900;
+    time_t end = mktime(tmp);
+
     cout << "Start : " << start << endl;
-    cout << "End : " << end<< endl;
+    cout << "End : " << end << endl;
     auto * similarSensors = Clustering::findSimilarSensors(sensor1,start,end);
     if(similarSensors == nullptr){
         cerr << "similarSensor is nullptr " << endl;
         return;
     }
 
-    for(auto & sensor : *similarSensors){
-        cout << *sensor << endl;
+    cout << "Dix premiers capteurs similaires : ################################################" << endl << endl;
+    for(int i = 0; i < 10 && i < similarSensors->size(); i++){
+        cout << *(*similarSensors)[i] << endl;
     }
 
     delete similarSensors;
@@ -100,7 +113,8 @@ int main() {
     }*/
 
     DataAccess::init();
-    displayFirstInterface();
+    testfindSimilarSensors();
+    //displayFirstInterface();
 /*
     for(const auto& measure: *DataAccess::getListMeasures()){
         cout << measure << endl;

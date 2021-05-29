@@ -4,26 +4,20 @@
 
 #include "IndividualInterface.h"
 #include "InterfaceUtils.h"
-#include "../Model/Sensor.h"
-#include "../Data/DataAccess.h"
-#include "../Services/Clustering.h"
 #include <iostream>
 using namespace std;
-void IndividualInterface::display()
-{
+void IndividualInterface::display() {
     cout << "Bienvenue sur l'interface de l'application pour les individuals" << endl
          << endl;
     chooseAction();
 }
 
-bool IndividualInterface::authentication()
-{
+bool IndividualInterface::authentication() {
     auto logInInfos = getLogInInformations();
     return logInInfos.first == "admin" && logInInfos.second == "admin";
 }
 
-std::pair<std::string, std::string> IndividualInterface::getLogInInformations()
-{
+std::pair<std::string, std::string> IndividualInterface::getLogInInformations() {
     string id, password;
     cout << "Enter you id : " << endl;
     cin >> id;
@@ -32,8 +26,7 @@ std::pair<std::string, std::string> IndividualInterface::getLogInInformations()
     return std::make_pair(id, password);
 }
 
-void IndividualInterface::chooseAction()
-{
+void IndividualInterface::chooseAction() {
 
     displayMenu();
 
@@ -68,10 +61,8 @@ void IndividualInterface::chooseAction()
     }
 }
 
-void IndividualInterface::displayMenu()
-{
-    cout << "Veuillez choisir le service souhaité dans le menu déroulant :" << endl
-         << endl;
+void IndividualInterface::displayMenu() {
+    cout << "Veuillez choisir le service souhaité dans le menu déroulant :" << endl << endl;
 
     cout << "1-Calcul de l’indice ATMO dans un lieu souhaité à un instant donné." << endl;
     cout << "2-Calcul de la moyenne de l’indice ATMO dans un lieu souhaité sur une durée donnée" << endl;
@@ -125,4 +116,5 @@ void IndividualInterface::displaySimilarSensors()
 
     //Affichage
 
+    cout << endl << "Enter your choice :" << endl;
 }
