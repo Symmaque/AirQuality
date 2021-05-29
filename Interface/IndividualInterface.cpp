@@ -66,5 +66,5 @@ void IndividualInterface::displayMenu() {
     cout << "2-Calcul de la moyenne de l’indice ATMO dans un lieu souhaité sur une durée donnée" << endl;
     cout << "3-Trouver tous les capteurs similaires au capteur de votre choix" << endl;
     cout << "4-Quitter" << endl;
-    cout << endl << "Enter you choice :" << endl;
+    cout << endl << "Enter your choice :" << endl;
 }

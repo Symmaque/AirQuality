@@ -50,5 +50,5 @@ void ProviderInterface::displayMenu() {
     cout << "Veuillez choisir le service souhaité dans le menu déroulant :" << endl << endl;
     cout << "1-Mesurer l’efficacité d’un cleaner" << endl;
     cout << "2-Quitter" << endl;
-    cout << endl << "Enter you choice :" << endl;
+    cout << endl << "Enter your choice :" << endl;
 }
