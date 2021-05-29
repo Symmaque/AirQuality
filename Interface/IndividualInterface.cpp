@@ -50,7 +50,7 @@ void IndividualInterface::chooseAction() {
             break;
         case 3:
             cout << "Call similarCaptors method" << endl;
-            displaySimilarSensors();
+            IndividualInterface::displaySimilarSensors();
             break;
         case 4:
             cout << "GoodBye" << endl;
