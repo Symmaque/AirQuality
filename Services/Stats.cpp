@@ -53,7 +53,9 @@ double Stats::ATMOSensorLifespanMean(const Sensor & sensor) {
         int maxIndice = max(max(max(o3, no2), so2), pm10);
         indiceSum += maxIndice;
     }
+#ifdef DEBUG
     cout << "Returned mean = " << indiceSum / ((double) measures->size() / 4.0) << endl;
+#endif
     //And return the mean
     return indiceSum / ((double) measures->size() / 4.0);
 }

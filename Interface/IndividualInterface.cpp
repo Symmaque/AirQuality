@@ -4,26 +4,20 @@
 
 #include "IndividualInterface.h"
 #include "InterfaceUtils.h"
-#include "../Model/Sensor.h"
-#include "../Data/DataAccess.h"
-#include "../Services/Clustering.h"
 #include <iostream>
 using namespace std;
-void IndividualInterface::display()
-{
+void IndividualInterface::display() {
     cout << "Bienvenue sur l'interface de l'application pour les individuals" << endl
          << endl;
     chooseAction();
 }
 
-bool IndividualInterface::authentication()
-{
+bool IndividualInterface::authentication() {
     auto logInInfos = getLogInInformations();
     return logInInfos.first == "admin" && logInInfos.second == "admin";
 }
 
-std::pair<std::string, std::string> IndividualInterface::getLogInInformations()
-{
+std::pair<std::string, std::string> IndividualInterface::getLogInInformations() {
     string id, password;
     cout << "Enter you id : " << endl;
     cin >> id;
@@ -32,8 +26,7 @@ std::pair<std::string, std::string> IndividualInterface::getLogInInformations()
     return std::make_pair(id, password);
 }
 
-void IndividualInterface::chooseAction()
-{
+void IndividualInterface::chooseAction() {
 
     displayMenu();
 
@@ -68,61 +61,12 @@ void IndividualInterface::chooseAction()
     }
 }
 
-void IndividualInterface::displayMenu()
-{
-    cout << "Veuillez choisir le service souhaité dans le menu déroulant :" << endl
-         << endl;
+void IndividualInterface::displayMenu() {
+    cout << "Veuillez choisir le service souhaité dans le menu déroulant :" << endl << endl;
 
     cout << "1-Calcul de l’indice ATMO dans un lieu souhaité à un instant donné." << endl;
     cout << "2-Calcul de la moyenne de l’indice ATMO dans un lieu souhaité sur une durée donnée" << endl;
     cout << "3-Trouver tous les capteurs similaires au capteur de votre choix" << endl;
     cout << "4-Quitter" << endl;
-    cout << endl
-         << "Enter you choice :" << endl;
-}
-
-
-void IndividualInterface::displaySimilarSensors()
-{
-    cout << "Veuillez entrer l'id du capteur a etudier" << endl;
-    int id;
-    cin >> id;
-    Sensor & s = DataAccess::findSensor(id);
-
-    int startYear;
-    int startMonth;
-    int startDay;
-    int endYear;
-    int endMonth;
-    int endDay;
-
-    cout << "Veuillez entrer l'annee de début" << endl;
-    cin >> startYear;
-    cout << "Veuillez entrer le mois de fin" << endl;
-    cin >> startMonth;
-    cout << "Veuillez entrer le jour de fin" << endl;
-    cin >> startDay;
-    
-    cout << "Veuillez entrer le jour de début" << endl;
-    cin >> endYear;
-    cout << "Veuillez entrer la date de fin" << endl;
-    cin >> endMonth;
-    cout << "Veuillez entrer la date de fin" << endl;
-    cin >> endDay;
-
-    tm *tmp1 = new tm();
-    tm *tmp2 = new tm();
-
-    tmp1->tm_mday = startDay;
-    tmp1->tm_mon = startMonth;
-    tmp1->tm_year = startDay;
-
-    tmp2->tm_mday = endDay;
-    tmp2->tm_mon = endMonth;
-    tmp2->tm_year = endYear;
-
-    
-
-    vector<Sensor *> * result = Clustering::findSimilarSensors(s,mktime(tmp1), mktime(tmp2));
-
+    cout << endl << "Enter your choice :" << endl;
 }
