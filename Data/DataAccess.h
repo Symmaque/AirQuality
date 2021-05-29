@@ -31,7 +31,7 @@ protected:
 
 public:
     static User signIn(string id, string password);
-    static void init();
+    static void init(const string& folder);
     static vector<User> *getListUsers();
     static vector<Sensor> *getListSensors();
     static vector<Provider> *getListProviders();

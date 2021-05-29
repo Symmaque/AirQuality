@@ -15,15 +15,16 @@
 
 class Reader
 {
+
 public:
-    static void readSensor();
-    static void readCleaners();
-    static void readIndividuals();
-    static void readProviders();
+    static void readSensor(const string& path);
+    static void readCleaners(const string& path);
+    static void readIndividuals(const string& path);
+    static void readProviders(const string& path);
     static vector<User> readUsers();
-    static void readMeasures();
+    static void readMeasures(const string& path);
     static void readUsers2();
-    static void readAttributes();
+    static void readAttributes(const string& path);
 };
 
 #endif //READER_H

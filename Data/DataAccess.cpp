@@ -62,13 +62,13 @@ vector<Attribute> *DataAccess::getListAttribute()
     return &listAttributes;
 }
 
-void DataAccess::init(){
-    Reader::readAttributes();
-    Reader::readMeasures();
-    Reader::readSensor();
-    Reader::readCleaners();
-    Reader::readIndividuals();
-    Reader::readProviders();
+void DataAccess::init(const string& folder){
+    Reader::readAttributes(folder + "attributes.csv");
+    Reader::readMeasures(folder + "measurements.csv");
+    Reader::readSensor(folder + "sensors.csv");
+    Reader::readCleaners(folder + "cleaners.csv");
+    Reader::readIndividuals(folder + "users.csv");
+    Reader::readProviders(folder + "providers.csv");
     //listUsers = Reader::readUsers(); file "accounts" needed
 
 }

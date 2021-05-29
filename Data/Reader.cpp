@@ -2,47 +2,11 @@
 #include <iostream>
 #include <string>
 #include <ctime>
-#include "Reader.h"
-#include "DataAccess.h"
-#include "../Model/Attribute.h"
-#include "../Model/User.h"
-#include "../Model/Measure.h"
-#include "../Model/Sensor.h"
-#include "../Model/Individual.h"
 
 using namespace std;
 
-/*
-static vector<Sensor> readSensor();
-static void readCleaners();
-static void readProviders();
-static vector<User> readUsers();
-static void readMeasures();
-static void readIndividuals();
-static vector<Attribute> readAttributes();
-int main()
-{
-
-    readSensor();
-
-    cout << "------" << endl;
-    readCleaners();
-    cout << "------" << endl;
-    readProviders();
-    cout << "------" << endl;
-    //readUsers();
-    cout << "------" << endl;
-    readMeasures();
-    cout << "------" << endl;
-    readAttributes();
-
-    cout << "done";
-    return 0;
-}
-*/
-
-void Reader::readSensor() {
-    ifstream file("../Data/dataset/sensors.csv");
+void Reader::readSensor(const string& path) {
+    ifstream file(path);
     string buff;
     int i = 1;
     vector<Sensor> *list = DataAccess::getListSensors();
@@ -74,8 +38,8 @@ void Reader::readSensor() {
     //return list;
 }
 
-void Reader::readCleaners() {
-    ifstream file("../Data/dataset/cleaners.csv");
+void Reader::readCleaners(const string& path) {
+    ifstream file(path);
     string buff;
     auto *list = DataAccess::getListCleaners();
     int i = 1;
@@ -122,8 +86,8 @@ void Reader::readCleaners() {
     }
 }
 
-void Reader::readProviders() {
-    ifstream file("../Data/dataset/providers.csv");
+void Reader::readProviders(const string& path) {
+    ifstream file(path);
     string buff;
     vector<Provider> *list = DataAccess::getListProviders();
     vector<Cleaner> *cleaners = DataAccess::getListCleaners();
@@ -148,9 +112,9 @@ void Reader::readProviders() {
     }
 }
 
-void Reader::readIndividuals() //Lit les particuliers!
+void Reader::readIndividuals(const string& path) //Lit les particuliers!
 {
-    ifstream file("../Data/dataset/users.csv");
+    ifstream file(path);
     string buff;
     int i = 1;
     vector<Individual> *list = DataAccess::getListIndividuals();
@@ -204,8 +168,8 @@ vector<User> Reader::readUsers()
     return list;
 }
 
-void Reader::readMeasures() {
-    ifstream file("../Data/dataset/measurements.csv");
+void Reader::readMeasures(const string& path) {
+    ifstream file(path);
     string buff;
     int i = 1;
     vector<Measure> *list = DataAccess::getListMeasures();
@@ -270,8 +234,8 @@ void Reader::readUsers2() {
 
 }
 
-void Reader::readAttributes() {
-    ifstream file("../Data/dataset/attributes.csv");
+void Reader::readAttributes(const string& path) {
+    ifstream file(path);
     string buff;
     int i = 1;
     vector<Attribute> *list = DataAccess::getListAttribute();
