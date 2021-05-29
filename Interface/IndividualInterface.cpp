@@ -98,12 +98,12 @@ void IndividualInterface::displaySimilarSensors()
 
     cout << "Veuillez entrer l'annee de début" << endl;
     cin >> startYear;
-    cout << "Veuillez entrer le mois de fin" << endl;
+    cout << "Veuillez entrer le mois de début" << endl;
     cin >> startMonth;
-    cout << "Veuillez entrer le jour de fin" << endl;
+    cout << "Veuillez entrer le jour de début" << endl;
     cin >> startDay;
     
-    cout << "Veuillez entrer le jour de début" << endl;
+    cout << "Veuillez entrer le jour de fin" << endl;
     cin >> endYear;
     cout << "Veuillez entrer la date de fin" << endl;
     cin >> endMonth;
@@ -121,8 +121,8 @@ void IndividualInterface::displaySimilarSensors()
     tmp2->tm_mon = endMonth;
     tmp2->tm_year = endYear;
 
-    
-
     vector<Sensor *> * result = Clustering::findSimilarSensors(s,mktime(tmp1), mktime(tmp2));
+
+    //Affichage
 
 }
