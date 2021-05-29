@@ -4,6 +4,8 @@
 
 #include "IndividualInterface.h"
 #include "InterfaceUtils.h"
+#include "../Data/DataAccess.h"
+#include "../Services/Clustering.h"
 #include <iostream>
 using namespace std;
 void IndividualInterface::display() {
@@ -113,8 +115,11 @@ void IndividualInterface::displaySimilarSensors()
     tmp2->tm_year = endYear;
 
     vector<Sensor *> * result = Clustering::findSimilarSensors(s,mktime(tmp1), mktime(tmp2));
-
-    //Affichage
-
+/*
+    cout << "liste des capteurs frauduleux :" << endl;
+    for(int i=0; i< (*result).size(); i++){
+        cout << (*result)[i] << endl;
+    }
+*/
     cout << endl << "Enter your choice :" << endl;
 }
