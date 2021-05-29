@@ -31,7 +31,7 @@ User::User()
 
 string User::toString()
 {
-    return User::id + " " + User::password;
+    return to_string(User::id) + " " + User::password;
 }
 
 ostream &operator<<(ostream &os, const User &user) {
