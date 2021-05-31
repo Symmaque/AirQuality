@@ -55,3 +55,7 @@ ostream &operator<<(ostream &os, const Individual &individual) {
     os << "Id : " << individual.id << endl << "Password : " << individual.password << endl << "SensorId : " << individual.sensor->getSensorId() << endl;
     return os;
 }
+
+bool Individual::operator==(const Individual &individual) {
+    return false;
+}

@@ -40,6 +40,8 @@ public:
     Individual();
 
     friend ostream& operator<<(ostream& os, const Individual& individual);
+
+    bool operator==(const Individual& individual);
 };
 
 #endif //AIRQUALITY_INDIVIDUAL_H

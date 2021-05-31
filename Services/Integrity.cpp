@@ -38,6 +38,10 @@ bool Integrity::detectDefectiveSensor(const Sensor & value) {
 
     double valueATMO = Stats::ATMOSensorLifespanMean(value);
 
+    if(valueATMO == -1) { //No measures hence can't fraud
+        return false;
+    }
+
     cout << "Value ATMO " << valueATMO << endl;
 
     vector<Sensor> allSensors = *DataAccess::getListSensors();
@@ -69,7 +73,10 @@ bool Integrity::detectDefectiveSensor(const Sensor & value) {
     double sumTotal = 0.0;
     //Compute average
     for(const auto& sensor : closeSensors) {
-        sumTotal += Stats::ATMOSensorLifespanMean(sensor); //TODO Add valid parameters
+        double sensorATMO = Stats::ATMOSensorLifespanMean(sensor);
+        if(sensorATMO != -1) { //Valid ATMO score
+            sumTotal += sensorATMO;
+        }
     }
     double average = sumTotal / (double) n;
 
@@ -78,7 +85,10 @@ bool Integrity::detectDefectiveSensor(const Sensor & value) {
     double sumDiffs = 0.0;
     //Compute standard deviation
     for(const auto& sensor : closeSensors) {
-        sumDiffs += pow(average - Stats::ATMOSensorLifespanMean(sensor), 2);
+        double sensorATMO = Stats::ATMOSensorLifespanMean(sensor);
+        if(sensorATMO != -1) { //Valid ATMO score
+            sumDiffs += pow(average - sensorATMO, 2);
+        }
     }
 
     double variance = sumDiffs / (double) n;

@@ -4,6 +4,7 @@
 
 #include "../Data/DataAccess.h"
 #include "../Services/Clustering.h"
+#include "IntegrityTest.h"
 #include <iostream>
 using namespace std;
 
@@ -42,5 +43,7 @@ void testfindSimilarSensors(){
 int main(){
     DataAccess::init("../Data/dataset/tests/");
     testfindSimilarSensors();
+    IntegrityTest::test();
+
     cout << "End tests" << endl;
 }
