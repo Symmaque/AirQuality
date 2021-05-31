@@ -8,7 +8,7 @@
 using namespace std;
 
 int main(){
-    DataAccess::init("../../resources/tests/");
+    DataAccess::init("../resources/tests/");
     if(IntegrityTest::test()){
         cout << "Test for detect User fraud successful" << endl;
         exit(0);
