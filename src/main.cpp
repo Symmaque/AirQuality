@@ -1,16 +1,13 @@
 #include <iostream>
 #include <ctime>
-#include "src/services/Clustering.h"
-#include "src/interface/IndividualInterface.h"
-#include "src/interface/ProviderInterface.h"
-#include "src/interface/GovernmentInterface.h"
+#include "services/Clustering.h"
+#include "interface/IndividualInterface.h"
+#include "interface/ProviderInterface.h"
+#include "interface/GovernmentInterface.h"
 
-#include "src/data/DataAccess.h"
-#include "src/data/Reader.h"
+#include "data/DataAccess.h"
+#include "data/Reader.h"
 using namespace std;
-
-
-
 
 enum userType {INDIVIDUAL = 1, PROVIDER, GOVERNMENT, ADMIN};
 

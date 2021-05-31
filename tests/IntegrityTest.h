@@ -9,7 +9,7 @@ using namespace std;
 
 class IntegrityTest {
 public:
-    static void test();
+    static bool test();
 };
 
 

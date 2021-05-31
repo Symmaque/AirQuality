@@ -45,8 +45,14 @@ int main(){
     DataAccess::init("../Data/dataset/tests/");
     if(testfindSimilarSensors()){
         cout << "Test for similar sensors successful" << endl;
+    }else{
+        cout << "Test for similar sensors failed" << endl;
     }
-    IntegrityTest::test();
+    if(IntegrityTest::test()){
+        cout << "Test for detect User fraud successful" << endl;
+    }else{
+        cout << "Test for detect User fraud failed" << endl;
+    }
 
     cout << "End tests" << endl;
 }
