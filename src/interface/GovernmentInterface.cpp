@@ -5,7 +5,7 @@
 #include "GovernmentInterface.h"
 #include "InterfaceUtils.h"
 #include "IndividualInterface.h"
-#include "../Services/Integrity.h"
+#include "../services/Integrity.h"
 #include <iostream>
 using namespace std;
 
