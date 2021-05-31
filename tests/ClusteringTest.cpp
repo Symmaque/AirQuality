@@ -1,5 +1,5 @@
 //
-// Created by Aurélien on 31/05/2021.
+// Created by Aurélien on 29/05/2021.
 //
 
 #include "ClusteringTest.h"
@@ -16,12 +16,12 @@ bool ClusteringTest::test() {
     tm *tmp = new tm();
     tmp->tm_mday = 30;
     tmp->tm_mon = 12 - 1;
-    tmp->tm_year = 4 - 1900;
+    tmp->tm_year = 2019 - 1900;
     time_t start = mktime(tmp);
 
     tmp->tm_mday = 31;
     tmp->tm_mon = 12 - 1;
-    tmp->tm_year = 5 - 1900;
+    tmp->tm_year = 2019 - 1900;
     time_t end = mktime(tmp);
 
     cout << "Start : " << start << endl;

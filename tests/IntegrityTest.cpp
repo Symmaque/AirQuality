@@ -16,6 +16,7 @@ bool IntegrityTest::test() {
         cout << "Test failed individual 2 is frauding" << endl;
         return false;
     }
+
     if(!Integrity::detectUserFraud(individual3)) {
         cout << "Test failed individual 3 is frauding" << endl;
         return false;
@@ -23,6 +24,12 @@ bool IntegrityTest::test() {
 
     auto frauders = Integrity::detectFraud();
 
+    cout << "Frauders list : " << endl;
+    for(auto f : frauders) {
+        cout << f << endl;
+    }
+
+    cout << "Size " << frauders.size() << endl;
     if(frauders.size() != 2) {
         cout << "Test failed size of the frauders must be 2" << endl;
         return false;

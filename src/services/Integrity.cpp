@@ -14,23 +14,19 @@ vector<Sensor> Integrity::sensorReliability() {
 }
 
 vector<Individual> Integrity::detectFraud() {
-    vector<User> users = *DataAccess::getListUsers();
-    vector<Individual> individuals;
-    for(User user : users) {
-        if(typeid(user) == typeid(Individual)) {
-            User * ptrUser = &user;
-            auto * individual = reinterpret_cast<Individual*>(ptrUser);
-            bool malicious = detectUserFraud(*individual);
-            if(malicious) {
-                individuals.push_back(*individual);
-            }
+    vector<Individual> * allIndividuals = DataAccess::getListIndividuals();
+    vector<Individual> maliciousIndividuals;
+    for (const Individual& individual : *allIndividuals) {
+        bool malicious = detectUserFraud(individual);
+        if (malicious) {
+            maliciousIndividuals.push_back(individual);
         }
     }
 
-    return individuals;
+    return maliciousIndividuals;
 }
 
-bool Integrity::detectUserFraud(Individual & value) {
+bool Integrity::detectUserFraud(const Individual& value) {
     return detectDefectiveSensor(*value.getSensor());
 }
 
@@ -100,7 +96,7 @@ bool Integrity::detectDefectiveSensor(const Sensor & value) {
     cout << " SD = " << standardDeviation << endl;
     cout << " confidence = " << confidence << endl;
     cout << " lower bound " << average - confidence;
-    cout << " upper bound " << average + confidence;
+    cout << " upper bound " << average + confidence << endl;
 
     return valueATMO < (average - confidence) || valueATMO > (average + confidence);
 }
