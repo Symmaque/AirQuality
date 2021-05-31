@@ -3,7 +3,7 @@
 //
 
 #include "IntegrityTest.h"
-#include "../Services/Integrity.h"
+#include "../src/services/Integrity.h"
 
 void IntegrityTest::test() {
 
