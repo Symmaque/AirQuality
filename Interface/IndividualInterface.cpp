@@ -93,17 +93,57 @@ void IndividualInterface::displaySimilarSensors()
 
     cout << "Veuillez entrer l'annee de début" << endl;
     cin >> startYear;
+    if (startYear != 2019 ){
+        cout << "Nous n'avons actuellement que des mesures pour l'année 2019 " << endl;
+    }
+    while (startYear < 1 || startYear >2021 ){
+        cout << "Veuillez entrer des données valides" << endl;
+        cout << "Veuillez entrer l'année' de début" << endl;
+        cin >> startYear;
+    }
+
     cout << "Veuillez entrer le mois de début" << endl;
     cin >> startMonth;
+    while (startMonth < 1 || startMonth >12 ){
+        cout << "Veuillez entrer des données valides" << endl;
+        cout << "Veuillez entrer le mois de début" << endl;
+        cin >> startMonth;
+    }
+
     cout << "Veuillez entrer le jour de début" << endl;
     cin >> startDay;
+    while (startDay < 1 || startDay >31 ){
+        cout << "Veuillez entrer des données valides" << endl;
+        cout << "Veuillez entrer le jour de début" << endl;
+        cin >> startDay;
+    }
     
     cout << "Veuillez entrer l'annee de fin" << endl;
     cin >> endYear;
+    if (endYear != 2019 ){
+            cout << "Nous n'avons actuellement que des mesures pour l'année 2019 " << endl;
+        }
+        while (endYear < 1 || endYear >2021 ){
+            cout << "Veuillez entrer des données valides" << endl;
+            cout << "Veuillez entrer l'année' de fin" << endl;
+            cin >> endYear;
+        }
+
     cout << "Veuillez entrer le mois de fin" << endl;
     cin >> endMonth;
+    while (endMonth < 1 || endMonth >12 ){
+        cout << "Veuillez entrer des données valides" << endl;
+        cout << "Veuillez entrer le mois de fin" << endl;
+        cin >> endMonth;
+    }
+
     cout << "Veuillez entrer le jour de fin" << endl;
     cin >> endDay;
+    while (endDay < 1 || endDay >31 ){
+        cout << "Veuillez entrer des données valides" << endl;
+        cout << "Veuillez entrer le jour de fin" << endl;
+        cin >> endDay;
+    }
 
     tm *tmp1 = new tm();
     tm *tmp2 = new tm();

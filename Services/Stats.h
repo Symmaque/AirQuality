@@ -11,7 +11,7 @@
 
 class Stats {
 public:
-    static double ATMOPeriodMean(const Sensor & sensor, const time_t & startDate, const time_t &endDate, double longitude, double latitude);
+    static double ATMOPeriodMean(const Sensor & sensor, const time_t & startDate, const time_t &endDate);
     static double ATMOInstantMean(const Sensor & sensor);
     static double ATMOInstantMean(const time_t &date, double longitude, double latitude);
 

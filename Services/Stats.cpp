@@ -4,7 +4,7 @@
 
 #include "Stats.h"
 
-double Stats::ATMOPeriodMean(const Sensor& sensor, const time_t &startDate, const time_t &endDate, double longitude, double latitude) {
+double Stats::ATMOPeriodMean(const Sensor& sensor, const time_t &startDate, const time_t &endDate) {
     int indiceSum = 0;
     auto * measures = sensor.getMeasures();
 
@@ -24,6 +24,9 @@ double Stats::ATMOPeriodMean(const Sensor& sensor, const time_t &startDate, cons
         int pm10 = ATMOGaz(PM10Measure.getAttribute().getId(), O3Measure.getValue());
         int maxIndice = max(max(max(o3, no2), so2), pm10);
         indiceSum += maxIndice;
+    }
+    if(nbMeasures ==0){
+        return -1;
     }
     //And return the mean
     return indiceSum / nbMeasures / 4.0;
