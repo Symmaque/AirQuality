@@ -6,6 +6,7 @@
 #include "InterfaceUtils.h"
 #include "../Data/DataAccess.h"
 #include "../Services/Clustering.h"
+#include "../Services/Stats.h"
 #include <iostream>
 using namespace std;
 void IndividualInterface::display() {
@@ -21,9 +22,9 @@ bool IndividualInterface::authentication() {
 
 std::pair<std::string, std::string> IndividualInterface::getLogInInformations() {
     string id, password;
-    cout << "Enter you id : " << endl;
+    cout << "Entrez votre id : " << endl;
     cin >> id;
-    cout << "Enter you password : " << endl;
+    cout << "Entrez votre mot de passe : " << endl;
     cin >> password;
     return std::make_pair(id, password);
 }
@@ -39,26 +40,25 @@ void IndividualInterface::chooseAction() {
         switch (choice)
         {
         case 1:
-            cout << "Call indiceAtmo method" << endl;
-            //displayMenu();
-            cin >> choice;
+            cout << "Cette fonctionnalité est en cours de développement..." << endl;
+            cout << endl << "Choix :" << endl;
+            choice = InterfaceUtils::inputNumber();
             break;
         case 2:
-            cout << "Call meanIndiceAtmo method" << endl;
-            //displayMenu();
-            cin >> choice;
+            cout << "Cette fonctionnalité est en cours de développement..." << endl;
+            cout << endl << "Choix :" << endl;
+            choice = InterfaceUtils::inputNumber();
             break;
         case 3:
-            cout << "Call similarCaptors method" << endl;
             IndividualInterface::displaySimilarSensors();
-            cout << endl << "Enter your choice :" << endl;
+            cout << endl << "Choix :" << endl;
             choice = InterfaceUtils::inputNumber();
             break;
         case 4:
-            cout << "GoodBye" << endl;
+            cout << "Au revoir" << endl;
             return;
         default:
-            cout << "Enter a number between 1 and 4" << endl;
+            cout << "Saisissez un nombre entre 1 et 4" << endl;
             choice = InterfaceUtils::inputNumber();
             break;
         }
@@ -73,7 +73,7 @@ void IndividualInterface::displayMenu() {
     cout << "3-Trouver tous les capteurs similaires au capteur de votre choix" << endl;
     cout << "4-Quitter" << endl;
     cout << endl
-         << "Enter you choice :" << endl;
+         << "Choix :" << endl;
 }
 
 
@@ -117,11 +117,18 @@ void IndividualInterface::displaySimilarSensors()
     tmp2->tm_year = endYear;
 
     vector<Sensor *> * result = Clustering::findSimilarSensors(s,mktime(tmp1), mktime(tmp2));
+    //si result = nullptr, soit a
+    //si result est vide, 
 
-    cout << "liste des capteurs similaires :" << endl;
-    for(int i=0; i< 5; i++){
-        cout << *((*result)[i]) << endl;
+    if(result == NULL){
+        cout << "Une erreur est survenue, veuillez réessayer plus tard" << endl;
+    }else if((*result).empty()){
+        cout << "Aucun capteur similaire sur cette période" << endl;
+    }else{
+        cout << "liste des capteurs similaires :" << endl;
+        for(int i=0; i< 5; i++){
+            cout << *((*result)[i]) << endl;
+        }
     }
-
     
 }

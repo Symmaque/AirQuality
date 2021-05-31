@@ -14,7 +14,7 @@ int InterfaceUtils::inputNumber() {
             int res = stoi(input);
             return res;
         } catch (...) {
-            cout << "Please enter an integer" << endl;
+            cout << "Choix :" << endl;
         }
     }
 }

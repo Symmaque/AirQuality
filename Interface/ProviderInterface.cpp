@@ -17,9 +17,9 @@ bool ProviderInterface::authentication() {
 
 std::pair<std::string, std::string> ProviderInterface::getLogInInformations() {
     string id, password;
-    cout << "Enter your id : " << endl;
+    cout << "Entrez votre id : " << endl;
     cin >> id;
-    cout << "Enter your password : " << endl;
+    cout << "Entrez votre mot de passe : " << endl;
     cin >> password;
     return std::make_pair(id, password);
 }
@@ -31,15 +31,15 @@ void ProviderInterface::chooseAction() {
     while(true) {
         switch (choice) {
             case 1:
-                cout << "Call efficaciteCleaner method" << endl;
-                //displayMenu();
-                cin >> choice;
+                cout << "Cette fonctionnalité est en cours de développement..." << endl;
+                cout << endl << "Choix :" << endl;
+                choice = InterfaceUtils::inputNumber();
                 break;
             case 2:
-                cout << "GoodBye" << endl;
+                cout << "Au revoir" << endl;
                 return;
             default:
-                cout << "Enter a number between 1 and 2" << endl;
+                cout << "Saisissez un nombre entre 1 et 2" << endl;
                 choice = InterfaceUtils::inputNumber();
                 break;
         }
