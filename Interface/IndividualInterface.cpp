@@ -51,6 +51,8 @@ void IndividualInterface::chooseAction() {
         case 3:
             cout << "Call similarCaptors method" << endl;
             IndividualInterface::displaySimilarSensors();
+            cout << endl << "Enter your choice :" << endl;
+            choice = InterfaceUtils::inputNumber();
             break;
         case 4:
             cout << "GoodBye" << endl;
@@ -96,11 +98,11 @@ void IndividualInterface::displaySimilarSensors()
     cout << "Veuillez entrer le jour de début" << endl;
     cin >> startDay;
     
-    cout << "Veuillez entrer le jour de fin" << endl;
+    cout << "Veuillez entrer l'annee de fin" << endl;
     cin >> endYear;
-    cout << "Veuillez entrer la date de fin" << endl;
+    cout << "Veuillez entrer le mois de fin" << endl;
     cin >> endMonth;
-    cout << "Veuillez entrer la date de fin" << endl;
+    cout << "Veuillez entrer le jour de fin" << endl;
     cin >> endDay;
 
     tm *tmp1 = new tm();
@@ -115,11 +117,11 @@ void IndividualInterface::displaySimilarSensors()
     tmp2->tm_year = endYear;
 
     vector<Sensor *> * result = Clustering::findSimilarSensors(s,mktime(tmp1), mktime(tmp2));
-/*
-    cout << "liste des capteurs frauduleux :" << endl;
-    for(int i=0; i< (*result).size(); i++){
-        cout << (*result)[i] << endl;
+
+    cout << "liste des capteurs similaires :" << endl;
+    for(int i=0; i< 5; i++){
+        cout << *((*result)[i]) << endl;
     }
-*/
-    cout << endl << "Enter your choice :" << endl;
+
+    
 }

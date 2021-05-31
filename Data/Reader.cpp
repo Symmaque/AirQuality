@@ -54,7 +54,7 @@ void Reader::readSensor() {
             double latitude = stod(buff);
             getline(file, buff, ';');
             double longitude = stod(buff);
-            cout << i << " : " << sensorId << " " << latitude << " " << longitude << endl;
+            //cout << i << " : " << sensorId << " " << latitude << " " << longitude << endl;
             Sensor sen(stoi(sensorId), latitude, longitude);
 
             auto *measurements = DataAccess::getListMeasures();
@@ -161,7 +161,7 @@ void Reader::readIndividuals() //Lit les particuliers!
             string sensorId = buff.substr(6);
             //sensorId.erase(0, 6); //Efface "Sensor"
             //Créer obj ici
-            cout << i << " : " << individualId << " " << sensorId << endl;
+            //cout << i << " : " << individualId << " " << sensorId << endl;
             Individual ind;
             ind.setMalicious(false);
             ind.setPoints(0);
@@ -279,7 +279,7 @@ void Reader::readAttributes() {
             string unit = buff;
             getline(file, buff, ';');
             string description = buff;
-            cout << i << " : " << attributeID << " " << unit << " " << description << endl;
+            //cout << i << " : " << attributeID << " " << unit << " " << description << endl;
             auto *att = new Attribute();
             att->setId(attributeID);
             att->setUnit(unit);
