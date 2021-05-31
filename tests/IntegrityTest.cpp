@@ -9,8 +9,8 @@ using namespace std;
 bool IntegrityTest::test() {
 
     //12 and 13 sensors are frauding
-    Individual individual2 = DataAccess::findIndividual(2);
-    Individual individual3 = DataAccess::findIndividual(3);
+    Individual individual2 = *DataAccess::findIndividual(2);
+    Individual individual3 = *DataAccess::findIndividual(3);
 
     if(!Integrity::detectUserFraud(individual2)) {
         cout << "Test failed individual 2 is frauding" << endl;
