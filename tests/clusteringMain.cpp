@@ -6,7 +6,7 @@
 #include "ClusteringTest.h"
 using namespace std;
 int main(){
-    DataAccess::init("../resources/tests/");
+    DataAccess::init("../../resources/tests/");
     if(ClusteringTest::test()){
         cout << "Test for similar sensors successful" << endl;
         exit(0);

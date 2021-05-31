@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.17)
 project(AirQuality)
 set(CMAKE_CXX_STANDARD 11)
-#set(CMAKE_CXX_FLAGS "-DDEBUG -ansi -pedantic -Wall")
+
 set(EXE AirQuality)
+set(LIB ${EXE}_lib)
 
 set(INTERFACE_SRC
         ./interface/GovernmentInterface.cpp
@@ -30,8 +31,6 @@ set(DATA_SRC
         ./data/DataAccess.cpp
         ./data/Reader.cpp)
 
-
-
 set(SRC
         main.cpp
         ${INTERFACE_SRC}
@@ -39,4 +38,6 @@ set(SRC
         ${SERVICES_SRC}
         ${DATA_SRC})
 
-add_executable(${EXE} ${SRC})
+add_library(${LIB} STATIC ${SRC})
+add_executable(${EXE} main.cpp)
+target_link_libraries(${EXE} PUBLIC ${LIB})

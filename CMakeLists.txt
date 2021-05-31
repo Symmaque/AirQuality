@@ -15,3 +15,4 @@ add_custom_target(run COMMAND ./src/AirQuality)
 
 add_subdirectory(${SRC})
 add_subdirectory(${TESTS})
+include_directories(${SRC})

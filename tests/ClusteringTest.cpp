@@ -12,6 +12,7 @@ bool ClusteringTest::test() {
     auto * sensors = DataAccess::getListSensors();
 
     auto sensor1 = (*sensors)[0];
+    int expected[] = {6,9,10,1,7,8,5,2,3,4};
 
     tm *tmp = new tm();
     tmp->tm_mday = 30;
@@ -35,6 +36,15 @@ bool ClusteringTest::test() {
     cout << "Dix premiers capteurs similaires : ################################################" << endl << endl;
     for(int i = 0; i < 10 && i < similarSensors->size(); i++){
         cout << *(*similarSensors)[i] << endl;
+    }
+
+    if(similarSensors->size() != 12){
+        return false;
+    }
+    for(int i = 0; i < 10; i++){
+        if ((*similarSensors)[i]->getSensorId() != expected[i]){
+            return false;
+        }
     }
     delete similarSensors;
     return true;
