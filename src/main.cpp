@@ -67,7 +67,7 @@ void displayFirstInterface(){
 }
 
 int main() {
-    DataAccess::init("../Data/dataset/release/");
+    DataAccess::init("../../resources/release/");
     displayFirstInterface();
     return 0;
 }

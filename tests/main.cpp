@@ -42,7 +42,7 @@ bool testfindSimilarSensors(){
 }
 
 int main(){
-    DataAccess::init("../Data/dataset/tests/");
+    DataAccess::init("../../resources/tests/");
     if(testfindSimilarSensors()){
         cout << "Test for similar sensors successful" << endl;
     }else{

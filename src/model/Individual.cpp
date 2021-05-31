@@ -56,6 +56,6 @@ ostream &operator<<(ostream &os, const Individual &individual) {
     return os;
 }
 
-bool Individual::operator==(const Individual &individual) {
-    return false;
+bool operator==(const Individual &first, const Individual &second) {
+    return first.getId() == second.getId();
 }

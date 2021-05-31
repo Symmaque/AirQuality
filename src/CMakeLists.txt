@@ -40,6 +40,3 @@ set(SRC
         ${DATA_SRC})
 
 add_executable(${EXE} ${SRC})
-
-
-
