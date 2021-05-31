@@ -1,14 +1,14 @@
 //
-// Created by Aurélien on 29/05/2021.
+// Created by Aurélien on 31/05/2021.
 //
 
-#include "../src/data/DataAccess.h"
-#include "../src/services/Clustering.h"
+#include "ClusteringTest.h"
 #include "IntegrityTest.h"
-#include <iostream>
+#include "../src/services/Integrity.h"
+#include "../src/services/Clustering.h"
+#include <algorithm>
 using namespace std;
-
-bool testfindSimilarSensors(){
+bool ClusteringTest::test() {
     auto * sensors = DataAccess::getListSensors();
 
     auto sensor1 = (*sensors)[0];
@@ -16,12 +16,12 @@ bool testfindSimilarSensors(){
     tm *tmp = new tm();
     tmp->tm_mday = 30;
     tmp->tm_mon = 12 - 1;
-    tmp->tm_year = 2019 - 1900;
+    tmp->tm_year = 4 - 1900;
     time_t start = mktime(tmp);
 
     tmp->tm_mday = 31;
     tmp->tm_mon = 12 - 1;
-    tmp->tm_year = 2019 - 1900;
+    tmp->tm_year = 5 - 1900;
     time_t end = mktime(tmp);
 
     cout << "Start : " << start << endl;
@@ -39,20 +39,4 @@ bool testfindSimilarSensors(){
     delete similarSensors;
     return true;
 
-}
-
-int main(){
-    DataAccess::init("../Data/dataset/tests/");
-    if(testfindSimilarSensors()){
-        cout << "Test for similar sensors successful" << endl;
-    }else{
-        cout << "Test for similar sensors failed" << endl;
-    }
-    if(IntegrityTest::test()){
-        cout << "Test for detect User fraud successful" << endl;
-    }else{
-        cout << "Test for detect User fraud failed" << endl;
-    }
-
-    cout << "End tests" << endl;
 }

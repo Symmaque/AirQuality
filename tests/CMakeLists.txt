@@ -4,9 +4,8 @@ set(CMAKE_CXX_STANDARD 11)
 #set(CMAKE_CXX_FLAGS "-DDEBUG -ansi -pedantic -Wall")
 
 
-set(TEST_FILES
-        IntegrityTest.cpp)
-        #ClusteringTest.cpp)
+
+
 set(INTERFACE_SRC
         ../src/interface/GovernmentInterface.cpp
         ../src/interface/IndividualInterface.cpp
@@ -35,19 +34,26 @@ set(DATA_SRC
 
 
 set(SRC
-        main.cpp
         ${INTERFACE_SRC}
         ${MODEL_SRC}
         ${SERVICES_SRC}
         ${DATA_SRC})
 
-set(TEST_SRC
-        main.cpp
-        ${TEST_FILES}
+set(INTEGRITY_SRC
+        integrityMain.cpp
+        IntegrityTest.cpp
         ${SRC})
 
-set(EXE test_project)
-add_executable(${EXE} ${TEST_SRC})
-add_test(NAME test_project COMMAND ./test_project)
+set(CLUSTERING_SRC
+        clusteringMain.cpp
+        ClusteringTest.cpp
+        ${SRC})
+
+set(INTEGRITY integrity_test)
+set(CLUSTERING clustering_test)
+add_executable(${INTEGRITY} ${INTEGRITY_SRC})
+add_executable(${CLUSTERING} ${CLUSTERING_SRC})
+add_test(NAME integrity_test COMMAND ./integrity_test)
+add_test(NAME clustering_test COMMAND ./clustering_test)
 
 

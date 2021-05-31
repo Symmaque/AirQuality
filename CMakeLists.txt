@@ -11,5 +11,7 @@ set(EXE AirQuality)
 set(SRC ${CMAKE_SOURCE_DIR}/src)
 set(TESTS ${CMAKE_SOURCE_DIR}/tests)
 
+add_custom_target(run COMMAND ./src/AirQuality)
+
 add_subdirectory(${SRC})
 add_subdirectory(${TESTS})
