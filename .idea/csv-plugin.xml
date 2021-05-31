@@ -3,42 +3,49 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\Data\dataset\attributes.csv">
+        <entry key="\Data\dataset\release\users.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="\Data\dataset\cleaners.csv">
+        <entry key="\Data\dataset\tests\attributes.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="\Data\dataset\measurements.csv">
+        <entry key="\Data\dataset\tests\cleaners.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="\Data\dataset\providers.csv">
+        <entry key="\Data\dataset\tests\measurements.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="\Data\dataset\sensors.csv">
+        <entry key="\Data\dataset\tests\providers.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="\Data\dataset\users.csv">
+        <entry key="\Data\dataset\tests\sensors.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Data\dataset\tests\users.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />

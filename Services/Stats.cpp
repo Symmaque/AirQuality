@@ -4,7 +4,7 @@
 
 #include "Stats.h"
 
-double Stats::ATMOPeriodMean(const Sensor& sensor, const time_t &startDate, const time_t &endDate, double longitude, double latitude) {
+double Stats::ATMOPeriodMean(const Sensor& sensor, const time_t &startDate, const time_t &endDate) {
     int indiceSum = 0;
     auto * measures = sensor.getMeasures();
 
@@ -25,13 +25,12 @@ double Stats::ATMOPeriodMean(const Sensor& sensor, const time_t &startDate, cons
         int maxIndice = max(max(max(o3, no2), so2), pm10);
         indiceSum += maxIndice;
     }
+
+    if(nbMeasures == 0){    //error no measure for this period
+        return -1;
+    }
     //And return the mean
     return indiceSum / nbMeasures / 4.0;
-}
-
-double Stats::ATMOInstantMean(const time_t &date, double longitude, double latitude) {
-    //Call ATMO instant mean with matching sensor
-    return 0;
 }
 
 double Stats::ATMOSensorLifespanMean(const Sensor & sensor) {
@@ -56,9 +55,6 @@ double Stats::ATMOSensorLifespanMean(const Sensor & sensor) {
     cout << "Returned mean = " << indiceSum / ((double) measures->size() / 4.0) << endl;
     //And return the mean
     return indiceSum / ((double) measures->size() / 4.0);
-}
-double Stats::ATMOInstantMean(time_t date, const Sensor & sensor) {
-    return 0.0;
 }
 
 int Stats::ATMOGaz(const string& attributeId, double value) {
