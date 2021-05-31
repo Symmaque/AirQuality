@@ -32,7 +32,6 @@ void Reader::readSensor(const string& path) {
             list->push_back(sen);
             i++;
             file.get();
-            file.get();
         }
     }
     //return list;
@@ -80,7 +79,6 @@ void Reader::readCleaners(const string& path) {
                  << year2 << "/" << month2 << "/" << day2 << endl;
             list->push_back(cleaner);
             file.get();
-            file.get();
             i++;
         }
     }
@@ -103,7 +101,6 @@ void Reader::readProviders(const string& path) {
             provider.setId(stoi(providerId));
             provider.addCleaner(&(*cleaners)[stoi(cleanerId)]);
             //cout << i << " : " << providerId << " " << cleanerId << endl;
-            file.get();
             file.get();
             list->push_back(provider);
 
@@ -139,7 +136,6 @@ void Reader::readIndividuals(const string& path) //Lit les particuliers!
 
 
             file.get();
-            file.get();
             i++;
             list->push_back(ind);
         }
@@ -162,7 +158,6 @@ vector<User> Reader::readUsers()
             list.push_back(us);
             i++;
             file.get(); //get the ;
-            file.get(); //get the \n
         }
     }
     return list;
@@ -223,7 +218,6 @@ void Reader::readMeasures(const string& path) {
             //cout << me->toString() << endl;
             i++;
             file.get(); //get ;
-            file.get();
             delete tmp;
         }
     }
@@ -257,7 +251,6 @@ void Reader::readAttributes(const string& path) {
             cout << i << " : " << att->toString() << endl;
             list->push_back(*att);
             file.get(); //get ;
-            file.get();
             i++;
         }
     }
