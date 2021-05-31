@@ -5,7 +5,6 @@
 #include <algorithm>
 #include <iostream>
 #include "Clustering.h"
-#include "Stats.h"
 #include "../Data/DataAccess.h"
 
 using namespace std;
@@ -19,10 +18,11 @@ Sensor *firstElement(const pair<Sensor *, double> &p) {
 }
 
 vector<Sensor *> *Clustering::findSimilarSensors(const Sensor &s, const time_t &startDate, const time_t &endDate) {
-
+    if(startDate > endDate){
+        cerr << "startDate is after the endDate" << endl;
+        return nullptr;
+    }
     auto * sensors = DataAccess::getListSensors();
-    //vector<Sensor> sensors = { Sensor(10, 1, 1), Sensor(11, 13, 10), Sensor(15, 10, 0) };
-    //vector <Sensor> sensors = {};
 
     if (sensors->empty()) {
         cerr << "Warning in file " << __FILE__ << " at line " << __LINE__
@@ -40,10 +40,15 @@ vector<Sensor *> *Clustering::findSimilarSensors(const Sensor &s, const time_t &
     double tempDiff;
     vector<pair<Sensor *, double>> deltas;
 
-    double indiceS = Stats::ATMOPeriodMean(s, startDate, endDate, s.getLongitude(), s.getLatitude());
+    double indiceS = Stats::ATMOPeriodMean(s, startDate, endDate);
     for (auto &sensor : *sensors) {
         if (sensor.getSensorId() != s.getSensorId()) {
-            tempIndice = Stats::ATMOPeriodMean(sensor, startDate, endDate, sensor.getLongitude(), sensor.getLatitude());
+
+            tempIndice = Stats::ATMOPeriodMean(sensor, startDate, endDate);
+            if(tempIndice == -1){
+                cerr << "Invalid atmo period mean for the sensor : " << sensor << endl;
+                continue;
+            }
             tempDiff = abs(tempIndice - indiceS);
             auto tempPair = make_pair(&sensor, tempDiff);
             deltas.push_back(tempPair);
@@ -61,7 +66,7 @@ vector<Sensor *> *Clustering::findSimilarSensors(const Sensor &s, const time_t &
     sort(deltas.begin(), deltas.end(), pairCompare);
 
 #ifdef DEBUG
-    ccout << "Begin deltas sorted : " << endl;
+    cout << "Begin deltas sorted : " << endl;
     for(auto & delta : deltas){
         cout << "Id :" << delta.first->getSensorId() << "   Delta : " << delta.second << endl;
     }
