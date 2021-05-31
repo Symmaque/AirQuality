@@ -1,2 +1,5 @@
 cmake-build-debug/*
+/src/cmake-build-debug/*
+/tests/cmake-build-debug/*
 .vscode
+.idea
