@@ -38,7 +38,7 @@ double Stats::ATMOInstantMean(const time_t &date, double longitude, double latit
 }
 
 double Stats::ATMOSensorLifespanMean(const Sensor & sensor) {
-    cout << " Sensor id = " << sensor.getSensorId() << endl;
+    //cout << " Sensor id = " << sensor.getSensorId() << endl;
     int indiceSum = 0;
     auto measures = sensor.getMeasures();
 
@@ -113,5 +113,6 @@ int Stats::ATMOGaz(const string& attributeId, double value) {
         if(value >= 64 && value < 79) return 9;
         if(value >= 79) return 10;
     }
+    return -1;
 }
 

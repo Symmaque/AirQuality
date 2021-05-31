@@ -41,8 +41,8 @@ void testfindSimilarSensors(){
 
     delete similarSensors;
 }
+enum userType {INDIVIDUAL = 1, PROVIDER, GOVERNMENT};
 
-enum userType {INDIVIDUAL = 1, PROVIDER, GOVERNMENT, ADMIN};
 bool menu(int& choice){
 
     switch(choice){
@@ -70,9 +70,6 @@ bool menu(int& choice){
                 return false;
             }
             break;
-        case ADMIN:
-            cout << "Admin connection" << endl;
-            break;
         default:
             cout << "Enter a valid number please : " << endl;
             cin >> choice;
@@ -92,7 +89,6 @@ void displayFirstInterface(){
     cout << "1-Utilisateur normal" << endl;
     cout << "2-Fournisseur" << endl;
     cout << "3-Gouvernement" << endl;
-    cout << "4-Admin" << endl;
 
     userTypeChoice();
 }

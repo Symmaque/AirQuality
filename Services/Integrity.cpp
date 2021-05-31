@@ -35,7 +35,7 @@ bool Integrity::detectDefectiveSensor(const Sensor &value) {
 
     double valueATMO = Stats::ATMOSensorLifespanMean(value);
 
-    cout << "Value ATMO " << valueATMO << endl;
+    //cout << "Value ATMO " << valueATMO << endl;
 
     vector<Sensor> allSensors = *DataAccess::getListSensors();
     vector<Sensor> closeSensors; //TODO Maybe use a map sensor-distance to avoid recomputing
@@ -58,7 +58,7 @@ bool Integrity::detectDefectiveSensor(const Sensor &value) {
             allSensors.erase(it);
         }
         if (it->distance(value) < 1.0) { //Only include close sensors
-            cout << " Distance " << it->distance(value) << endl;
+            //cout << " Distance " << it->distance(value) << endl;
             closeSensors.push_back(*it);
         }
     }

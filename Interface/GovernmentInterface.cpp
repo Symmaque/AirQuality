@@ -105,9 +105,17 @@ void GovernmentInterface::displayDetectUserFraud() {
     cout << "Entrez l'identifiant d'un utilisateur" << endl;
     int userId;
     cin >> userId;
-    Individual & individual = DataAccess::findIndividual(userId);
-    cout << "L'utilisateur demandé est : " << userId << ", avec le capteur : " << individual.getSensor()->getSensorId() << endl;
-    bool fraud = Integrity::detectUserFraud(individual);
+    Individual * individual = DataAccess::findIndividual(userId);
+
+    while(individual == nullptr){
+        cout << "Cet utilisateur n'existe pas" << endl;
+        cout << "Entrez l'identifiant d'un utilisateur" << endl;
+        cin >> userId;
+        individual = DataAccess::findIndividual(userId);
+    }
+
+    cout << "L'utilisateur demandé est : " << userId << ", avec le capteur : " << (*individual).getSensor()->getSensorId() << endl;
+    bool fraud = Integrity::detectUserFraud(*individual);
     cout << " Fraude = " << fraud << endl;
 }
 
@@ -115,7 +123,7 @@ void GovernmentInterface::displayDetectAnyFraud() {
     cout << "Détection des fraudeurs..." << endl;
     vector<Individual> fraud = Integrity::detectFraud();
     for(const Individual& individual : fraud) {
-        cout << " Utilisateur frauduleux trouvé : " << individual << endl;
+        cout << "Utilisateur frauduleux trouvé : " << individual << endl;
     }
 
 }

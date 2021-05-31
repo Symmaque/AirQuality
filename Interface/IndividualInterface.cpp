@@ -82,7 +82,7 @@ void IndividualInterface::displaySimilarSensors()
     cout << "Veuillez entrer l'id du capteur a etudier" << endl;
     int id;
     cin >> id;
-    Sensor & s = DataAccess::findSensor(id);
+    Sensor * s = DataAccess::findSensor(id);
 
     int startYear;
     int startMonth;
@@ -156,7 +156,7 @@ void IndividualInterface::displaySimilarSensors()
     tmp2->tm_mon = endMonth;
     tmp2->tm_year = endYear;
 
-    vector<Sensor *> * result = Clustering::findSimilarSensors(s,mktime(tmp1), mktime(tmp2));
+    vector<Sensor *> * result = Clustering::findSimilarSensors(*s, mktime(tmp1), mktime(tmp2));
     //si result = nullptr, soit a
     //si result est vide, 
 

@@ -52,6 +52,6 @@ void Individual::setId(const int id)
 Individual::Individual() {}
 
 ostream &operator<<(ostream &os, const Individual &individual) {
-    os << "Id : " << individual.id << endl << "Password : " << individual.password << endl << "SensorId : " << individual.sensor->getSensorId() << endl;
+    os << "Id : " << individual.id << " ; SensorId : " << individual.sensor->getSensorId() << endl;
     return os;
 }

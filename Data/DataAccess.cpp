@@ -81,14 +81,16 @@ vector<Cleaner> *DataAccess::getListCleaners() {
     return &listCleaners;
 }
 
-Individual & DataAccess::findIndividual(int id) {
+Individual * DataAccess::findIndividual(int id) {
     for(auto & it : listIndividuals) {
-        if(it.getId() == id) return it;
+        if(it.getId() == id) return &it;
     }
+    return nullptr;
 }
 
-Sensor & DataAccess::findSensor(int id) {
+Sensor * DataAccess::findSensor(int id) {
     for(auto & it : listSensors) {
-        if(it.getSensorId() == id) return it;
+        if(it.getSensorId() == id) return &it;
     }
+    return nullptr;
 }
