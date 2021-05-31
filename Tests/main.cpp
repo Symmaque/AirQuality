@@ -2,8 +2,8 @@
 // Created by Aurélien on 29/05/2021.
 //
 
-#include "../Data/DataAccess.h"
-#include "../Services/Clustering.h"
+#include "../src/data/DataAccess.h"
+#include "../src/services/Clustering.h"
 #include "IntegrityTest.h"
 #include <iostream>
 using namespace std;

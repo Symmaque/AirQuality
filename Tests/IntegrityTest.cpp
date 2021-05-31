@@ -3,9 +3,11 @@
 //
 
 #include "IntegrityTest.h"
-#include "../Services/Integrity.h"
+#include "../src/services/Integrity.h"
 #include <algorithm>
 using namespace std;
+
+
 void IntegrityTest::test() {
 
     //12 and 13 sensors are frauding
@@ -24,12 +26,6 @@ void IntegrityTest::test() {
     if(frauders.size() != 2) {
         cout << "Test failed size of the frauders must be 2" << endl;
     }
-
-    cout << "FRAUDERS ###################################" << endl;
-    for(const auto& frauder : frauders){
-        cout << frauder << endl;
-    }
-    cout << " ###################################" << endl;
 
     if(find(frauders.begin(), frauders.end(), individual2) == frauders.end()) {
         cout << "Test failed individual 2 in frauders list" << endl;

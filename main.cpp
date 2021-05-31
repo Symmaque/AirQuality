@@ -1,12 +1,12 @@
 #include <iostream>
 #include <ctime>
-#include "Services/Clustering.h"
-#include "Interface/IndividualInterface.h"
-#include "Interface/ProviderInterface.h"
-#include "Interface/GovernmentInterface.h"
+#include "src/services/Clustering.h"
+#include "src/interface/IndividualInterface.h"
+#include "src/interface/ProviderInterface.h"
+#include "src/interface/GovernmentInterface.h"
 
-#include "Data/DataAccess.h"
-#include "Data/Reader.h"
+#include "src/data/DataAccess.h"
+#include "src/data/Reader.h"
 using namespace std;
 
 
