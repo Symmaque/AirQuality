@@ -16,7 +16,5 @@ set(TESTS ${CMAKE_SOURCE_DIR}/tests)
 add_subdirectory(${SRC})
 add_subdirectory(${TESTS})
 
-
-include_directories(${SRC})
 add_custom_target(run COMMAND ./AirQuality WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/cmake-build-debug/src)
 
