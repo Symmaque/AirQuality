@@ -30,7 +30,6 @@ protected:
     static vector<Cleaner> listCleaners;
 
 public:
-    static User signIn(string id, string password);
     static void init(const string& folder);
     static vector<User> *getListUsers();
     static vector<Sensor> *getListSensors();
@@ -46,6 +45,9 @@ public:
     static void initLists();
     static void setListUsers(const vector<User> &listUsers);
     static void setListProviders(const vector<Provider> &listProviders);
+
+    static void removeSensor(Sensor * sensor);
+    static void removeSensor(int id);
 };
 
 #endif //AIRQUALITY_DATAACCESS_H

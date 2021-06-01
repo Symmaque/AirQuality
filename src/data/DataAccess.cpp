@@ -16,27 +16,6 @@ vector<Provider> DataAccess::listProviders = {};
 vector<Individual> DataAccess::listIndividuals = {};
 vector<Cleaner> DataAccess::listCleaners = {};
 
-User DataAccess::signIn(string id, string password)
-{
-    /*
-    User * user = new User();//il faut contructeur par défaut
-    vector<User> userList = Reader::readUsers2();
-
-    //selon la méthode de martin
-    //on récupère la liste des utilisateurs pour vérifier
-    //si les coordonnées rentrées en paramètre sont bien présents dans notre base de données
-
-    for (User user : listUsers) {
-        if (user.getId() == id && user.getPassword() == password) {
-            user = new User(id, password);
-            return user;
-        }
-    }
-    return nullptr; //si et utilisateur n'existe pas
-     */
-    return *new User;
-}
-
 vector<User> *DataAccess::getListUsers(){
     return &listUsers;
 }
@@ -88,7 +67,21 @@ Individual * DataAccess::findIndividual(int id) {
 
 Sensor * DataAccess::findSensor(int id) {
     for(auto & it : listSensors) {
-        if(it.getSensorId() == id) return &it;
+        if(it.getSensorId() == id) {
+            return &it;
+        }
     }
     return nullptr;
+}
+
+void DataAccess::removeSensor(Sensor * sensor) {
+    removeSensor(sensor->getSensorId());
+}
+
+void DataAccess::removeSensor(int id) {
+    for (auto it = listSensors.begin(); it != listSensors.end(); ++it) {
+        if (it->getSensorId() == id) {
+            listSensors.erase(it);
+        }
+    }
 }

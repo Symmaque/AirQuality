@@ -11,8 +11,8 @@ using namespace std;
 
 bool GovernmentInterface::authenticate() {
     auto logInInfos = getLogInInformations();
-    for (auto& user : *DataAccess::getListUsers()){
-        if (user.getId() == logInInfos.first && user.getPassword() == logInInfos.second){
+    for (auto& user : *DataAccess::getListUsers()) {
+        if (user.getId() == logInInfos.first && user.getPassword() == logInInfos.second) {
             return true;
         }
     }

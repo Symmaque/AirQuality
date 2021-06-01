@@ -9,9 +9,6 @@
 #include <algorithm>
 
 using namespace std;
-vector<Sensor> Integrity::sensorReliability() {
-    return *new vector<Sensor>;
-}
 
 vector<Individual> Integrity::detectFraud() {
     vector<Individual> * allIndividuals = DataAccess::getListIndividuals();
@@ -20,7 +17,11 @@ vector<Individual> Integrity::detectFraud() {
         bool malicious = detectUserFraud(individual);
         if (malicious) {
             maliciousIndividuals.push_back(individual);
+            /*
             individual.setMalicious(true);
+            individual.setPoints(0);
+            DataAccess::removeSensor(individual.getSensor());
+             */
         }
     }
 
