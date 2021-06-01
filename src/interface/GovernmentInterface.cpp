@@ -121,16 +121,20 @@ void GovernmentInterface::displayDetectUserFraud() {
         individual = DataAccess::findIndividual(userId);
     }
 
-    cout << "L'utilisateur demandé est : " << userId << ", avec le capteur : " << (*individual).getSensor()->getSensorId() << endl;
+    cout << "L'utilisateur demandé est : User" << userId << ", avec le capteur : " << (*individual).getSensor()->getSensorId() << endl;
     bool fraud = Integrity::detectUserFraud(*individual);
-    cout << " Fraude = " << fraud << endl;
+    if(fraud) {
+        cout << "-> Fraude positive (certitude d'au moins 68%)" << endl;
+    } else {
+        cout << "-> Fraude négative (certitude d'au moins 68%)" << endl;
+    }
 }
 
 void GovernmentInterface::displayDetectAnyFraud() {
     cout << "Détection des fraudeurs..." << endl;
     vector<Individual> fraud = Integrity::detectFraud();
     for(const Individual& individual : fraud) {
-        cout << "Utilisateur frauduleux trouvé : " << individual << endl;
+        cout << "Utilisateur frauduleux trouvé : " << individual << " (certitude d'au moins 68%) " << endl;
     }
 
 }

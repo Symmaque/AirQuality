@@ -15,7 +15,6 @@ public:
     static void displayMenu();
 
     static void displayDetectUserFraud();
-
     static void displayDetectAnyFraud();
 };
 

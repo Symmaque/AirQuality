@@ -8,34 +8,37 @@
 
 #include "data/DataAccess.h"
 #include "data/Reader.h"
+
 using namespace std;
 
-enum userType {INDIVIDUAL = 1, PROVIDER, GOVERNMENT};
+enum userType {
+    INDIVIDUAL = 1, PROVIDER, GOVERNMENT
+};
 
-bool menu(int& choice){
+bool menu(int &choice) {
 
-    switch(choice){
+    switch (choice) {
         case INDIVIDUAL:
-            if(IndividualInterface::authentication())
+            if (IndividualInterface::authentication())
                 IndividualInterface::display();
-            else{
-                cout << "Authentication impossible" << endl;
+            else {
+                cout << "Authentification impossible" << endl;
                 return false;
             }
             break;
         case PROVIDER:
-            if(ProviderInterface::authentication())
+            if (ProviderInterface::authentication())
                 ProviderInterface::display();
-            else{
-                cout << "Authentication impossible" << endl;
+            else {
+                cout << "Authentification impossible" << endl;
                 return false;
             }
             break;
         case GOVERNMENT:
-            if(GovernmentInterface::authentication())
+            if (GovernmentInterface::authentication())
                 GovernmentInterface::display();
-            else{
-                cout << "Authentication impossible" << endl;
+            else {
+                cout << "Authentification impossible" << endl;
                 return false;
             }
             break;
@@ -47,13 +50,13 @@ bool menu(int& choice){
     return true;
 }
 
-void userTypeChoice(){
+void userTypeChoice() {
     int choice = 0;
     cin >> choice;  //TODO : safe input
-    while(!menu(choice)){}
+    while (!menu(choice)) {}
 }
 
-void displayFirstInterface(){
+void displayFirstInterface() {
     cout << "--------------- BIENVENUE SUR L'APPLICATION AIR DE QUALITE ---------------" << endl << endl;
     cout << "Veuillez choisir le type d’utilisateur afin de vous authentifier ou de vous inscrire : " << endl;
     cout << "1-Utilisateur normal" << endl;
