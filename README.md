@@ -1,6 +1,6 @@
-#Bienvenue sur l'application AirQuality
+# Bienvenue sur l'application AirQuality
 
-##Structure : 
+## Structure : 
 
     AirQuality
     |--CMakeList.txt
@@ -55,8 +55,8 @@
         |--statsTests
             |--StatsTest.cpp/.h
             |--statsMain.cpp
-##Build, run and test
-####Ce projet utilise CMake pour build and run ainsi que CTest pour lancer les tests
+## Build, run and test
+#### Ce projet utilise CMake pour build and run ainsi que CTest pour lancer les tests
 
     --> executer cd cmake-build-debug
     --> executer cmake ..
