@@ -2,7 +2,7 @@
 // Created by Aurélien on 31/05/2021.
 //
 #include <iostream>
-#include "../src/data/DataAccess.h"
+#include "../../src/data/DataAccess.h"
 #include "ClusteringTest.h"
 using namespace std;
 int main(){

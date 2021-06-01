@@ -3,7 +3,7 @@
 //
 
 #include "IntegrityTest.h"
-#include "../src/services/Integrity.h"
+#include "../../src/services/Integrity.h"
 #include <algorithm>
 
 bool IntegrityTest::test() {

@@ -3,8 +3,8 @@
 //
 
 #include "ClusteringTest.h"
-#include "../src/services/Integrity.h"
-#include "../src/services/Clustering.h"
+#include "../../src/services/Integrity.h"
+#include "../../src/services/Clustering.h"
 #include <algorithm>
 using namespace std;
 bool ClusteringTest::test() {

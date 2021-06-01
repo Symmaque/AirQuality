@@ -2,7 +2,7 @@
 // Created by Aurélien on 29/05/2021.
 //
 
-#include "../src/data/DataAccess.h"
+#include "../../src/data/DataAccess.h"
 #include "IntegrityTest.h"
 #include <iostream>
 using namespace std;

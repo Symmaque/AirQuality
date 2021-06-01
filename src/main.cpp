@@ -65,10 +65,6 @@ void displayFirstInterface(){
 
 int main() {
     DataAccess::init("../../resources/release/");
-    cout << "INDIVDUALS" << endl;
-    for (auto& individual : *DataAccess::getListIndividuals()){
-        cout << individual << endl;
-    }
     displayFirstInterface();
     return 0;
 }

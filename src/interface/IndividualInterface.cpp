@@ -123,6 +123,10 @@ void IndividualInterface::displaySimilarSensors() {
 
     cout << "Veuillez entrer l'annee de fin" << endl;
     endYear = InterfaceUtils::inputNumber();
+    if (endYear < startYear){
+        cout << "Attention, la date de fin doit etre posterieure à la date de debut" << endl;
+        endYear = InterfaceUtils::inputNumber();
+    }
     if (endYear != 2019) {
         cout << "Nous n'avons actuellement que des mesures pour l'année 2019 " << endl;
     }

@@ -18,7 +18,6 @@ void Reader::readSensor(const string& path) {
             double latitude = stod(buff);
             getline(file, buff, ';');
             double longitude = stod(buff);
-            //cout << i << " : " << sensorId << " " << latitude << " " << longitude << endl;
             Sensor sen(stoi(sensorId), latitude, longitude);
 
             auto *measurements = DataAccess::getListMeasures();
@@ -74,9 +73,6 @@ void Reader::readCleaners(const string& path) {
             tmp.tm_year = year2 - 1900;
             time_t dateEnd = mktime(&tmp);
             Cleaner cleaner(cleanerId, latitude, longitude, dateBegin, dateEnd);
-            cout << i << " : " << cleanerId << " " << latitude << " " << longitude
-                 << " " << year << "/" << month << "/" << day << " - "
-                 << year2 << "/" << month2 << "/" << day2 << endl;
             list->push_back(cleaner);
             file.get();
             i++;
@@ -100,7 +96,6 @@ void Reader::readProviders(const string& path) {
             Provider provider;
             provider.setId(stoi(providerId));
             provider.addCleaner(&(*cleaners)[stoi(cleanerId)]);
-            //cout << i << " : " << providerId << " " << cleanerId << endl;
             file.get();
             list->push_back(provider);
 
@@ -122,9 +117,6 @@ void Reader::readIndividuals(const string& path){ //Lit les particuliers!
             //individualId.erase(0, 3); //Enlève "U S E R";
             getline(file, buff, ';');
             string sensorId = buff.substr(6);
-            //sensorId.erase(0, 6); //Efface "Sensor"
-            //Créer obj ici
-            //cout << i << " : " << individualId << " " << sensorId << endl;
             Individual ind;
             ind.setMalicious(false);
             ind.setPoints(0);
@@ -154,7 +146,6 @@ void Reader::readAccounts(const string& path){
             string id = buff.substr(0);
             getline(file, buff, ';');
             string password = buff.substr(0);
-            //cout << i << " : " << userId << " " << sensorId << endl;
             User us(stoi(id), password);
             userList->push_back(us);
             i++;
@@ -195,10 +186,7 @@ void Reader::readMeasures(const string& path) {
             string type = buff;
             getline(file, buff, ';');
             double val = stod(buff);
-            /*
-            cout << i << " : " << year << " " << month << " " << day
-                 << " -> " << id << " " << type << " " << val << endl;
-            */
+
             vector<Attribute> *attributes = DataAccess::getListAttribute();
 
             Measure me;// = new Measure();
@@ -215,8 +203,6 @@ void Reader::readMeasures(const string& path) {
             me.setReliable(true);
             me.setValue(val);
             list->push_back(me);
-            //delete me;
-            //cout << me->toString() << endl;
             i++;
             file.get(); //get ;
             delete tmp;
@@ -244,12 +230,11 @@ void Reader::readAttributes(const string& path) {
             string unit = buff;
             getline(file, buff, ';');
             string description = buff;
-            //cout << i << " : " << attributeID << " " << unit << " " << description << endl;
+
             auto *att = new Attribute();
             att->setId(attributeID);
             att->setUnit(unit);
             att->setDescription(description);
-            cout << i << " : " << att->toString() << endl;
             list->push_back(*att);
             file.get(); //get ;
             i++;

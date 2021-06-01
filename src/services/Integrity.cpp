@@ -43,9 +43,8 @@ bool Integrity::detectDefectiveSensor(const Sensor &value) {
         return false;
     }
 
-    cout << "Value ATMO " << valueATMO << endl;
     vector<Sensor> allSensors = *DataAccess::getListSensors();
-    vector<Sensor> closeSensors; //TODO Maybe use a map sensor-distance to avoid recomputing
+    vector<Sensor> closeSensors;
 
     sort(allSensors.begin(), allSensors.end(), [&value](Sensor &a, Sensor &b) {
         return a.distance(value) < b.distance(value);

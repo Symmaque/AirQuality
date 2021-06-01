@@ -4,20 +4,20 @@ set(CMAKE_CXX_STANDARD 11)
 
 
 set(INTEGRITY_SRC
-        integrityMain.cpp
-        IntegrityTest.cpp)
+        integrityTests/integrityMain.cpp
+        integrityTests/IntegrityTest.cpp)
 
 set(CLUSTERING_SRC
-        clusteringMain.cpp
-        ClusteringTest.cpp)
+        clusteringTests/clusteringMain.cpp
+        clusteringTests/ClusteringTest.cpp)
 
 set(DATA_SRC
-        dataMain.cpp
-        DataTest.cpp)
+        dataTests/dataMain.cpp
+        dataTests/DataTest.cpp)
 
 set(STATS_SRC
-        statsMain.cpp
-        StatsTest.cpp)
+        statsTests/statsMain.cpp
+        statsTests/StatsTest.cpp)
 
 set(INTEGRITY integrity_test)
 set(CLUSTERING clustering_test)

@@ -3,8 +3,8 @@
 //
 
 #include "StatsTest.h"
-#include "../src/services/Stats.h"
-#include "../src/data/DataAccess.h"
+#include "../../src/services/Stats.h"
+#include "../../src/data/DataAccess.h"
 
 bool StatsTest::test() {
 
