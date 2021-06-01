@@ -5,7 +5,7 @@
 #include "IntegrityTest.h"
 #include "../src/services/Integrity.h"
 #include <algorithm>
-using namespace std;
+
 bool IntegrityTest::test() {
 
 
@@ -26,11 +26,6 @@ bool IntegrityTest::test() {
     }
 
     auto frauders = Integrity::detectFraud();
-
-    cout << "Frauders list : " << endl;
-    for(auto f : frauders) {
-        cout << f << endl;
-    }
 
     cout << "Size " << frauders.size() << endl;
     if(frauders.size() != 2) {

@@ -5,7 +5,6 @@
 #ifndef AIRQUALITY_INTEGRITYTEST_H
 #define AIRQUALITY_INTEGRITYTEST_H
 
-
 class IntegrityTest {
 public:
     static bool test();
