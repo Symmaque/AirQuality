@@ -8,6 +8,9 @@
 
 bool IntegrityTest::test() {
 
+
+    //first test : individual with invalid id should not be fetched
+
     //12 and 13 sensors are frauding
     Individual individual2 = *DataAccess::findIndividual(2);
     Individual individual3 = *DataAccess::findIndividual(3);
