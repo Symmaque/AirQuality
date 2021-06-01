@@ -21,7 +21,7 @@ void User::setPassword(string string)
 
 User::User(int id, string password)
 {
-    User::id = move(id);
+    User::id = id;
     User::password = move(password);
 }
 

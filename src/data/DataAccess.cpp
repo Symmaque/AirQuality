@@ -37,8 +37,7 @@ User DataAccess::signIn(string id, string password)
     return *new User;
 }
 
-vector<User> *DataAccess::getListUsers()
-{
+vector<User> *DataAccess::getListUsers(){
     return &listUsers;
 }
 
@@ -69,7 +68,7 @@ void DataAccess::init(const string& folder){
     Reader::readCleaners(folder + "cleaners.csv");
     Reader::readIndividuals(folder + "users.csv");
     Reader::readProviders(folder + "providers.csv");
-    //listUsers = Reader::readUsers(); file "accounts" needed
+    Reader::readAccounts(folder + "accounts.csv");
 }
 
 vector<Individual> *DataAccess::getListIndividuals() {

@@ -21,7 +21,7 @@ public:
     static void readCleaners(const string& path);
     static void readIndividuals(const string& path);
     static void readProviders(const string& path);
-    static vector<User> readUsers();
+    static void readAccounts(const string& path);
     static void readMeasures(const string& path);
     static void readUsers2();
     static void readAttributes(const string& path);

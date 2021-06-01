@@ -11,11 +11,18 @@ using namespace std;
 
 bool GovernmentInterface::authentication() {
     auto logInInfos = getLogInInformations();
-    return logInInfos.first == "admin" && logInInfos.second == "admin";
+    for (auto& user : *DataAccess::getListUsers()){
+        if (user.getId() == logInInfos.first && user.getPassword() == logInInfos.second){
+            return true;
+        }
+    }
+    return false;
+    //return logInInfos.first == "admin" && logInInfos.second == "admin";
 }
 
-std::pair<std::string, std::string> GovernmentInterface::getLogInInformations() {
-    string id, password;
+std::pair<int, std::string> GovernmentInterface::getLogInInformations() {
+    int id;
+    string password;
     cout << "Entrez votre id : " << endl;
     cin >> id;
     cout << "Entrez votre mot de passe : " << endl;

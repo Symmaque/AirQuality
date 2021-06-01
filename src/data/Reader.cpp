@@ -109,8 +109,7 @@ void Reader::readProviders(const string& path) {
     }
 }
 
-void Reader::readIndividuals(const string& path) //Lit les particuliers!
-{
+void Reader::readIndividuals(const string& path){ //Lit les particuliers!
     ifstream file(path);
     string buff;
     int i = 1;
@@ -142,25 +141,27 @@ void Reader::readIndividuals(const string& path) //Lit les particuliers!
     }
 }
 
-vector<User> Reader::readUsers()
-{
-    ifstream file("../Data/dataset/account.csv");
+void Reader::readAccounts(const string& path){
+    ifstream file(path);
     string buff;
     int i = 0;
-    vector<User> list;
+    auto * userList = DataAccess::getListUsers();
     if (file.is_open()) {
         while (getline(file, buff, ';')) {
-            string userId = buff;
+            if (buff == "\n")    //EOF
+                break;
+
+            string id = buff.substr(0);
             getline(file, buff, ';');
-            string password = buff;
+            string password = buff.substr(0);
             //cout << i << " : " << userId << " " << sensorId << endl;
-            User us(stoi(userId), password);
-            list.push_back(us);
+            User us(stoi(id), password);
+            userList->push_back(us);
             i++;
             file.get(); //get the ;
+            userList->push_back(us);
         }
     }
-    return list;
 }
 
 void Reader::readMeasures(const string& path) {
