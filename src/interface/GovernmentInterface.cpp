@@ -104,13 +104,13 @@ void GovernmentInterface::display() {
 void GovernmentInterface::displayDetectUserFraud() {
     cout << "Entrez l'identifiant d'un utilisateur" << endl;
     int userId;
-    cin >> userId;
+    userId = InterfaceUtils::inputNumber();
     Individual * individual = DataAccess::findIndividual(userId);
 
     while(individual == nullptr){
         cout << "Cet utilisateur n'existe pas" << endl;
         cout << "Entrez l'identifiant d'un utilisateur" << endl;
-        cin >> userId;
+        userId = InterfaceUtils::inputNumber();
         individual = DataAccess::findIndividual(userId);
     }
 

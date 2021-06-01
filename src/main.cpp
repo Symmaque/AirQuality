@@ -4,12 +4,13 @@
 #include "interface/IndividualInterface.h"
 #include "interface/ProviderInterface.h"
 #include "interface/GovernmentInterface.h"
+#include "interface/InterfaceUtils.h"
 
 #include "data/DataAccess.h"
 #include "data/Reader.h"
 using namespace std;
 
-enum userType {INDIVIDUAL = 1, PROVIDER, GOVERNMENT, ADMIN};
+enum userType {INDIVIDUAL = 1, PROVIDER, GOVERNMENT};
 
 bool menu(int& choice){
 
@@ -38,12 +39,9 @@ bool menu(int& choice){
                 return false;
             }
             break;
-        case ADMIN:
-            cout << "Admin connection" << endl;
-            break;
         default:
             cout << "Enter a valid number please : " << endl;
-            cin >> choice;
+            choice = InterfaceUtils::inputNumber();
             return false;
     }
     return true;
@@ -61,7 +59,6 @@ void displayFirstInterface(){
     cout << "1-Utilisateur normal" << endl;
     cout << "2-Fournisseur" << endl;
     cout << "3-Gouvernement" << endl;
-    cout << "4-Admin" << endl;
 
     userTypeChoice();
 }

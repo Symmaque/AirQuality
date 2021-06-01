@@ -78,9 +78,14 @@ void IndividualInterface::displayMenu() {
 
 void IndividualInterface::displaySimilarSensors() {
     cout << "Veuillez entrer l'id du capteur a etudier" << endl;
-    int id;
-    cin >> id;
+    int id = InterfaceUtils::inputNumber();
     Sensor *s = DataAccess::findSensor(id);
+    while(s == nullptr){
+        cout << "Id de capteur invalide" << endl;
+        cout << "Veuillez entrer l'id du capteur a etudier" << endl;
+        cin >> id;
+        s = DataAccess::findSensor(id);
+    }
 
     int startYear;
     int startMonth;
@@ -90,57 +95,57 @@ void IndividualInterface::displaySimilarSensors() {
     int endDay;
 
     cout << "Veuillez entrer l'annee de début" << endl;
-    cin >> startYear;
+    startYear = InterfaceUtils::inputNumber();
     if (startYear != 2019) {
         cout << "Nous n'avons actuellement que des mesures pour l'année 2019 " << endl;
     }
     while (startYear < 1 || startYear > 2021) {
         cout << "Veuillez entrer des données valides" << endl;
         cout << "Veuillez entrer l'année' de début" << endl;
-        cin >> startYear;
+        startYear = InterfaceUtils::inputNumber();
     }
 
     cout << "Veuillez entrer le mois de début" << endl;
-    cin >> startMonth;
+    startMonth = InterfaceUtils::inputNumber();
     while (startMonth < 1 || startMonth > 12) {
         cout << "Veuillez entrer des données valides" << endl;
         cout << "Veuillez entrer le mois de début" << endl;
-        cin >> startMonth;
+        startMonth = InterfaceUtils::inputNumber();
     }
 
     cout << "Veuillez entrer le jour de début" << endl;
-    cin >> startDay;
+    startDay = InterfaceUtils::inputNumber();
     while (startDay < 1 || startDay > 31) {
         cout << "Veuillez entrer des données valides" << endl;
         cout << "Veuillez entrer le jour de début" << endl;
-        cin >> startDay;
+        startDay = InterfaceUtils::inputNumber();
     }
 
     cout << "Veuillez entrer l'annee de fin" << endl;
-    cin >> endYear;
+    endYear = InterfaceUtils::inputNumber();
     if (endYear != 2019) {
         cout << "Nous n'avons actuellement que des mesures pour l'année 2019 " << endl;
     }
     while (endYear < 1 || endYear > 2021) {
         cout << "Veuillez entrer des données valides" << endl;
         cout << "Veuillez entrer l'année' de fin" << endl;
-        cin >> endYear;
+        endYear = InterfaceUtils::inputNumber();
     }
 
     cout << "Veuillez entrer le mois de fin" << endl;
-    cin >> endMonth;
+    endMonth = InterfaceUtils::inputNumber();
     while (endMonth < 1 || endMonth > 12) {
         cout << "Veuillez entrer des données valides" << endl;
         cout << "Veuillez entrer le mois de fin" << endl;
-        cin >> endMonth;
+        endMonth = InterfaceUtils::inputNumber();
     }
 
     cout << "Veuillez entrer le jour de fin" << endl;
-    cin >> endDay;
+    endDay = InterfaceUtils::inputNumber();
     while (endDay < 1 || endDay > 31) {
         cout << "Veuillez entrer des données valides" << endl;
         cout << "Veuillez entrer le jour de fin" << endl;
-        cin >> endDay;
+        endDay = InterfaceUtils::inputNumber();
     }
 
     tm *tmp1 = new tm();

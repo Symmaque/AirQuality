@@ -14,6 +14,7 @@ int InterfaceUtils::inputNumber() {
             int res = stoi(input);
             return res;
         } catch (...) {
+            cin.clear();
             cout << "Choix :" << endl;
         }
     }
