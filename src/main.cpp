@@ -19,25 +19,25 @@ bool menu(int &choice) {
 
     switch (choice) {
         case INDIVIDUAL:
-            if (IndividualInterface::authentication())
+            if (IndividualInterface::authentication()) {
                 IndividualInterface::display();
-            else {
+            } else {
                 cout << "Authentification impossible" << endl;
                 return false;
             }
             break;
         case PROVIDER:
-            if (ProviderInterface::authentication())
+            if (ProviderInterface::authentication()) {
                 ProviderInterface::display();
-            else {
+            } else {
                 cout << "Authentification impossible" << endl;
                 return false;
             }
             break;
         case GOVERNMENT:
-            if (GovernmentInterface::authentication())
+            if (GovernmentInterface::authenticate()) {
                 GovernmentInterface::display();
-            else {
+            } else {
                 cout << "Authentification impossible" << endl;
                 return false;
             }

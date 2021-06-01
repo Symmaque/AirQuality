@@ -9,7 +9,7 @@
 #include <iostream>
 using namespace std;
 
-bool GovernmentInterface::authentication() {
+bool GovernmentInterface::authenticate() {
     auto logInInfos = getLogInInformations();
     for (auto& user : *DataAccess::getListUsers()){
         if (user.getId() == logInInfos.first && user.getPassword() == logInInfos.second){
@@ -17,14 +17,13 @@ bool GovernmentInterface::authentication() {
         }
     }
     return false;
-    //return logInInfos.first == "admin" && logInInfos.second == "admin";
 }
 
 std::pair<int, std::string> GovernmentInterface::getLogInInformations() {
     int id;
     string password;
     cout << "Entrez votre id : " << endl;
-    cin >> id;
+    id = InterfaceUtils::inputNumber();
     cout << "Entrez votre mot de passe : " << endl;
     cin >> password;
     return std::make_pair(id,password);

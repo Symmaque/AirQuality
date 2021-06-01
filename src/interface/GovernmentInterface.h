@@ -9,7 +9,7 @@
 class GovernmentInterface {
 public:
     static void display();
-    static bool authentication();
+    static bool authenticate();
     static std::pair<int, std::string> getLogInInformations();
     static void chooseAction();
     static void displayMenu();

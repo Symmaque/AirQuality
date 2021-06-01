@@ -15,7 +15,7 @@ int InterfaceUtils::inputNumber() {
             return res;
         } catch (...) {
             cin.clear();
-            cout << "Choix :" << endl;
+            cout << "Nombre invalide veuillez essayer à nouveau :" << endl;
         }
     }
 }
