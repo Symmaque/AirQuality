@@ -16,10 +16,11 @@ vector<Sensor> Integrity::sensorReliability() {
 vector<Individual> Integrity::detectFraud() {
     vector<Individual> * allIndividuals = DataAccess::getListIndividuals();
     vector<Individual> maliciousIndividuals;
-    for (const Individual& individual : *allIndividuals) {
+    for (Individual& individual : *allIndividuals) {
         bool malicious = detectUserFraud(individual);
         if (malicious) {
             maliciousIndividuals.push_back(individual);
+            individual.setMalicious(true);
         }
     }
 
