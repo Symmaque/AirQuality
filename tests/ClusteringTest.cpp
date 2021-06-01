@@ -3,7 +3,6 @@
 //
 
 #include "ClusteringTest.h"
-#include "IntegrityTest.h"
 #include "../src/services/Integrity.h"
 #include "../src/services/Clustering.h"
 #include <algorithm>

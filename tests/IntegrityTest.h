@@ -5,7 +5,6 @@
 #ifndef AIRQUALITY_INTEGRITYTEST_H
 #define AIRQUALITY_INTEGRITYTEST_H
 
-using namespace std;
 
 class IntegrityTest {
 public:
