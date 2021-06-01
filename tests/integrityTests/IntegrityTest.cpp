@@ -25,19 +25,22 @@ bool IntegrityTest::test() {
         return false;
     }
 
-    auto frauders = Integrity::detectFraud();
+    auto frauderAddresses = Integrity::detectFraud();
+    auto * frauders = new vector<Individual>();
+    for(auto * address : frauderAddresses){
+        frauders->push_back(*address);
+    }
 
-    cout << "Size " << frauders.size() << endl;
-    if(frauders.size() != 2) {
+    if(frauders->size() != 2) {
         cout << "Test failed size of the frauders must be 2" << endl;
         return false;
     }
 
-    if(find(frauders.begin(), frauders.end(), individual2) == frauders.end()) {
+    if(find(frauders->begin(), frauders->end(), individual2) == frauders->end()) {
         cout << "Test failed individual 2 in frauders list" << endl;
         return false;
     }
-    if(find(frauders.begin(), frauders.end(), individual3) == frauders.end()) {
+    if(find(frauders->begin(), frauders->end(), individual3) == frauders->end()) {
         cout << "Test failed individual 3 in frauders list" << endl;
         return false;
     }

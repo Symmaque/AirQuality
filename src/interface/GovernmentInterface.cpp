@@ -11,12 +11,8 @@ using namespace std;
 
 bool GovernmentInterface::authenticate() {
     auto logInInfos = getLogInInformations();
-    for (auto& user : *DataAccess::getListUsers()) {
-        if (user.getId() == logInInfos.first && user.getPassword() == logInInfos.second) {
-            return true;
-        }
-    }
-    return false;
+    return logInInfos.first == 0 && logInInfos.second == "admin";
+
 }
 
 std::pair<int, std::string> GovernmentInterface::getLogInInformations() {
@@ -131,9 +127,8 @@ void GovernmentInterface::displayDetectUserFraud() {
 
 void GovernmentInterface::displayDetectAnyFraud() {
     cout << "Détection des fraudeurs..." << endl;
-    vector<Individual> fraud = Integrity::detectFraud();
-    for(const Individual& individual : fraud) {
-        cout << "Utilisateur frauduleux trouvé : " << individual << " (certitude d'au moins 68%) " << endl;
+    vector<Individual*> fraud = Integrity::detectFraud();
+    for(const auto individual : fraud) {
+        cout << "Utilisateur frauduleux trouvé : " << *individual << " (certitude d'au moins 68%) " << endl;
     }
-
 }

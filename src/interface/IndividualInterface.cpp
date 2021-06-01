@@ -18,13 +18,19 @@ void IndividualInterface::display() {
 
 bool IndividualInterface::authentication() {
     auto logInInfos = getLogInInformations();
-    return logInInfos.first == "admin" && logInInfos.second == "admin";
+    for (auto& user : *DataAccess::getListUsers()) {
+        if (user.getId() == logInInfos.first && user.getPassword() == logInInfos.second) {
+            return true;
+        }
+    }
+    return false;
 }
 
-std::pair<std::string, std::string> IndividualInterface::getLogInInformations() {
-    string id, password;
+std::pair<int, std::string> IndividualInterface::getLogInInformations() {
+    int id;
+    string password;
     cout << "Entrez votre id : " << endl;
-    cin >> id;
+    id = InterfaceUtils::inputNumber();
     cout << "Entrez votre mot de passe : " << endl;
     cin >> password;
     return std::make_pair(id, password);

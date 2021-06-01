@@ -1,13 +1,11 @@
 #include <iostream>
-#include <ctime>
 #include "services/Clustering.h"
 #include "interface/IndividualInterface.h"
 #include "interface/ProviderInterface.h"
 #include "interface/GovernmentInterface.h"
 #include "interface/InterfaceUtils.h"
-
 #include "data/DataAccess.h"
-#include "data/Reader.h"
+
 
 using namespace std;
 
@@ -52,7 +50,7 @@ bool menu(int &choice) {
 
 void userTypeChoice() {
     int choice = 0;
-    cin >> choice;  //TODO : safe input
+    cin >> choice;
     while (!menu(choice)) {}
 }
 

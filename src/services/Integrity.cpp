@@ -10,18 +10,23 @@
 
 using namespace std;
 
-vector<Individual> Integrity::detectFraud() {
+
+void Integrity::removeFrauds(){
+    auto frauds = Integrity::detectFraud();
+    for (auto fraud : frauds){
+        fraud->setMalicious(true);
+        fraud->setPoints(0);
+        DataAccess::removeSensor(fraud->getSensor());
+    }
+
+}
+vector<Individual*> Integrity::detectFraud() {
     vector<Individual> * allIndividuals = DataAccess::getListIndividuals();
-    vector<Individual> maliciousIndividuals;
-    for (Individual& individual : *allIndividuals) {
+    vector<Individual*> maliciousIndividuals;
+    for (Individual & individual : *allIndividuals) {
         bool malicious = detectUserFraud(individual);
         if (malicious) {
-            maliciousIndividuals.push_back(individual);
-            /*
-            individual.setMalicious(true);
-            individual.setPoints(0);
-            DataAccess::removeSensor(individual.getSensor());
-             */
+            maliciousIndividuals.push_back(&individual);
         }
     }
 

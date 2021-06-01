@@ -11,7 +11,8 @@
 
 class Integrity {
 public:
-    static vector<Individual> detectFraud();
+    static void removeFrauds();
+    static vector<Individual*> detectFraud();
     static bool detectUserFraud(const Individual& value);
     static bool detectDefectiveSensor(const Sensor & value);
 };

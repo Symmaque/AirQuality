@@ -10,7 +10,7 @@ class ProviderInterface {
 public:
     static void display();
     static bool authentication();
-    static std::pair<std::string, std::string> getLogInInformations();
+    static std::pair<int, std::string> getLogInInformations();
     static void chooseAction();
     static void displayMenu();
 };

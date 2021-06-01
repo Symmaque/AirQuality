@@ -12,13 +12,14 @@ void ProviderInterface::display() {
 
 bool ProviderInterface::authentication() {
     auto logInInfos = getLogInInformations();
-    return logInInfos.first == "admin" && logInInfos.second == "admin";
+    return logInInfos.first == 0 && logInInfos.second == "admin";
 }
 
-std::pair<std::string, std::string> ProviderInterface::getLogInInformations() {
-    string id, password;
+std::pair<int, std::string> ProviderInterface::getLogInInformations() {
+    int id;
+    string password;
     cout << "Entrez votre id : " << endl;
-    cin >> id;
+    id = InterfaceUtils::inputNumber();
     cout << "Entrez votre mot de passe : " << endl;
     cin >> password;
     return std::make_pair(id, password);

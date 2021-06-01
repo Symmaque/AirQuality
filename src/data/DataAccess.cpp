@@ -76,6 +76,15 @@ Sensor * DataAccess::findSensor(int id) {
 
 void DataAccess::removeSensor(Sensor * sensor) {
     removeSensor(sensor->getSensorId());
+    removeMeasures(sensor->getSensorId());
+}
+
+void DataAccess::removeMeasures(int sensorId){
+    for (auto it = listMeasures.begin(); it != listMeasures.end(); ++it) {
+        if (it->getSensorId() == sensorId) {
+            listMeasures.erase(it);
+        }
+    }
 }
 
 void DataAccess::removeSensor(int id) {

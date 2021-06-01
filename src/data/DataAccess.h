@@ -48,6 +48,7 @@ public:
 
     static void removeSensor(Sensor * sensor);
     static void removeSensor(int id);
+    static void removeMeasures(int sensorId);
 };
 
 #endif //AIRQUALITY_DATAACCESS_H
