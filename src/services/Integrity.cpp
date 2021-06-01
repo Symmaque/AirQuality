@@ -11,14 +11,14 @@
 using namespace std;
 
 
-void Integrity::removeFrauds(){
+unsigned long Integrity::removeFrauds(){
     auto frauds = Integrity::detectFraud();
     for (auto fraud : frauds){
         fraud->setMalicious(true);
         fraud->setPoints(0);
         DataAccess::removeSensor(fraud->getSensor());
     }
-
+    return frauds.size();
 }
 vector<Individual*> Integrity::detectFraud() {
     vector<Individual> * allIndividuals = DataAccess::getListIndividuals();

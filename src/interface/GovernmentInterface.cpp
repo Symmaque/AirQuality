@@ -33,9 +33,10 @@ void GovernmentInterface::displayMenu(){
     cout << "4-Trouver tous les capteurs similaires au capteur de votre choix" << endl;
     cout << "5-Détecter si un utilisateur fraude" << endl;
     cout << "6-Détecter les fraudeurs" << endl;
-    cout << "7-Mesurer la fiabilité du capteur de votre choix" << endl;
-    cout << "8-Vérifier la cohérence des données de vos capteurs" << endl;
-    cout << "9-Quitter" << endl;
+    cout << "7-Eliminer les mesures fraudleuses" << endl;
+    cout << "8-Mesurer la fiabilité du capteur de votre choix" << endl;
+    cout << "9-Vérifier la cohérence des données de vos capteurs" << endl;
+    cout << "10-Quitter" << endl;
     cout << endl << "Enter your choice :" << endl;
 }
 
@@ -77,7 +78,7 @@ void GovernmentInterface::chooseAction() {
                 choice = InterfaceUtils::inputNumber();
                 break;
             case 7:
-                cout << "Cette fonctionnalité est en cours de développement..." << endl;
+                displayRemoveFrauds();
                 cout << endl << "Choix :" << endl;
                 choice = InterfaceUtils::inputNumber();
                 break;
@@ -87,6 +88,11 @@ void GovernmentInterface::chooseAction() {
                 choice = InterfaceUtils::inputNumber();
                 break;
             case 9:
+                cout << "Cette fonctionnalité est en cours de développement..." << endl;
+                cout << endl << "Choix :" << endl;
+                choice = InterfaceUtils::inputNumber();
+                break;
+            case 10:
                 cout << "Au revoir" << endl;
                 return;
             default:
@@ -98,9 +104,16 @@ void GovernmentInterface::chooseAction() {
 
 }
 
+
 void GovernmentInterface::display() {
     cout << "Bienvenue sur l'interface de l'application pour le Gouvernement" << endl << endl;
     chooseAction();
+}
+
+void GovernmentInterface::displayRemoveFrauds() {
+    cout << "Recherche des fraudeurs et suppression de leurs mesures..." << endl;
+    unsigned long number = Integrity::removeFrauds();
+    cout << number << " fraudeur(s) supprimé(s)" << endl;
 }
 
 void GovernmentInterface::displayDetectUserFraud() {

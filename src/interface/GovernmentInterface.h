@@ -16,6 +16,7 @@ public:
 
     static void displayDetectUserFraud();
     static void displayDetectAnyFraud();
+    static void displayRemoveFrauds();
 };
 
 
